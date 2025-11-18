@@ -1,0 +1,174 @@
+---
+layout: home
+
+hero:
+  name: "SQLpedia"
+  text: "The SQL Knowledge Resource"
+  tagline: "A comprehensive, Wikipedia-style SQL knowledge resource for developers, data engineers, and database administrators"
+  image:
+    src: /logo.svg
+    alt: SQLpedia
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /concepts/basics/
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/stackql/sqlpedia.org
+
+features:
+  - icon: 🗄️
+    title: Multi-Database Coverage
+    details: Comprehensive documentation for PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, and more.
+
+  - icon: 🔄
+    title: Dialect Comparisons
+    details: Side-by-side comparisons of SQL dialects, making it easy to translate queries between different database systems.
+
+  - icon: 🤖
+    title: AI-Powered Assistance
+    details: Generate, explain, optimize, and translate SQL queries using state-of-the-art AI models (self-hosted or cloud).
+
+  - icon: 📚
+    title: Comprehensive Patterns
+    details: Real-world SQL patterns for analytics, ETL, reporting, migrations, and performance optimization.
+
+  - icon: 🚀
+    title: StackQL Integration
+    details: Learn how to query cloud infrastructure and APIs using SQL with StackQL examples and tutorials.
+
+  - icon: 🌐
+    title: Community-Driven
+    details: Open-source and community-driven. Contribute via GitHub pull requests and help improve the resource.
+
+  - icon: ⚡
+    title: Fast & Modern
+    details: Built with VitePress for lightning-fast page loads and excellent developer experience.
+
+  - icon: 🎨
+    title: Wikipedia-Inspired
+    details: Familiar layout and navigation inspired by Wikipedia, making it easy to find what you need.
+
+  - icon: 🔍
+    title: Powerful Search
+    details: Full-text search across all content with fuzzy matching and filtering by database and difficulty.
+---
+
+## Quick Start
+
+<div class="quick-start-grid">
+
+### 📖 Learn SQL Fundamentals
+Start with the basics and build a strong foundation in SQL.
+
+[Explore Concepts →](/concepts/basics/)
+
+### 🗄️ Browse by Database
+Find database-specific documentation and examples.
+
+[View Databases →](/databases/postgresql/)
+
+### 🎯 Common Patterns
+Discover proven SQL patterns for real-world scenarios.
+
+[See Patterns →](/patterns/analytics/)
+
+### 🔄 Compare Dialects
+Compare SQL syntax across different database systems.
+
+[View Comparisons →](/comparisons/dialect-differences)
+
+</div>
+
+## Try the AI Assistant
+
+<SQLAssistant mode="generate" default-dialect="postgresql" :show-model-selector="true" />
+
+## Popular Topics
+
+### Window Functions
+Window functions are powerful tools for analytics and reporting. Learn how to use them across different SQL dialects.
+
+[Learn More →](/concepts/window-functions/)
+
+### Common Table Expressions (CTEs)
+CTEs make complex queries more readable and maintainable. Discover best practices and patterns.
+
+[Learn More →](/concepts/ctes/)
+
+### Query Optimization
+Learn techniques to improve query performance across different database systems.
+
+[Learn More →](/concepts/performance/)
+
+### Database Migrations
+Planning to migrate from one database to another? Check our comprehensive migration guides.
+
+[Learn More →](/comparisons/migration-guides)
+
+## About SQLpedia
+
+SQLpedia is an open-source, community-driven SQL knowledge resource inspired by Wikipedia. It provides comprehensive documentation, examples, and comparisons for multiple SQL dialects, along with AI-powered tools to help you generate, understand, and optimize SQL queries.
+
+### Why SQLpedia?
+
+- **Comprehensive**: Coverage of all major SQL databases and concepts
+- **Practical**: Real-world examples and patterns from 35+ years of experience
+- **Cross-Platform**: Easy comparison of SQL dialects side-by-side
+- **AI-Enhanced**: Built-in AI assistance for query generation and optimization
+- **Open Source**: Community contributions welcome via GitHub
+
+### Contributing
+
+SQLpedia is open source and welcomes contributions! You can:
+
+- Edit any page directly on GitHub
+- Submit new content via pull requests
+- Report issues or suggest improvements
+- Share your SQL knowledge with the community
+
+[View Contributing Guidelines →](https://github.com/stackql/sqlpedia.org/blob/main/CONTRIBUTING.md)
+
+## Featured Databases
+
+<div class="database-grid">
+
+- **[PostgreSQL](/databases/postgresql/)** - The world's most advanced open source database
+- **[MySQL](/databases/mysql/)** - The world's most popular open source database
+- **[SQL Server](/databases/sqlserver/)** - Microsoft's enterprise database platform
+- **[Oracle](/databases/oracle/)** - Industry-leading enterprise database
+- **[SQLite](/databases/sqlite/)** - Self-contained, serverless database engine
+- **[BigQuery](/databases/bigquery/)** - Google's serverless data warehouse
+- **[Snowflake](/databases/snowflake/)** - Cloud data platform
+- **[DuckDB](/databases/duckdb/)** - In-process analytical database
+
+</div>
+
+<style scoped>
+.quick-start-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.quick-start-grid h3 {
+  color: var(--vp-c-brand-1);
+  margin-top: 0;
+}
+
+.database-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.database-grid li {
+  list-style: none;
+  background-color: var(--vp-c-bg-soft);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-divider);
+}
+</style>

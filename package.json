@@ -1,0 +1,49 @@
+{
+  "name": "sqlpedia",
+  "version": "1.0.0",
+  "description": "A comprehensive, Wikipedia-style SQL knowledge resource",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "lint": "eslint --ext .js,.vue .",
+    "format": "prettier --write \"**/*.{js,vue,md,json}\""
+  },
+  "keywords": [
+    "sql",
+    "database",
+    "postgresql",
+    "mysql",
+    "sqlserver",
+    "stackql",
+    "wiki",
+    "documentation",
+    "vitepress"
+  ],
+  "author": "SQLpedia Contributors",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vue": "^9.22.0",
+    "prettier": "^3.2.5",
+    "vitepress": "^1.0.0-rc.44",
+    "vite": "^5.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stackql/sqlpedia.org"
+  },
+  "bugs": {
+    "url": "https://github.com/stackql/sqlpedia.org/issues"
+  },
+  "homepage": "https://sqlpedia.org"
+}
