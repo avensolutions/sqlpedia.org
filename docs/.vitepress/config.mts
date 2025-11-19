@@ -54,6 +54,7 @@ export default defineConfig({
           { text: 'Performance', link: '/concepts/performance/' },
           { text: 'Transactions', link: '/concepts/transactions/' },
           { text: 'Security', link: '/concepts/security/' },
+          { text: 'SQL Standards', link: '/concepts/sql-standards/' },
           { text: 'NoSQL Databases', link: '/concepts/nosql-databases/' },
           { text: 'Graph Databases', link: '/concepts/graph-databases/' },
           { text: 'Vector Databases', link: '/concepts/vector-databases/' },
@@ -114,6 +115,18 @@ export default defineConfig({
             { text: 'Performance', link: '/concepts/performance/' },
             { text: 'Transactions', link: '/concepts/transactions/' },
             { text: 'Security', link: '/concepts/security/' },
+            {
+              text: 'SQL Standards',
+              collapsed: false,
+              items: [
+                { text: 'Overview', link: '/concepts/sql-standards/' },
+                { text: 'SQL-92', link: '/concepts/sql-standards/sql-1992/' },
+                { text: 'SQL-99', link: '/concepts/sql-standards/sql-1999/' },
+                { text: 'SQL:2003', link: '/concepts/sql-standards/sql-2003/' },
+                { text: 'SQL:2011', link: '/concepts/sql-standards/sql-2011/' },
+                { text: 'SQL:2016', link: '/concepts/sql-standards/sql-2016/' },
+              ]
+            },
             { text: 'NoSQL Databases', link: '/concepts/nosql-databases/' },
             { text: 'Graph Databases', link: '/concepts/graph-databases/' },
             { text: 'Vector Databases', link: '/concepts/vector-databases/' },
