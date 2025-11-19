@@ -43,6 +43,7 @@ export default defineConfig({
         text: 'By Concept',
         items: [
           { text: 'Basics', link: '/concepts/basics/' },
+          { text: 'Data Types', link: '/concepts/data-types/' },
           { text: 'Joins', link: '/concepts/joins/' },
           { text: 'Aggregations', link: '/concepts/aggregations/' },
           { text: 'PIVOT/UNPIVOT', link: '/concepts/pivot-unpivot/' },
@@ -99,6 +100,7 @@ export default defineConfig({
           text: 'SQL Concepts',
           items: [
             { text: 'Basics', link: '/concepts/basics/' },
+            { text: 'Data Types', link: '/concepts/data-types/' },
             { text: 'Joins', link: '/concepts/joins/' },
             { text: 'Aggregations', link: '/concepts/aggregations/' },
             { text: 'PIVOT/UNPIVOT', link: '/concepts/pivot-unpivot/' },
