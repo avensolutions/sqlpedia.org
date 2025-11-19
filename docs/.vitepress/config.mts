@@ -56,6 +56,7 @@ export default defineConfig({
           { text: 'Security', link: '/concepts/security/' },
           { text: 'NoSQL Databases', link: '/concepts/nosql-databases/' },
           { text: 'Graph Databases', link: '/concepts/graph-databases/' },
+          { text: 'Vector Databases', link: '/concepts/vector-databases/' },
         ]
       },
       {
@@ -115,6 +116,7 @@ export default defineConfig({
             { text: 'Security', link: '/concepts/security/' },
             { text: 'NoSQL Databases', link: '/concepts/nosql-databases/' },
             { text: 'Graph Databases', link: '/concepts/graph-databases/' },
+            { text: 'Vector Databases', link: '/concepts/vector-databases/' },
           ]
         }
       ],
