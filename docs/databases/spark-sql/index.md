@@ -938,28 +938,28 @@ print(f"Execution time: {time.time() - start} seconds")
 
 ### Primitive Types
 
-| Spark SQL Type | Python Type | SQL Type | Description |
-|----------------|-------------|----------|-------------|
-| ByteType | int | TINYINT | 1-byte signed integer |
-| ShortType | int | SMALLINT | 2-byte signed integer |
-| IntegerType | int | INT | 4-byte signed integer |
-| LongType | int | BIGINT | 8-byte signed integer |
-| FloatType | float | FLOAT | 4-byte floating point |
-| DoubleType | float | DOUBLE | 8-byte floating point |
-| DecimalType | decimal.Decimal | DECIMAL(p,s) | Arbitrary precision decimal |
-| StringType | str | STRING | Character string |
-| BinaryType | bytearray | BINARY | Binary data |
-| BooleanType | bool | BOOLEAN | True/False |
-| DateType | datetime.date | DATE | Date without time |
-| TimestampType | datetime.datetime | TIMESTAMP | Date and time |
+| Spark SQL Type | Python Type       | SQL Type     | Description                 |
+| -------------- | ----------------- | ------------ | --------------------------- |
+| ByteType       | int               | TINYINT      | 1-byte signed integer       |
+| ShortType      | int               | SMALLINT     | 2-byte signed integer       |
+| IntegerType    | int               | INT          | 4-byte signed integer       |
+| LongType       | int               | BIGINT       | 8-byte signed integer       |
+| FloatType      | float             | FLOAT        | 4-byte floating point       |
+| DoubleType     | float             | DOUBLE       | 8-byte floating point       |
+| DecimalType    | decimal.Decimal   | DECIMAL(p,s) | Arbitrary precision decimal |
+| StringType     | str               | STRING       | Character string            |
+| BinaryType     | bytearray         | BINARY       | Binary data                 |
+| BooleanType    | bool              | BOOLEAN      | True/False                  |
+| DateType       | datetime.date     | DATE         | Date without time           |
+| TimestampType  | datetime.datetime | TIMESTAMP    | Date and time               |
 
 ### Complex Types
 
-| Type | Description | Example |
-|------|-------------|---------|
-| ArrayType | Ordered collection | [1, 2, 3] |
-| MapType | Key-value pairs | {"key1": "value1"} |
-| StructType | Named fields | {"name": "Alice", "age": 25} |
+| Type       | Description        | Example                      |
+| ---------- | ------------------ | ---------------------------- |
+| ArrayType  | Ordered collection | [1, 2, 3]                    |
+| MapType    | Key-value pairs    | {"key1": "value1"}           |
+| StructType | Named fields       | {"name": "Alice", "age": 25} |
 
 ### Type Conversion
 
@@ -1208,16 +1208,16 @@ result = large_df.join(broadcast(small_df), "key")
 
 ## Spark SQL vs Other Systems
 
-| Feature | Spark SQL | Hive | Presto | PostgreSQL |
-|---------|-----------|------|--------|------------|
-| **Execution** | In-memory distributed | MapReduce/Tez | In-memory distributed | Single-node RDBMS |
-| **Latency** | Seconds to minutes | Minutes to hours | Sub-second to seconds | Milliseconds |
-| **Scalability** | Petabytes | Petabytes | Petabytes | Terabytes |
-| **SQL Standard** | ANSI SQL:2003 | HiveQL (SQL-like) | ANSI SQL | Full ANSI SQL |
-| **ACID** | With Delta/Iceberg | With ORC/Parquet v2 | No | Yes |
-| **Streaming** | Yes (Structured Streaming) | No | No | Limited |
-| **ML Integration** | MLlib | External | External | Extensions |
-| **Best For** | Batch + streaming analytics | Large batch processing | Interactive queries | Transactional workloads |
+| Feature            | Spark SQL                   | Hive                   | Presto                | PostgreSQL              |
+| ------------------ | --------------------------- | ---------------------- | --------------------- | ----------------------- |
+| **Execution**      | In-memory distributed       | MapReduce/Tez          | In-memory distributed | Single-node RDBMS       |
+| **Latency**        | Seconds to minutes          | Minutes to hours       | Sub-second to seconds | Milliseconds            |
+| **Scalability**    | Petabytes                   | Petabytes              | Petabytes             | Terabytes               |
+| **SQL Standard**   | ANSI SQL:2003               | HiveQL (SQL-like)      | ANSI SQL              | Full ANSI SQL           |
+| **ACID**           | With Delta/Iceberg          | With ORC/Parquet v2    | No                    | Yes                     |
+| **Streaming**      | Yes (Structured Streaming)  | No                     | No                    | Limited                 |
+| **ML Integration** | MLlib                       | External               | External              | Extensions              |
+| **Best For**       | Batch + streaming analytics | Large batch processing | Interactive queries   | Transactional workloads |
 
 ## Try It Yourself
 

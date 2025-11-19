@@ -543,41 +543,41 @@ WHERE Status = 'Active';
 
 ### Numeric Types
 
-| Type | Range | Description |
-|------|-------|-------------|
-| TINYINT | 0 to 255 | 1-byte integer |
-| SMALLINT | -32,768 to 32,767 | 2-byte integer |
-| INT | -2,147,483,648 to 2,147,483,647 | 4-byte integer |
-| BIGINT | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | 8-byte integer |
-| DECIMAL(p,s) | -10^38+1 to 10^38-1 | Fixed precision and scale |
-| NUMERIC(p,s) | -10^38+1 to 10^38-1 | Same as DECIMAL |
-| FLOAT(n) | -1.79E+308 to 1.79E+308 | Floating point number |
-| REAL | -3.40E+38 to 3.40E+38 | 4-byte floating point |
-| MONEY | -922,337,203,685,477.5808 to 922,337,203,685,477.5807 | Currency values |
+| Type         | Range                                                   | Description               |
+| ------------ | ------------------------------------------------------- | ------------------------- |
+| TINYINT      | 0 to 255                                                | 1-byte integer            |
+| SMALLINT     | -32,768 to 32,767                                       | 2-byte integer            |
+| INT          | -2,147,483,648 to 2,147,483,647                         | 4-byte integer            |
+| BIGINT       | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | 8-byte integer            |
+| DECIMAL(p,s) | -10^38+1 to 10^38-1                                     | Fixed precision and scale |
+| NUMERIC(p,s) | -10^38+1 to 10^38-1                                     | Same as DECIMAL           |
+| FLOAT(n)     | -1.79E+308 to 1.79E+308                                 | Floating point number     |
+| REAL         | -3.40E+38 to 3.40E+38                                   | 4-byte floating point     |
+| MONEY        | -922,337,203,685,477.5808 to 922,337,203,685,477.5807   | Currency values           |
 
 ### String Types
 
-| Type | Description | Max Length |
-|------|-------------|------------|
-| CHAR(n) | Fixed-length | 8,000 characters |
-| VARCHAR(n) | Variable-length | 8,000 characters |
-| VARCHAR(MAX) | Variable-length | 2^31-1 characters |
-| NCHAR(n) | Fixed-length Unicode | 4,000 characters |
-| NVARCHAR(n) | Variable-length Unicode | 4,000 characters |
-| NVARCHAR(MAX) | Variable-length Unicode | 2^30-1 characters |
-| TEXT | Variable-length (deprecated) | 2^31-1 characters |
-| NTEXT | Variable-length Unicode (deprecated) | 2^30-1 characters |
+| Type          | Description                          | Max Length        |
+| ------------- | ------------------------------------ | ----------------- |
+| CHAR(n)       | Fixed-length                         | 8,000 characters  |
+| VARCHAR(n)    | Variable-length                      | 8,000 characters  |
+| VARCHAR(MAX)  | Variable-length                      | 2^31-1 characters |
+| NCHAR(n)      | Fixed-length Unicode                 | 4,000 characters  |
+| NVARCHAR(n)   | Variable-length Unicode              | 4,000 characters  |
+| NVARCHAR(MAX) | Variable-length Unicode              | 2^30-1 characters |
+| TEXT          | Variable-length (deprecated)         | 2^31-1 characters |
+| NTEXT         | Variable-length Unicode (deprecated) | 2^30-1 characters |
 
 ### Date/Time Types
 
-| Type | Format | Range |
-|------|--------|-------|
-| DATE | YYYY-MM-DD | 0001-01-01 to 9999-12-31 |
-| TIME | HH:MM:SS.nnnnnnn | 00:00:00.0000000 to 23:59:59.9999999 |
-| DATETIME | YYYY-MM-DD HH:MM:SS.nnn | 1753-01-01 to 9999-12-31 |
-| DATETIME2 | YYYY-MM-DD HH:MM:SS.nnnnnnn | 0001-01-01 to 9999-12-31 |
-| SMALLDATETIME | YYYY-MM-DD HH:MM:SS | 1900-01-01 to 2079-06-06 |
-| DATETIMEOFFSET | YYYY-MM-DD HH:MM:SS.nnnnnnn +/-HH:MM | 0001-01-01 to 9999-12-31 |
+| Type           | Format                               | Range                                |
+| -------------- | ------------------------------------ | ------------------------------------ |
+| DATE           | YYYY-MM-DD                           | 0001-01-01 to 9999-12-31             |
+| TIME           | HH:MM:SS.nnnnnnn                     | 00:00:00.0000000 to 23:59:59.9999999 |
+| DATETIME       | YYYY-MM-DD HH:MM:SS.nnn              | 1753-01-01 to 9999-12-31             |
+| DATETIME2      | YYYY-MM-DD HH:MM:SS.nnnnnnn          | 0001-01-01 to 9999-12-31             |
+| SMALLDATETIME  | YYYY-MM-DD HH:MM:SS                  | 1900-01-01 to 2079-06-06             |
+| DATETIMEOFFSET | YYYY-MM-DD HH:MM:SS.nnnnnnn +/-HH:MM | 0001-01-01 to 9999-12-31             |
 
 ### Other Types
 
@@ -798,19 +798,19 @@ ALTER AVAILABILITY GROUP AG1 FAILOVER;
 
 <SQLComparison :dialects="['sqlserver', 'postgresql', 'mysql']" />
 
-| Feature | SQL Server | PostgreSQL | MySQL |
-|---------|------------|------------|-------|
-| License | Commercial (Express/Dev free) | Open Source | Open Source (GPL) / Commercial |
-| Platform | Windows, Linux | Cross-platform | Cross-platform |
-| T-SQL Extensions | Yes | No (PL/pgSQL) | No (procedures) |
-| JSON Support | Native | Native JSONB | Native |
-| XML Support | Advanced native | Native | Basic |
-| Window Functions | Full support | Full support | Full (8.0+) |
-| Temporal Tables | Yes | No (extension available) | No |
-| In-Memory OLTP | Yes | No | No |
-| Columnstore | Yes | No | No |
-| Full-Text Search | Advanced | Built-in | Built-in |
-| Replication | Always On, Mirroring | Streaming, Logical | Async, Semi-sync |
+| Feature          | SQL Server                    | PostgreSQL               | MySQL                          |
+| ---------------- | ----------------------------- | ------------------------ | ------------------------------ |
+| License          | Commercial (Express/Dev free) | Open Source              | Open Source (GPL) / Commercial |
+| Platform         | Windows, Linux                | Cross-platform           | Cross-platform                 |
+| T-SQL Extensions | Yes                           | No (PL/pgSQL)            | No (procedures)                |
+| JSON Support     | Native                        | Native JSONB             | Native                         |
+| XML Support      | Advanced native               | Native                   | Basic                          |
+| Window Functions | Full support                  | Full support             | Full (8.0+)                    |
+| Temporal Tables  | Yes                           | No (extension available) | No                             |
+| In-Memory OLTP   | Yes                           | No                       | No                             |
+| Columnstore      | Yes                           | No                       | No                             |
+| Full-Text Search | Advanced                      | Built-in                 | Built-in                       |
+| Replication      | Always On, Mirroring          | Streaming, Logical       | Async, Semi-sync               |
 
 ## Best Practices
 

@@ -940,33 +940,33 @@ query.recentProgress  # Recent progress
 
 ### Numeric Types
 
-| Type | Range | Precision |
-|------|-------|-----------|
-| TINYINT | -128 to 127 | 1 byte |
-| SMALLINT | -32,768 to 32,767 | 2 bytes |
-| INT | -2,147,483,648 to 2,147,483,647 | 4 bytes |
-| BIGINT | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | 8 bytes |
-| FLOAT | Approximate | 4 bytes |
-| DOUBLE | Approximate | 8 bytes |
-| DECIMAL(p, s) | Exact | Precision p, scale s |
+| Type          | Range                                                   | Precision            |
+| ------------- | ------------------------------------------------------- | -------------------- |
+| TINYINT       | -128 to 127                                             | 1 byte               |
+| SMALLINT      | -32,768 to 32,767                                       | 2 bytes              |
+| INT           | -2,147,483,648 to 2,147,483,647                         | 4 bytes              |
+| BIGINT        | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | 8 bytes              |
+| FLOAT         | Approximate                                             | 4 bytes              |
+| DOUBLE        | Approximate                                             | 8 bytes              |
+| DECIMAL(p, s) | Exact                                                   | Precision p, scale s |
 
 ### String Types
 
-| Type | Description | Max Size |
-|------|-------------|----------|
-| STRING | Variable-length string | 2 GB |
+| Type       | Description                | Max Size     |
+| ---------- | -------------------------- | ------------ |
+| STRING     | Variable-length string     | 2 GB         |
 | VARCHAR(n) | Variable-length with limit | n characters |
-| CHAR(n) | Fixed-length | n characters |
-| BINARY | Binary data | 2 GB |
+| CHAR(n)    | Fixed-length               | n characters |
+| BINARY     | Binary data                | 2 GB         |
 
 ### Date/Time Types
 
-| Type | Format | Range |
-|------|--------|-------|
-| DATE | YYYY-MM-DD | 0001-01-01 to 9999-12-31 |
-| TIMESTAMP | YYYY-MM-DD HH:MM:SS | Microsecond precision |
-| TIMESTAMP_NTZ | No timezone | Microsecond precision |
-| INTERVAL | Duration | Year-month or day-time intervals |
+| Type          | Format              | Range                            |
+| ------------- | ------------------- | -------------------------------- |
+| DATE          | YYYY-MM-DD          | 0001-01-01 to 9999-12-31         |
+| TIMESTAMP     | YYYY-MM-DD HH:MM:SS | Microsecond precision            |
+| TIMESTAMP_NTZ | No timezone         | Microsecond precision            |
+| INTERVAL      | Duration            | Year-month or day-time intervals |
 
 ### Complex Types
 
@@ -1415,18 +1415,18 @@ OPTIONS (
 
 ## Databricks vs Other Platforms
 
-| Feature | Databricks | Snowflake | BigQuery | Spark SQL |
-|---------|-----------|-----------|----------|-----------|
-| Architecture | Lakehouse | Cloud Data Warehouse | Serverless | Distributed Engine |
-| Storage Format | Delta Lake | Proprietary | Capacitor | Parquet/ORC |
-| Compute | Spark Clusters | Virtual Warehouses | Serverless | Spark Clusters |
-| ML Integration | MLflow (native) | External | BQML | MLlib |
-| Streaming | Native (Structured) | Limited | Pub/Sub integration | Native |
-| Notebooks | Yes (native) | Worksheets | Colab integration | External |
-| Time Travel | Delta Lake | Native | 7 days | Delta Lake |
-| Open Source | Built on Spark | Proprietary | Proprietary | Apache Spark |
-| Programming | Python, SQL, Scala, R | SQL, Python | SQL, Python | Python, Scala, Java, R |
-| Cost Model | DBU-based | Credit-based | Slot/query | Cluster-based |
+| Feature        | Databricks            | Snowflake            | BigQuery            | Spark SQL              |
+| -------------- | --------------------- | -------------------- | ------------------- | ---------------------- |
+| Architecture   | Lakehouse             | Cloud Data Warehouse | Serverless          | Distributed Engine     |
+| Storage Format | Delta Lake            | Proprietary          | Capacitor           | Parquet/ORC            |
+| Compute        | Spark Clusters        | Virtual Warehouses   | Serverless          | Spark Clusters         |
+| ML Integration | MLflow (native)       | External             | BQML                | MLlib                  |
+| Streaming      | Native (Structured)   | Limited              | Pub/Sub integration | Native                 |
+| Notebooks      | Yes (native)          | Worksheets           | Colab integration   | External               |
+| Time Travel    | Delta Lake            | Native               | 7 days              | Delta Lake             |
+| Open Source    | Built on Spark        | Proprietary          | Proprietary         | Apache Spark           |
+| Programming    | Python, SQL, Scala, R | SQL, Python          | SQL, Python         | Python, Scala, Java, R |
+| Cost Model     | DBU-based             | Credit-based         | Slot/query          | Cluster-based          |
 
 ## Best Practices
 

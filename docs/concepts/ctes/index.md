@@ -1,9 +1,11 @@
 ---
 title: Common Table Expressions (CTEs)
 description: Comprehensive guide to CTEs (WITH clause) for organizing complex SQL queries
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+databases:
+  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
 difficulty: intermediate
-tags: [cte, with, recursive-cte, subqueries, query-organization, hierarchical-data]
+tags:
+  [cte, with, recursive-cte, subqueries, query-organization, hierarchical-data]
 ---
 
 # Common Table Expressions (CTEs)
@@ -61,6 +63,7 @@ SELECT * FROM employee_hierarchy ORDER BY level, employee_name;
 Common Table Expressions (CTEs), also called WITH queries, are temporary named result sets that exist only within the execution scope of a single SQL statement. They make complex queries more readable and maintainable by breaking them into logical, reusable components.
 
 CTEs are particularly useful for:
+
 - **Improving readability**: Breaking complex queries into logical steps
 - **Code reusability**: Referencing the same subquery multiple times
 - **Hierarchical queries**: Using recursive CTEs to traverse tree structures
@@ -1015,10 +1018,11 @@ SELECT * FROM deleted_orders;
 ```
 
 **Performance Notes**:
+
 - PostgreSQL 12+ improved CTE optimization (no longer optimization fence by default)
 - Use MATERIALIZED when you want guaranteed single execution
 - Use NOT MATERIALIZED when you want the optimizer to inline
-:::
+  :::
 
 ::: details MySQL
 MySQL CTE support (MySQL 8.0+):
@@ -1061,11 +1065,12 @@ SELECT * FROM employee_tree;
 ```
 
 **Limitations**:
+
 - ❌ No MATERIALIZED/NOT MATERIALIZED hints
 - ❌ No SEARCH or CYCLE clauses
 - ❌ Older versions (< 8.0) don't support CTEs at all
 - Must use SET SESSION cte_max_recursion_depth for deep recursion
-:::
+  :::
 
 ::: details SQL Server
 SQL Server CTE features:
@@ -1125,11 +1130,12 @@ DELETE FROM DuplicateCustomers WHERE RowNum > 1;
 ```
 
 **Performance Notes**:
+
 - CTEs are always inlined (not materialized)
 - Use OPTION (MAXRECURSION n) to control recursive depth
 - Default MAXRECURSION is 100
 - Consider temp tables for large intermediate results
-:::
+  :::
 
 ::: details SQLite
 SQLite CTE support (SQLite 3.8.3+):
@@ -1180,11 +1186,12 @@ SELECT * FROM org_chart;
 ```
 
 **Notes**:
+
 - SQLite has full CTE support including recursive CTEs
 - No explicit recursion limit setting (use LIMIT in recursive part)
 - CTEs are always inlined
 - Very lightweight and fast for small to medium datasets
-:::
+  :::
 
 ::: details Oracle
 Oracle CTE features:
@@ -1248,11 +1255,12 @@ ORDER SIBLINGS BY employee_name;
 ```
 
 **Notes**:
+
 - CTEs supported in Oracle 9i+ (basic), 11g R2+ (recursive)
 - CONNECT BY syntax predates CTEs and is still widely used
 - Materialization controlled by optimizer
-- Use MATERIALIZE hint to force: WITH /*+ MATERIALIZE */ cte_name AS (...)
-:::
+- Use MATERIALIZE hint to force: WITH /_+ MATERIALIZE _/ cte_name AS (...)
+  :::
 
 ::: details BigQuery
 Google BigQuery CTE support:
@@ -1333,11 +1341,12 @@ SELECT * FROM org_hierarchy ORDER BY level, name;
 ```
 
 **BigQuery Specifics**:
+
 - Full CTE support including recursive CTEs
 - CTEs are optimized and may be materialized or inlined
 - Good for breaking down complex queries on large datasets
 - Consider using temp tables for very large intermediate results
-:::
+  :::
 
 ::: details Snowflake
 Snowflake CTE features:
@@ -1417,11 +1426,12 @@ SELECT n FROM numbers;
 ```
 
 **Snowflake Features**:
+
 - Excellent CTE support and optimization
 - Automatic query optimization handles CTE materialization
 - Good performance on large datasets
 - Result caching applies to CTEs
-:::
+  :::
 
 ::: details DuckDB
 DuckDB advanced CTE features:
@@ -1494,12 +1504,13 @@ ORDER BY day;
 ```
 
 **DuckDB Features**:
+
 - Full CTE support with excellent optimization
 - Recursive CTEs with good performance
 - Built-in functions for common patterns (generate_series, range)
 - Efficient execution even on large datasets
 - Good for analytical workloads
-:::
+  :::
 
 ## Best Practices
 

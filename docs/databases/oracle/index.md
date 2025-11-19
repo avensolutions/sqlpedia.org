@@ -952,36 +952,36 @@ EXEC DBMS_STATS.DELETE_TABLE_STATS('HR', 'EMPLOYEES');
 
 ### Numeric Types
 
-| Type | Range | Description |
-|------|-------|-------------|
-| NUMBER(p,s) | Variable | Precision (p) and scale (s) |
-| INTEGER | -2^31 to 2^31-1 | 38-digit integer |
-| FLOAT(p) | Variable | 126-digit precision |
-| BINARY_FLOAT | 32-bit | Single-precision floating point |
-| BINARY_DOUBLE | 64-bit | Double-precision floating point |
+| Type          | Range           | Description                     |
+| ------------- | --------------- | ------------------------------- |
+| NUMBER(p,s)   | Variable        | Precision (p) and scale (s)     |
+| INTEGER       | -2^31 to 2^31-1 | 38-digit integer                |
+| FLOAT(p)      | Variable        | 126-digit precision             |
+| BINARY_FLOAT  | 32-bit          | Single-precision floating point |
+| BINARY_DOUBLE | 64-bit          | Double-precision floating point |
 
 ### Character Types
 
-| Type | Description | Max Size |
-|------|-------------|----------|
-| CHAR(n) | Fixed-length | 2000 bytes |
-| VARCHAR2(n) | Variable-length | 4000 bytes (32767 in PL/SQL) |
-| NCHAR(n) | Fixed-length Unicode | 2000 bytes |
-| NVARCHAR2(n) | Variable-length Unicode | 4000 bytes |
-| CLOB | Character LOB | 4 GB |
-| NCLOB | National character LOB | 4 GB |
-| LONG | Long text (deprecated) | 2 GB |
+| Type         | Description             | Max Size                     |
+| ------------ | ----------------------- | ---------------------------- |
+| CHAR(n)      | Fixed-length            | 2000 bytes                   |
+| VARCHAR2(n)  | Variable-length         | 4000 bytes (32767 in PL/SQL) |
+| NCHAR(n)     | Fixed-length Unicode    | 2000 bytes                   |
+| NVARCHAR2(n) | Variable-length Unicode | 4000 bytes                   |
+| CLOB         | Character LOB           | 4 GB                         |
+| NCLOB        | National character LOB  | 4 GB                         |
+| LONG         | Long text (deprecated)  | 2 GB                         |
 
 ### Date/Time Types
 
-| Type | Format | Range |
-|------|--------|-------|
-| DATE | DD-MON-YYYY HH24:MI:SS | 01-Jan-4712 BC to 31-Dec-9999 AD |
-| TIMESTAMP | DD-MON-YYYY HH24:MI:SS.FF | More precise than DATE |
-| TIMESTAMP WITH TIME ZONE | TIMESTAMP + TZ | Includes time zone |
-| TIMESTAMP WITH LOCAL TIME ZONE | TIMESTAMP | Normalized to database TZ |
-| INTERVAL YEAR TO MONTH | Years and months | ±999,999,999 years |
-| INTERVAL DAY TO SECOND | Days, hours, minutes, seconds | ±999,999,999 days |
+| Type                           | Format                        | Range                            |
+| ------------------------------ | ----------------------------- | -------------------------------- |
+| DATE                           | DD-MON-YYYY HH24:MI:SS        | 01-Jan-4712 BC to 31-Dec-9999 AD |
+| TIMESTAMP                      | DD-MON-YYYY HH24:MI:SS.FF     | More precise than DATE           |
+| TIMESTAMP WITH TIME ZONE       | TIMESTAMP + TZ                | Includes time zone               |
+| TIMESTAMP WITH LOCAL TIME ZONE | TIMESTAMP                     | Normalized to database TZ        |
+| INTERVAL YEAR TO MONTH         | Years and months              | ±999,999,999 years               |
+| INTERVAL DAY TO SECOND         | Days, hours, minutes, seconds | ±999,999,999 days                |
 
 ### Other Types
 
@@ -1288,18 +1288,18 @@ WHERE name IN ('apply lag', 'transport lag');
 
 ## Oracle vs Other Databases
 
-| Feature | Oracle | PostgreSQL | MySQL | SQL Server |
-|---------|--------|------------|-------|------------|
-| License | Commercial (XE free) | Open Source | Open Source / Commercial | Commercial (Express free) |
-| Platform | Cross-platform | Cross-platform | Cross-platform | Windows, Linux |
-| Procedural Language | PL/SQL | PL/pgSQL | Procedures | T-SQL |
-| Partitioning | Advanced (all types) | Range, List, Hash | Range, List, Hash (8.0+) | Range, List, Hash |
-| Materialized Views | Yes (refresh options) | Yes (manual refresh) | No | Indexed views |
-| Flashback | Yes | No | No | Temporal tables |
-| RAC | Yes | No | NDB Cluster | Always On |
-| JSON Support | Native (12c+) | JSONB | Native (5.7+) | Native |
-| XML Support | Advanced XMLType | XML functions | Basic | Advanced |
-| Full-Text Search | Oracle Text | Built-in | Built-in | Advanced |
+| Feature             | Oracle                | PostgreSQL           | MySQL                    | SQL Server                |
+| ------------------- | --------------------- | -------------------- | ------------------------ | ------------------------- |
+| License             | Commercial (XE free)  | Open Source          | Open Source / Commercial | Commercial (Express free) |
+| Platform            | Cross-platform        | Cross-platform       | Cross-platform           | Windows, Linux            |
+| Procedural Language | PL/SQL                | PL/pgSQL             | Procedures               | T-SQL                     |
+| Partitioning        | Advanced (all types)  | Range, List, Hash    | Range, List, Hash (8.0+) | Range, List, Hash         |
+| Materialized Views  | Yes (refresh options) | Yes (manual refresh) | No                       | Indexed views             |
+| Flashback           | Yes                   | No                   | No                       | Temporal tables           |
+| RAC                 | Yes                   | No                   | NDB Cluster              | Always On                 |
+| JSON Support        | Native (12c+)         | JSONB                | Native (5.7+)            | Native                    |
+| XML Support         | Advanced XMLType      | XML functions        | Basic                    | Advanced                  |
+| Full-Text Search    | Oracle Text           | Built-in             | Built-in                 | Advanced                  |
 
 ## Best Practices
 

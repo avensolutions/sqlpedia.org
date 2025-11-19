@@ -1,9 +1,11 @@
 ---
 title: Indexes
 description: Comprehensive guide to database indexes - B-trees, bitmap indexes, clustered vs nonclustered, specialized indexes, and cardinality estimation
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+databases:
+  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
 difficulty: intermediate
-tags: [indexes, b-tree, bitmap, clustered, performance, optimization, cardinality]
+tags:
+  [indexes, b-tree, bitmap, clustered, performance, optimization, cardinality]
 ---
 
 # Indexes
@@ -43,12 +45,14 @@ CREATE INDEX idx_logs_timestamp ON logs USING BRIN(timestamp);
 Database indexes are data structures that improve the speed of data retrieval operations on database tables. Like an index in a book, a database index allows the database engine to quickly locate data without scanning every row.
 
 **Key Benefits**:
+
 - **Faster queries**: Dramatically reduce query execution time
 - **Efficient sorting**: Speed up ORDER BY operations
 - **Constraint enforcement**: Support UNIQUE and PRIMARY KEY constraints
 - **Join optimization**: Improve performance of JOIN operations
 
 **Trade-offs**:
+
 - **Storage overhead**: Indexes consume additional disk space
 - **Write performance**: INSERT, UPDATE, DELETE operations become slower
 - **Maintenance**: Indexes need to be maintained and occasionally rebuilt
@@ -72,12 +76,14 @@ B-tree (Balanced Tree) indexes are the default and most versatile index type acr
 ```
 
 **Structure**:
+
 - **Root node**: Top of the tree, starting point for searches
 - **Internal nodes**: Guide searches to correct branches
 - **Leaf nodes**: Contain actual data or pointers to data
 - **Balanced**: All leaf nodes at the same depth
 
 **Operations Complexity**:
+
 - **Search**: O(log n)
 - **Insert**: O(log n)
 - **Delete**: O(log n)
@@ -162,6 +168,7 @@ ORDER BY salary;
 ```
 
 **Leftmost Prefix Rule**:
+
 - Index can be used if query filters/sorts start with leftmost columns
 - Missing leftmost columns = index not usable
 - Order: (A, B, C) → can use for A, (A,B), (A,B,C) but not B, C, or (B,C)
@@ -195,12 +202,14 @@ CREATE INDEX idx_orders_year ON orders(YEAR(order_date));
 Bitmap indexes use bit arrays (bitmaps) to represent the presence or absence of values. Each distinct value gets a bitmap where 1 indicates the row has that value and 0 indicates it doesn't.
 
 **Best for**:
+
 - Low cardinality columns (few distinct values)
 - Read-heavy workloads with minimal updates
 - Data warehousing and analytics
 - Complex queries with multiple AND/OR conditions
 
 **Not suitable for**:
+
 - High cardinality columns (many unique values)
 - OLTP systems with frequent updates
 - Columns with frequent modifications
@@ -258,12 +267,14 @@ Result: [1,0,1,0,0] AND [1,1,0,1,1] = [1,0,0,0,0]
 ```
 
 **Advantages**:
+
 - Extremely space-efficient for low-cardinality columns
 - Fast bitwise operations for complex conditions
 - Excellent for combining multiple predicates
 - Great compression ratios
 
 **Disadvantages**:
+
 - Locking issues in OLTP (whole bitmap segments may lock)
 - Slow for high-cardinality columns
 - Poor performance with frequent DML operations
@@ -300,6 +311,7 @@ Bitmap Heap Scan on products
 A clustered index determines the physical order of data in a table. The table data is stored in the order of the clustered index key.
 
 **Key Characteristics**:
+
 - Only ONE clustered index per table
 - Leaf nodes contain the actual table data
 - Table rows are physically sorted by the index key
@@ -324,6 +336,7 @@ ON orders(customer_id, order_date);
 ```
 
 **Clustered Index Structure**:
+
 ```
 Root Level:     [Pointers to intermediate pages]
                 /                              \
@@ -338,6 +351,7 @@ Leaf Level:  [Actual Data Rows]          [Actual Data Rows]
 Nonclustered indexes have a structure separate from the data rows. The leaf level contains index keys and row locators (either RID or clustered index key).
 
 **Key Characteristics**:
+
 - Multiple nonclustered indexes per table (typically up to 999 in SQL Server)
 - Leaf nodes contain pointers to data, not data itself
 - Separate structure from table data
@@ -360,6 +374,7 @@ WHERE status = 'Pending';
 ```
 
 **Nonclustered Index Structure**:
+
 ```
 Root Level:     [Index Key Values + Pointers]
                 /                              \
@@ -408,15 +423,15 @@ WHERE email = 'john@example.com';
 -- Process: All data in index, no lookup needed
 ```
 
-| Aspect | Clustered | Nonclustered |
-|--------|-----------|--------------|
-| Quantity per table | One only | Multiple (up to 999 in SQL Server) |
-| Storage | Data stored in index order | Separate from data |
-| Leaf nodes | Actual data rows | Pointers + index keys |
-| Speed for covered queries | Fastest | Fast (if covering) |
-| Impact on inserts | Can cause page splits | Less impact |
-| Best for | Primary key, range queries | Lookups, covering queries |
-| Storage overhead | None (data is the index) | Additional storage |
+| Aspect                    | Clustered                  | Nonclustered                       |
+| ------------------------- | -------------------------- | ---------------------------------- |
+| Quantity per table        | One only                   | Multiple (up to 999 in SQL Server) |
+| Storage                   | Data stored in index order | Separate from data                 |
+| Leaf nodes                | Actual data rows           | Pointers + index keys              |
+| Speed for covered queries | Fastest                    | Fast (if covering)                 |
+| Impact on inserts         | Can cause page splits      | Less impact                        |
+| Best for                  | Primary key, range queries | Lookups, covering queries          |
+| Storage overhead          | None (data is the index)   | Additional storage                 |
 
 #### Choosing Clustered Index Key
 
@@ -448,6 +463,7 @@ CREATE TABLE logs (
 ```
 
 **Best Practices**:
+
 1. Choose narrow keys (fewer bytes = more entries per page)
 2. Prefer sequential values (IDENTITY, dates) over random (GUIDs)
 3. Consider query patterns (what you search/range query on most)
@@ -462,6 +478,7 @@ Z-order (or space-filling curve) clustering is a multi-dimensional clustering te
 Instead of sorting by one column, Z-order interleaves bits from multiple columns to create a single sort key that preserves locality in multiple dimensions.
 
 **Supported By**:
+
 - Databricks (Delta Lake)
 - Apache Iceberg
 - Apache Hudi
@@ -498,6 +515,7 @@ ZORDER BY (customer_id, order_date);
 **Visual Comparison**:
 
 Traditional sorting (customer_id, order_date):
+
 ```
 customer_id | order_date | ...
 1          | 2024-01-01 |
@@ -507,10 +525,12 @@ customer_id | order_date | ...
 2          | 2024-01-20 |
 3          | 2024-01-05 |
 ```
+
 - Fast for: customer_id queries
 - Slow for: order_date queries (must scan all customers)
 
 Z-Order clustering:
+
 ```
 Interleaved bits create groupings that preserve locality in BOTH dimensions
 - customer_id=1, date=2024-01-01
@@ -519,6 +539,7 @@ Interleaved bits create groupings that preserve locality in BOTH dimensions
 - customer_id=3, date=2024-01-05
 ...
 ```
+
 - Good for: customer_id queries
 - Good for: order_date queries
 - Great for: Combined filters
@@ -558,6 +579,7 @@ ZORDER BY (tenant_id, created_date, status);
 ```
 
 **When to Use Z-Order**:
+
 - ✅ Large analytical tables (data lakes/warehouses)
 - ✅ Multiple common filter columns
 - ✅ No clear dominant query pattern
@@ -611,6 +633,7 @@ CREATE INDEX idx_events_user_type ON events USING GIN((data -> 'user_type'));
 ```
 
 **GIN Index Characteristics**:
+
 - **Structure**: Inverted index (value → list of row references)
 - **Size**: Often larger than B-tree indexes
 - **Build time**: Slower to create
@@ -658,6 +681,7 @@ CREATE INDEX idx_sensor_temp USING BRIN(temperature);
 ```
 
 **BRIN Index Example**:
+
 ```
 Table blocks:    1-100  101-200  201-300  301-400
 timestamp min:   Jan 1  Jan 11   Jan 21   Feb 1
@@ -668,6 +692,7 @@ BRIN determines to scan only blocks 101-300
 ```
 
 **BRIN Characteristics**:
+
 - **Size**: Tiny (thousands of times smaller than B-tree)
 - **Speed**: Slower than B-tree but still fast
 - **Best for**: Large tables (100GB+) with physical correlation
@@ -727,6 +752,7 @@ WHERE MATCH(content) AGAINST ('database' WITH QUERY EXPANSION);
 ```
 
 **MySQL Full-Text Features**:
+
 - `+word`: Must include
 - `-word`: Must not include
 - `word*`: Wildcard
@@ -780,6 +806,7 @@ SELECT * FROM users WHERE email = 'user@example.com';
 ```
 
 **Hash Index Characteristics**:
+
 - **Speed**: O(1) for exact match lookups
 - **Size**: Comparable to B-tree
 - **Limitations**: Equality only, no range queries, no sorting
@@ -787,6 +814,7 @@ SELECT * FROM users WHERE email = 'user@example.com';
 - **Recommendation**: Usually B-tree is better (more versatile)
 
 **When to Use Hash Indexes**:
+
 - ❌ Almost never (B-tree works well for equality too)
 - ✅ Maybe: In-memory tables with only equality queries
 - ✅ Maybe: Extremely high-performance equality lookups
@@ -816,6 +844,7 @@ SELECT COUNT(DISTINCT job_title) FROM employees;
 ```
 
 **Cardinality Categories**:
+
 - **Low**: < 1% of rows (e.g., gender, status, category)
 - **Medium**: 1-50% of rows (e.g., city, job_title, product_type)
 - **High**: > 50% of rows (e.g., email, phone, transaction_id)
@@ -824,6 +853,7 @@ SELECT COUNT(DISTINCT job_title) FROM employees;
 ### Why Cardinality Matters
 
 The query optimizer uses cardinality to estimate:
+
 1. Number of rows returned by filters
 2. Whether to use an index or table scan
 3. Which index to use (if multiple available)
@@ -1070,6 +1100,7 @@ ANALYZE orders;
 ### Best Practices for Cardinality
 
 1. **Keep statistics up-to-date**
+
    ```sql
    -- Automate statistics updates
    -- PostgreSQL: autovacuum updates automatically
@@ -1079,6 +1110,7 @@ ANALYZE orders;
    ```
 
 2. **Use appropriate index types**
+
    ```sql
    -- Low cardinality: Consider bitmap (Oracle) or avoid indexing
    -- High cardinality: B-tree indexes work great
@@ -1086,6 +1118,7 @@ ANALYZE orders;
    ```
 
 3. **Monitor query plans**
+
    ```sql
    -- Check estimated vs actual rows
    EXPLAIN (ANALYZE, BUFFERS) ...  -- PostgreSQL

@@ -1,9 +1,19 @@
 ---
 title: Subqueries
 description: Comprehensive guide to SQL subqueries - nested queries for complex data retrieval and filtering
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+databases:
+  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
 difficulty: intermediate
-tags: [subqueries, nested-queries, correlated-subqueries, derived-tables, scalar-subqueries, exists, in]
+tags:
+  [
+    subqueries,
+    nested-queries,
+    correlated-subqueries,
+    derived-tables,
+    scalar-subqueries,
+    exists,
+    in,
+  ]
 ---
 
 # Subqueries
@@ -70,6 +80,7 @@ WHERE EXISTS (
 A subquery (also called an inner query or nested query) is a query embedded within another SQL query. Subqueries can appear in various clauses including SELECT, FROM, WHERE, and HAVING. They provide a powerful way to perform complex data retrieval, filtering, and calculations.
 
 Subqueries are particularly useful for:
+
 - **Filtering based on aggregate calculations**: Finding values above/below averages
 - **Dynamic comparisons**: Comparing against dynamically computed values
 - **Complex filtering**: Using results from one query to filter another
@@ -1288,11 +1299,12 @@ WHERE c.customer_id IN (SELECT customer_id FROM high_value_customers);
 ```
 
 **Performance Notes**:
+
 - PostgreSQL 12+ improved subquery optimization significantly
 - LATERAL joins are very powerful for correlated subqueries
 - EXISTS is typically faster than IN for large datasets
 - Use EXPLAIN ANALYZE to check subquery execution plans
-:::
+  :::
 
 ::: details MySQL
 MySQL 8.0+ has much improved subquery support:
@@ -1367,11 +1379,12 @@ WHERE dept_rank <= 3;
 ```
 
 **Limitations**:
+
 - Older MySQL versions (< 5.6) have poor subquery optimization
 - MySQL 5.6+ uses subquery materialization and semi-join optimization
 - Avoid correlated subqueries in MySQL 5.5 and earlier
 - Use EXPLAIN to check if subquery is using dependent subquery (slow)
-:::
+  :::
 
 ::: details SQL Server
 SQL Server has strong subquery support with various optimization strategies:
@@ -1462,11 +1475,12 @@ WHERE EXISTS (
 ```
 
 **Performance Notes**:
+
 - SQL Server can convert IN to EXISTS automatically
 - CROSS APPLY and OUTER APPLY are powerful for correlated logic
 - Use SET STATISTICS IO ON to analyze subquery performance
 - Check execution plans for index seeks vs scans
-:::
+  :::
 
 ::: details Oracle
 Oracle has comprehensive subquery support:
@@ -1553,11 +1567,12 @@ WHERE price > ALL (
 ```
 
 **Performance Notes**:
+
 - Oracle optimizes subqueries aggressively
 - Use EXPLAIN PLAN to check execution strategy
 - Consider materialized views for frequently-used subqueries
 - LATERAL views are powerful for correlated logic (12c+)
-:::
+  :::
 
 ::: details SQLite
 SQLite has good subquery support despite being lightweight:
@@ -1630,12 +1645,13 @@ WHERE price > (SELECT AVG(price) FROM products)
 ```
 
 **Limitations**:
+
 - No LATERAL joins
 - No APPLY operators
 - Subquery optimization is basic compared to enterprise databases
 - For complex queries, consider breaking into temp tables
 - EXISTS typically faster than IN for larger datasets
-:::
+  :::
 
 ::: details BigQuery
 Google BigQuery has excellent subquery support optimized for large-scale analytics:
@@ -1729,12 +1745,13 @@ WHERE rank_in_category <= 5;
 ```
 
 **BigQuery Features**:
+
 - Excellent optimization for analytical subqueries
 - Array subqueries for nested data
 - Automatically optimizes many correlated subqueries
 - Use EXPLAIN to view execution plan
 - Subqueries work well with partitioned tables
-:::
+  :::
 
 ::: details Snowflake
 Snowflake provides strong subquery support optimized for cloud data warehousing:
@@ -1834,12 +1851,13 @@ WHERE category IN (
 ```
 
 **Performance Notes**:
+
 - Snowflake automatically optimizes subqueries
 - Query result caching applies to subqueries
 - LATERAL joins are efficient for correlated logic
 - Use query profile to analyze subquery performance
 - Clustering keys help optimize subquery filters
-:::
+  :::
 
 ::: details DuckDB
 DuckDB has excellent subquery support with advanced optimization:
@@ -1936,12 +1954,13 @@ WHERE price_rank <= 5;
 ```
 
 **DuckDB Features**:
+
 - Vectorized execution for fast subquery processing
 - Advanced query optimization
 - Efficient correlated subquery execution
 - Full support for complex nested queries
 - Use EXPLAIN to see query plan
-:::
+  :::
 
 ## Best Practices
 
@@ -1963,7 +1982,7 @@ WHERE EXISTS (
 );
 ```
 
-### 2. Avoid SELECT * in Subqueries
+### 2. Avoid SELECT \* in Subqueries
 
 ```sql
 -- ❌ Wasteful: retrieves unnecessary columns

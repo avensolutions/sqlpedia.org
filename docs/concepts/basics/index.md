@@ -3,7 +3,23 @@ title: SQL Basics
 description: Introduction to SQL fundamentals and core concepts
 databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite]
 difficulty: beginner
-tags: [fundamentals, select, insert, update, delete, create-table, alter-table, constraints, views, indexes, subqueries, joins, ddl, dml]
+tags:
+  [
+    fundamentals,
+    select,
+    insert,
+    update,
+    delete,
+    create-table,
+    alter-table,
+    constraints,
+    views,
+    indexes,
+    subqueries,
+    joins,
+    ddl,
+    dml,
+  ]
 ---
 
 # SQL Basics
@@ -42,6 +58,7 @@ CREATE INDEX idx_name ON table_name(column_name);
 SQL (Structured Query Language) is the standard language for working with relational databases. It allows you to query, insert, update, and delete data, as well as create and modify database structures.
 
 SQL is divided into several categories:
+
 - **DQL (Data Query Language)**: SELECT statements for retrieving data
 - **DML (Data Manipulation Language)**: INSERT, UPDATE, DELETE for modifying data
 - **DDL (Data Definition Language)**: CREATE, ALTER, DROP for database structure
@@ -329,6 +346,7 @@ For more details on joins, see the [Joins guide](/concepts/joins/).
 
 ::: details PostgreSQL
 PostgreSQL follows SQL standards closely and adds many advanced features:
+
 - Full support for all standard SQL operations
 - Case-sensitive identifiers with double quotes
 - Rich set of data types (arrays, JSON, UUID, etc.)
@@ -341,10 +359,12 @@ INSERT INTO customers (customer_name, email)
 VALUES ('John Doe', 'john@example.com')
 RETURNING customer_id, created_at;
 ```
+
 :::
 
 ::: details MySQL
 MySQL is widely used for web applications:
+
 - Case-insensitive by default (depends on configuration)
 - Backticks for identifiers
 - Different storage engines (InnoDB, MyISAM)
@@ -358,10 +378,12 @@ CREATE TABLE customers (
   email VARCHAR(100)
 );
 ```
+
 :::
 
 ::: details SQL Server
 SQL Server (Microsoft) is popular in enterprise environments:
+
 - Square brackets for identifiers
 - IDENTITY for auto-increment
 - Rich T-SQL extensions
@@ -375,24 +397,25 @@ CREATE TABLE customers (
   email VARCHAR(100)
 );
 ```
+
 :::
 
 ## Data Types
 
 ### Common Data Types Across Platforms
 
-| Category | Type | Description | Example |
-|----------|------|-------------|---------|
-| Numeric | INTEGER, INT | Whole numbers | 42 |
-| Numeric | DECIMAL(p,s), NUMERIC(p,s) | Fixed precision | 19.99 |
-| Numeric | FLOAT, REAL | Floating point | 3.14159 |
-| Text | VARCHAR(n) | Variable length string | 'Hello' |
-| Text | CHAR(n) | Fixed length string | 'USA' |
-| Text | TEXT | Large text | Long content |
-| Date/Time | DATE | Date only | '2024-01-15' |
-| Date/Time | TIME | Time only | '14:30:00' |
-| Date/Time | TIMESTAMP | Date and time | '2024-01-15 14:30:00' |
-| Boolean | BOOLEAN | True/false | TRUE |
+| Category  | Type                       | Description            | Example               |
+| --------- | -------------------------- | ---------------------- | --------------------- |
+| Numeric   | INTEGER, INT               | Whole numbers          | 42                    |
+| Numeric   | DECIMAL(p,s), NUMERIC(p,s) | Fixed precision        | 19.99                 |
+| Numeric   | FLOAT, REAL                | Floating point         | 3.14159               |
+| Text      | VARCHAR(n)                 | Variable length string | 'Hello'               |
+| Text      | CHAR(n)                    | Fixed length string    | 'USA'                 |
+| Text      | TEXT                       | Large text             | Long content          |
+| Date/Time | DATE                       | Date only              | '2024-01-15'          |
+| Date/Time | TIME                       | Time only              | '14:30:00'            |
+| Date/Time | TIMESTAMP                  | Date and time          | '2024-01-15 14:30:00' |
+| Boolean   | BOOLEAN                    | True/false             | TRUE                  |
 
 ## DDL: Creating and Modifying Tables
 

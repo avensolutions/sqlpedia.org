@@ -21,7 +21,11 @@
 
         <div class="control-group" v-if="taskMode === 'translate'">
           <label for="source-dialect">From:</label>
-          <select id="source-dialect" v-model="sourceDialect" class="select-input">
+          <select
+            id="source-dialect"
+            v-model="sourceDialect"
+            class="select-input"
+          >
             <option v-for="db in databases" :key="db.value" :value="db.value">
               {{ db.label }}
             </option>
@@ -30,9 +34,13 @@
 
         <div class="control-group">
           <label for="target-dialect">
-            {{ taskMode === 'translate' ? 'To:' : 'Dialect:' }}
+            {{ taskMode === "translate" ? "To:" : "Dialect:" }}
           </label>
-          <select id="target-dialect" v-model="targetDialect" class="select-input">
+          <select
+            id="target-dialect"
+            v-model="targetDialect"
+            class="select-input"
+          >
             <option v-for="db in databases" :key="db.value" :value="db.value">
               {{ db.label }}
             </option>
@@ -82,13 +90,9 @@
         :disabled="isLoading || !userPrompt"
         class="submit-button"
       >
-        {{ isLoading ? 'Processing...' : 'Submit' }}
+        {{ isLoading ? "Processing..." : "Submit" }}
       </button>
-      <button
-        v-if="result"
-        @click="clearResult"
-        class="clear-button"
-      >
+      <button v-if="result" @click="clearResult" class="clear-button">
         Clear
       </button>
     </div>
@@ -101,7 +105,7 @@
       <div class="result-header">
         <h4>Result:</h4>
         <button @click="copyToClipboard" class="copy-button">
-          {{ copied ? '✓ Copied' : '📋 Copy' }}
+          {{ copied ? "✓ Copied" : "📋 Copy" }}
         </button>
       </div>
 
@@ -123,94 +127,94 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed } from "vue";
 
 interface Props {
-  mode?: 'generate' | 'explain' | 'optimize' | 'translate'
-  defaultDialect?: string
-  showModelSelector?: boolean
+  mode?: "generate" | "explain" | "optimize" | "translate";
+  defaultDialect?: string;
+  showModelSelector?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  mode: 'generate',
-  defaultDialect: 'postgresql',
-  showModelSelector: true
-})
+  mode: "generate",
+  defaultDialect: "postgresql",
+  showModelSelector: true,
+});
 
 // State
-const taskMode = ref(props.mode)
-const sourceDialect = ref('mysql')
-const targetDialect = ref(props.defaultDialect)
-const selectedModel = ref('gpt-4')
-const userPrompt = ref('')
-const contextInfo = ref('')
-const isLoading = ref(false)
-const result = ref('')
-const explanation = ref('')
-const error = ref('')
-const copied = ref(false)
-const modelUsed = ref('')
-const cached = ref(false)
+const taskMode = ref(props.mode);
+const sourceDialect = ref("mysql");
+const targetDialect = ref(props.defaultDialect);
+const selectedModel = ref("gpt-4");
+const userPrompt = ref("");
+const contextInfo = ref("");
+const isLoading = ref(false);
+const result = ref("");
+const explanation = ref("");
+const error = ref("");
+const copied = ref(false);
+const modelUsed = ref("");
+const cached = ref(false);
 
 // Database options
 const databases = [
-  { label: 'PostgreSQL', value: 'postgresql' },
-  { label: 'MySQL', value: 'mysql' },
-  { label: 'SQL Server', value: 'sqlserver' },
-  { label: 'Oracle', value: 'oracle' },
-  { label: 'SQLite', value: 'sqlite' },
-  { label: 'Spark SQL', value: 'spark-sql' },
-  { label: 'Snowflake', value: 'snowflake' },
-  { label: 'Databricks', value: 'databricks' },
-  { label: 'BigQuery', value: 'bigquery' },
-  { label: 'DuckDB', value: 'duckdb' },
-]
+  { label: "PostgreSQL", value: "postgresql" },
+  { label: "MySQL", value: "mysql" },
+  { label: "SQL Server", value: "sqlserver" },
+  { label: "Oracle", value: "oracle" },
+  { label: "SQLite", value: "sqlite" },
+  { label: "Spark SQL", value: "spark-sql" },
+  { label: "Snowflake", value: "snowflake" },
+  { label: "Databricks", value: "databricks" },
+  { label: "BigQuery", value: "bigquery" },
+  { label: "DuckDB", value: "duckdb" },
+];
 
 // Methods
 const getPromptLabel = () => {
   switch (taskMode.value) {
-    case 'generate':
-      return 'Describe what you want the SQL query to do:'
-    case 'explain':
-      return 'Paste your SQL query to explain:'
-    case 'optimize':
-      return 'Paste your SQL query to optimize:'
-    case 'translate':
-      return 'Paste your SQL query to translate:'
+    case "generate":
+      return "Describe what you want the SQL query to do:";
+    case "explain":
+      return "Paste your SQL query to explain:";
+    case "optimize":
+      return "Paste your SQL query to optimize:";
+    case "translate":
+      return "Paste your SQL query to translate:";
     default:
-      return 'Enter your request:'
+      return "Enter your request:";
   }
-}
+};
 
 const getPlaceholder = () => {
   switch (taskMode.value) {
-    case 'generate':
-      return 'e.g., Get top 10 customers by total order value in the last month'
-    case 'explain':
-      return 'Paste your SQL query here...'
-    case 'optimize':
-      return 'Paste your SQL query here...'
-    case 'translate':
-      return 'Paste your SQL query here...'
+    case "generate":
+      return "e.g., Get top 10 customers by total order value in the last month";
+    case "explain":
+      return "Paste your SQL query here...";
+    case "optimize":
+      return "Paste your SQL query here...";
+    case "translate":
+      return "Paste your SQL query here...";
     default:
-      return 'Enter your request...'
+      return "Enter your request...";
   }
-}
+};
 
 const submitRequest = async () => {
-  if (!userPrompt.value.trim()) return
+  if (!userPrompt.value.trim()) return;
 
-  isLoading.value = true
-  error.value = ''
-  result.value = ''
-  explanation.value = ''
-  cached.value = false
+  isLoading.value = true;
+  error.value = "";
+  result.value = "";
+  explanation.value = "";
+  cached.value = false;
 
   try {
-    const response = await fetch('/.netlify/functions/sql-assist', {
-      method: 'POST',
+    const response = await fetch("/.netlify/functions/sql-assist", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         prompt: userPrompt.value,
@@ -220,44 +224,44 @@ const submitRequest = async () => {
         target_dialect: targetDialect.value,
         context: contextInfo.value,
       }),
-    })
+    });
 
     if (!response.ok) {
-      throw new Error(`Request failed: ${response.statusText}`)
+      throw new Error(`Request failed: ${response.statusText}`);
     }
 
-    const data = await response.json()
-    result.value = data.result
-    explanation.value = data.explanation || ''
-    modelUsed.value = data.model_used || selectedModel.value
-    cached.value = data.cached || false
+    const data = await response.json();
+    result.value = data.result;
+    explanation.value = data.explanation || "";
+    modelUsed.value = data.model_used || selectedModel.value;
+    cached.value = data.cached || false;
   } catch (err) {
-    error.value = err instanceof Error ? err.message : 'An error occurred'
+    error.value = err instanceof Error ? err.message : "An error occurred";
   } finally {
-    isLoading.value = false
+    isLoading.value = false;
   }
-}
+};
 
 const clearResult = () => {
-  result.value = ''
-  explanation.value = ''
-  error.value = ''
-  userPrompt.value = ''
-  contextInfo.value = ''
-  copied.value = false
-}
+  result.value = "";
+  explanation.value = "";
+  error.value = "";
+  userPrompt.value = "";
+  contextInfo.value = "";
+  copied.value = false;
+};
 
 const copyToClipboard = async () => {
   try {
-    await navigator.clipboard.writeText(result.value)
-    copied.value = true
+    await navigator.clipboard.writeText(result.value);
+    copied.value = true;
     setTimeout(() => {
-      copied.value = false
-    }, 2000)
+      copied.value = false;
+    }, 2000);
   } catch (err) {
-    console.error('Failed to copy:', err)
+    console.error("Failed to copy:", err);
   }
-}
+};
 </script>
 
 <style scoped>
@@ -452,7 +456,7 @@ const copyToClipboard = async () => {
 }
 
 .result-content code {
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
   font-size: 0.9em;
   color: var(--vp-c-text-1);
 }

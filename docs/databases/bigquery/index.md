@@ -215,12 +215,12 @@ for (FieldValueList row : results.iterateAll()) {
 // Install client library
 // npm install @google-cloud/bigquery
 
-const {BigQuery} = require('@google-cloud/bigquery');
+const { BigQuery } = require("@google-cloud/bigquery");
 
 // Create client
 const bigquery = new BigQuery({
-  projectId: 'my-project-id',
-  keyFilename: '/path/to/keyfile.json'
+  projectId: "my-project-id",
+  keyFilename: "/path/to/keyfile.json",
 });
 
 // Run query
@@ -236,14 +236,14 @@ async function query() {
 
   const options = {
     query: query,
-    location: 'US',
+    location: "US",
   };
 
   // Run the query
   const [rows] = await bigquery.query(options);
 
-  console.log('Results:');
-  rows.forEach(row => {
+  console.log("Results:");
+  rows.forEach((row) => {
     console.log(`${row.name}: ${row.total}`);
   });
 }
@@ -927,22 +927,19 @@ errors = client.insert_rows_json(
 
 ```javascript
 // Node.js streaming insert
-const {BigQuery} = require('@google-cloud/bigquery');
+const { BigQuery } = require("@google-cloud/bigquery");
 const bigquery = new BigQuery();
 
 async function streamData() {
-  const datasetId = 'my_dataset';
-  const tableId = 'streaming_table';
+  const datasetId = "my_dataset";
+  const tableId = "streaming_table";
 
   const rows = [
-    {event_id: '12345', user_id: 100, event_type: 'click'},
-    {event_id: '12346', user_id: 101, event_type: 'view'},
+    { event_id: "12345", user_id: 100, event_type: "click" },
+    { event_id: "12346", user_id: 101, event_type: "view" },
   ];
 
-  await bigquery
-    .dataset(datasetId)
-    .table(tableId)
-    .insert(rows);
+  await bigquery.dataset(datasetId).table(tableId).insert(rows);
 
   console.log(`Inserted ${rows.length} rows`);
 }
@@ -1302,29 +1299,29 @@ for stage in query_job.query_plan:
 
 ### Numeric Types
 
-| Type | Range | Precision | Use Case |
-|------|-------|-----------|----------|
-| INT64 | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | Exact | Integers, IDs |
-| NUMERIC | 38 digits precision, 9 digits scale | Exact | Financial calculations |
-| BIGNUMERIC | 76.76 digits precision, 38 digits scale | Exact | High-precision decimals |
-| FLOAT64 | IEEE 754 double-precision | Approximate | Scientific calculations |
+| Type       | Range                                                   | Precision   | Use Case                |
+| ---------- | ------------------------------------------------------- | ----------- | ----------------------- |
+| INT64      | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | Exact       | Integers, IDs           |
+| NUMERIC    | 38 digits precision, 9 digits scale                     | Exact       | Financial calculations  |
+| BIGNUMERIC | 76.76 digits precision, 38 digits scale                 | Exact       | High-precision decimals |
+| FLOAT64    | IEEE 754 double-precision                               | Approximate | Scientific calculations |
 
 ### String Types
 
-| Type | Description | Max Size |
-|------|-------------|----------|
-| STRING | Variable-length character data | 2 GB |
-| BYTES | Variable-length binary data | 2 GB |
+| Type   | Description                    | Max Size |
+| ------ | ------------------------------ | -------- |
+| STRING | Variable-length character data | 2 GB     |
+| BYTES  | Variable-length binary data    | 2 GB     |
 
 ### Date/Time Types
 
-| Type | Format | Range |
-|------|--------|-------|
-| DATE | YYYY-MM-DD | 0001-01-01 to 9999-12-31 |
-| TIME | HH:MM:SS[.SSSSSS] | 00:00:00 to 23:59:59.999999 |
-| DATETIME | YYYY-MM-DD HH:MM:SS[.SSSSSS] | 0001-01-01 00:00:00 to 9999-12-31 23:59:59.999999 |
+| Type      | Format                                    | Range                                                 |
+| --------- | ----------------------------------------- | ----------------------------------------------------- |
+| DATE      | YYYY-MM-DD                                | 0001-01-01 to 9999-12-31                              |
+| TIME      | HH:MM:SS[.SSSSSS]                         | 00:00:00 to 23:59:59.999999                           |
+| DATETIME  | YYYY-MM-DD HH:MM:SS[.SSSSSS]              | 0001-01-01 00:00:00 to 9999-12-31 23:59:59.999999     |
 | TIMESTAMP | UNIX timestamp with microsecond precision | 0001-01-01 00:00:00 to 9999-12-31 23:59:59.999999 UTC |
-| INTERVAL | Duration | N/A |
+| INTERVAL  | Duration                                  | N/A                                                   |
 
 ### Complex Types
 
@@ -1760,17 +1757,17 @@ ORDER BY timestamp DESC;
 
 ## BigQuery vs Other Data Warehouses
 
-| Feature | BigQuery | Snowflake | Redshift | Databricks |
-|---------|----------|-----------|----------|------------|
-| Architecture | Serverless | Multi-cluster | MPP | Lakehouse |
-| Storage Format | Columnar (Capacitor) | Proprietary | Columnar | Delta Lake |
-| Scaling | Automatic | Manual/Auto | Manual resize | Auto-scaling |
-| Pricing | Per-query (on-demand) or slots | Per-second compute | Hourly | DBU-based |
-| ML Support | BigQuery ML (native) | Snowpark ML | SageMaker integration | MLflow (native) |
-| Real-time Streaming | Native | Limited | Kinesis integration | Structured Streaming |
-| Time Travel | 7 days | 0-90 days | Manual snapshots | Delta Lake |
-| Public Datasets | 200+ datasets | Marketplace | None | Partner integrations |
-| Multi-cloud | GCP (query AWS/Azure) | AWS, Azure, GCP | AWS only | AWS, Azure, GCP |
+| Feature             | BigQuery                       | Snowflake          | Redshift              | Databricks           |
+| ------------------- | ------------------------------ | ------------------ | --------------------- | -------------------- |
+| Architecture        | Serverless                     | Multi-cluster      | MPP                   | Lakehouse            |
+| Storage Format      | Columnar (Capacitor)           | Proprietary        | Columnar              | Delta Lake           |
+| Scaling             | Automatic                      | Manual/Auto        | Manual resize         | Auto-scaling         |
+| Pricing             | Per-query (on-demand) or slots | Per-second compute | Hourly                | DBU-based            |
+| ML Support          | BigQuery ML (native)           | Snowpark ML        | SageMaker integration | MLflow (native)      |
+| Real-time Streaming | Native                         | Limited            | Kinesis integration   | Structured Streaming |
+| Time Travel         | 7 days                         | 0-90 days          | Manual snapshots      | Delta Lake           |
+| Public Datasets     | 200+ datasets                  | Marketplace        | None                  | Partner integrations |
+| Multi-cloud         | GCP (query AWS/Azure)          | AWS, Azure, GCP    | AWS only              | AWS, Azure, GCP      |
 
 ## Best Practices
 

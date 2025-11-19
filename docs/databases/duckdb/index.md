@@ -173,13 +173,13 @@ dbDisconnect(con, shutdown=TRUE)
 ```
 
 ```javascript [Node.js]
-const duckdb = require('duckdb');
+const duckdb = require("duckdb");
 
 // In-memory database
-const db = new duckdb.Database(':memory:');
+const db = new duckdb.Database(":memory:");
 
 // Persistent database
-const db = new duckdb.Database('mydb.duckdb');
+const db = new duckdb.Database("mydb.duckdb");
 
 // Execute query
 db.all("SELECT 'Hello DuckDB' AS greeting", (err, rows) => {
@@ -195,8 +195,8 @@ conn.all("SELECT * FROM customers", (err, rows) => {
 });
 
 // Async/await with promises
-const Database = require('duckdb-async').Database;
-const db = await Database.create('mydb.duckdb');
+const Database = require("duckdb-async").Database;
+const db = await Database.create("mydb.duckdb");
 const rows = await db.all("SELECT * FROM customers");
 
 // Close database
@@ -1103,54 +1103,54 @@ TO 'sales_data' (FORMAT PARQUET, PARTITION_BY (year, month));
 
 ### Numeric Types
 
-| Type | Size | Range | Description |
-|------|------|-------|-------------|
-| TINYINT | 1 byte | -127 to 127 | Small integers |
-| SMALLINT | 2 bytes | -32,768 to 32,767 | Short integers |
-| INTEGER | 4 bytes | -2,147,483,648 to 2,147,483,647 | Standard integers |
-| BIGINT | 8 bytes | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | Large integers |
-| HUGEINT | 16 bytes | ~10^38 | Very large integers |
-| FLOAT | 4 bytes | Variable | Single precision floating point |
-| DOUBLE | 8 bytes | Variable | Double precision floating point |
-| DECIMAL(p,s) | Variable | Exact | Fixed-precision decimal |
+| Type         | Size     | Range                                                   | Description                     |
+| ------------ | -------- | ------------------------------------------------------- | ------------------------------- |
+| TINYINT      | 1 byte   | -127 to 127                                             | Small integers                  |
+| SMALLINT     | 2 bytes  | -32,768 to 32,767                                       | Short integers                  |
+| INTEGER      | 4 bytes  | -2,147,483,648 to 2,147,483,647                         | Standard integers               |
+| BIGINT       | 8 bytes  | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | Large integers                  |
+| HUGEINT      | 16 bytes | ~10^38                                                  | Very large integers             |
+| FLOAT        | 4 bytes  | Variable                                                | Single precision floating point |
+| DOUBLE       | 8 bytes  | Variable                                                | Double precision floating point |
+| DECIMAL(p,s) | Variable | Exact                                                   | Fixed-precision decimal         |
 
 ### String Types
 
-| Type | Description | Example |
-|------|-------------|---------|
-| VARCHAR | Variable-length string | 'Hello World' |
-| TEXT | Alias for VARCHAR | 'Long text...' |
-| CHAR(n) | Fixed-length string | 'ABC' |
-| BLOB | Binary data | '\xDE\xAD\xBE\xEF'::BLOB |
+| Type    | Description            | Example                  |
+| ------- | ---------------------- | ------------------------ |
+| VARCHAR | Variable-length string | 'Hello World'            |
+| TEXT    | Alias for VARCHAR      | 'Long text...'           |
+| CHAR(n) | Fixed-length string    | 'ABC'                    |
+| BLOB    | Binary data            | '\xDE\xAD\xBE\xEF'::BLOB |
 
 ### Date/Time Types
 
-| Type | Format | Range | Example |
-|------|--------|-------|---------|
-| DATE | YYYY-MM-DD | 5,877,641 BC to 5,879,611 AD | DATE '2024-01-15' |
-| TIME | HH:MM:SS[.µs] | 00:00:00 to 23:59:59.999999 | TIME '13:30:00' |
-| TIMESTAMP | YYYY-MM-DD HH:MM:SS[.µs] | Wide range | TIMESTAMP '2024-01-15 13:30:00' |
-| TIMESTAMPTZ | With timezone | Wide range | TIMESTAMPTZ '2024-01-15 13:30:00+00' |
-| INTERVAL | Duration | Any duration | INTERVAL 5 DAYS |
+| Type        | Format                   | Range                        | Example                              |
+| ----------- | ------------------------ | ---------------------------- | ------------------------------------ |
+| DATE        | YYYY-MM-DD               | 5,877,641 BC to 5,879,611 AD | DATE '2024-01-15'                    |
+| TIME        | HH:MM:SS[.µs]            | 00:00:00 to 23:59:59.999999  | TIME '13:30:00'                      |
+| TIMESTAMP   | YYYY-MM-DD HH:MM:SS[.µs] | Wide range                   | TIMESTAMP '2024-01-15 13:30:00'      |
+| TIMESTAMPTZ | With timezone            | Wide range                   | TIMESTAMPTZ '2024-01-15 13:30:00+00' |
+| INTERVAL    | Duration                 | Any duration                 | INTERVAL 5 DAYS                      |
 
 ### Complex Types
 
-| Type | Description | Example |
-|------|-------------|---------|
-| ARRAY/LIST | Ordered collection | [1, 2, 3, 4] |
-| STRUCT | Named fields | {'name': 'John', 'age': 30} |
-| MAP | Key-value pairs | MAP(['a', 'b'], [1, 2]) |
-| UNION | One of several types | union_value(num := 42) |
-| JSON | JSON data | '{"key": "value"}'::JSON |
+| Type       | Description          | Example                     |
+| ---------- | -------------------- | --------------------------- |
+| ARRAY/LIST | Ordered collection   | [1, 2, 3, 4]                |
+| STRUCT     | Named fields         | {'name': 'John', 'age': 30} |
+| MAP        | Key-value pairs      | MAP(['a', 'b'], [1, 2])     |
+| UNION      | One of several types | union_value(num := 42)      |
+| JSON       | JSON data            | '{"key": "value"}'::JSON    |
 
 ### Other Types
 
-| Type | Description |
-|------|-------------|
-| BOOLEAN | TRUE, FALSE, NULL |
-| UUID | Universally unique identifier |
-| ENUM | Set of named values |
-| BIT/BITSTRING | Bit strings |
+| Type          | Description                   |
+| ------------- | ----------------------------- |
+| BOOLEAN       | TRUE, FALSE, NULL             |
+| UUID          | Universally unique identifier |
+| ENUM          | Set of named values           |
+| BIT/BITSTRING | Bit strings                   |
 
 ## Common Operations
 
@@ -1604,20 +1604,20 @@ con.execute(f"""
 
 ## DuckDB vs Other Databases
 
-| Feature | DuckDB | SQLite | PostgreSQL | Pandas |
-|---------|--------|--------|------------|--------|
-| Architecture | Embedded OLAP | Embedded OLTP | Client-Server | DataFrame Library |
-| Best For | Analytics | Simple apps | Production apps | Data analysis |
-| Query Speed (Analytics) | Very Fast | Slow | Medium | Slow |
-| Parallelization | Yes | No | Yes | Limited |
-| Storage | Columnar | Row-based | Row-based | In-memory |
-| SQL Support | Extensive | Good | Excellent | Limited |
-| File Querying | Native | No | Extensions | read_csv/parquet |
-| Parquet Support | Native | Extensions | Extensions | via PyArrow |
-| Memory Efficiency | Excellent | Good | Good | Poor (large data) |
-| Size Limits | TB+ | 281 TB | No limit | RAM limited |
-| Multi-user | Single-writer | Single-writer | Multi-user | N/A |
-| Language Integration | Excellent | Good | Good | Native (Python) |
+| Feature                 | DuckDB        | SQLite        | PostgreSQL      | Pandas            |
+| ----------------------- | ------------- | ------------- | --------------- | ----------------- |
+| Architecture            | Embedded OLAP | Embedded OLTP | Client-Server   | DataFrame Library |
+| Best For                | Analytics     | Simple apps   | Production apps | Data analysis     |
+| Query Speed (Analytics) | Very Fast     | Slow          | Medium          | Slow              |
+| Parallelization         | Yes           | No            | Yes             | Limited           |
+| Storage                 | Columnar      | Row-based     | Row-based       | In-memory         |
+| SQL Support             | Extensive     | Good          | Excellent       | Limited           |
+| File Querying           | Native        | No            | Extensions      | read_csv/parquet  |
+| Parquet Support         | Native        | Extensions    | Extensions      | via PyArrow       |
+| Memory Efficiency       | Excellent     | Good          | Good            | Poor (large data) |
+| Size Limits             | TB+           | 281 TB        | No limit        | RAM limited       |
+| Multi-user              | Single-writer | Single-writer | Multi-user      | N/A               |
+| Language Integration    | Excellent     | Good          | Good            | Native (Python)   |
 
 ## Best Practices
 

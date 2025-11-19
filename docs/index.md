@@ -59,21 +59,25 @@ features:
 <div class="quick-start-grid">
 
 ### 📖 Learn SQL Fundamentals
+
 Start with the basics and build a strong foundation in SQL.
 
 [Explore Concepts →](/concepts/basics/)
 
 ### 🗄️ Browse by Database
+
 Find database-specific documentation and examples.
 
 [View Databases →](/databases/postgresql/)
 
 ### 🎯 Common Patterns
+
 Discover proven SQL patterns for real-world scenarios.
 
 [See Patterns →](/patterns/analytics/)
 
 ### 🔄 Compare Dialects
+
 Compare SQL syntax across different database systems.
 
 [View Comparisons →](/comparisons/dialect-differences)
@@ -87,21 +91,25 @@ Compare SQL syntax across different database systems.
 ## Popular Topics
 
 ### Window Functions
+
 Window functions are powerful tools for analytics and reporting. Learn how to use them across different SQL dialects.
 
 [Learn More →](/concepts/window-functions/)
 
 ### Common Table Expressions (CTEs)
+
 CTEs make complex queries more readable and maintainable. Discover best practices and patterns.
 
 [Learn More →](/concepts/ctes/)
 
 ### Query Optimization
+
 Learn techniques to improve query performance across different database systems.
 
 [Learn More →](/concepts/performance/)
 
 ### Database Migrations
+
 Planning to migrate from one database to another? Check our comprehensive migration guides.
 
 [Learn More →](/comparisons/migration-guides)
