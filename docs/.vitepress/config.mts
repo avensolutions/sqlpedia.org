@@ -54,6 +54,8 @@ export default defineConfig({
           { text: 'Performance', link: '/concepts/performance/' },
           { text: 'Transactions', link: '/concepts/transactions/' },
           { text: 'Security', link: '/concepts/security/' },
+          { text: 'NoSQL Databases', link: '/concepts/nosql-databases/' },
+          { text: 'Graph Databases', link: '/concepts/graph-databases/' },
         ]
       },
       {
@@ -111,6 +113,8 @@ export default defineConfig({
             { text: 'Performance', link: '/concepts/performance/' },
             { text: 'Transactions', link: '/concepts/transactions/' },
             { text: 'Security', link: '/concepts/security/' },
+            { text: 'NoSQL Databases', link: '/concepts/nosql-databases/' },
+            { text: 'Graph Databases', link: '/concepts/graph-databases/' },
           ]
         }
       ],
