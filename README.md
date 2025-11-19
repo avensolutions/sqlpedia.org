@@ -384,7 +384,7 @@ tags: [relevant, tags]
 
 \`\`\`sql
 -- Quick example code
-SELECT * FROM table;
+SELECT \* FROM table;
 \`\`\`
 
 ## Overview
@@ -398,9 +398,11 @@ Detailed syntax information...
 ## Examples
 
 ### Basic Example
+
 ...
 
 ### Advanced Example
+
 ...
 
 ## Platform-Specific Notes
@@ -559,30 +561,35 @@ npm install -D package-name
 ## Roadmap
 
 ### Phase 1: Core Infrastructure ✅
+
 - [x] VitePress setup
 - [x] Basic theme and navigation
 - [x] Initial content structure
 - [x] Netlify deployment
 
 ### Phase 2: Content Development 🚧
+
 - [x] Core SQL concepts (20+ pages)
 - [ ] Database-specific guides (50+ pages)
 - [ ] Pattern library (30+ pages)
 - [ ] Migration guides
 
 ### Phase 3: AI Features ✅
+
 - [x] SQL generation
 - [x] Query explanation
 - [x] Query optimization
 - [x] Dialect translation
 
 ### Phase 4: Community & Growth 📅
+
 - [ ] Community contributions system
 - [ ] User accounts (optional)
 - [ ] Bookmarking and favorites
 - [ ] Learning paths
 
 ### Phase 5: Advanced Features 📅
+
 - [ ] SQL playground with execution
 - [ ] Interactive tutorials
 - [ ] Video content
@@ -656,6 +663,7 @@ Thank you to all our contributors! See [CONTRIBUTORS.md](CONTRIBUTORS.md) for th
 ## Acknowledgments
 
 Inspired by:
+
 - Wikipedia - For the concept and layout
 - MDN Web Docs - For documentation style
 - SQL standards and communities worldwide

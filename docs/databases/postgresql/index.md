@@ -362,35 +362,35 @@ LIMIT 20 OFFSET 40;
 
 ### Numeric Types
 
-| Type | Range | Description |
-|------|-------|-------------|
-| SMALLINT | -32768 to 32767 | 2-byte integer |
-| INTEGER | -2147483648 to 2147483647 | 4-byte integer |
-| BIGINT | -9223372036854775808 to 9223372036854775807 | 8-byte integer |
-| DECIMAL(p,s) | Up to 131072 digits | Exact numeric |
-| NUMERIC(p,s) | Up to 131072 digits | Exact numeric (same as DECIMAL) |
-| REAL | 6 decimal digits precision | 4-byte float |
-| DOUBLE PRECISION | 15 decimal digits precision | 8-byte float |
-| SERIAL | 1 to 2147483647 | Auto-incrementing integer |
-| BIGSERIAL | 1 to 9223372036854775807 | Auto-incrementing bigint |
+| Type             | Range                                       | Description                     |
+| ---------------- | ------------------------------------------- | ------------------------------- |
+| SMALLINT         | -32768 to 32767                             | 2-byte integer                  |
+| INTEGER          | -2147483648 to 2147483647                   | 4-byte integer                  |
+| BIGINT           | -9223372036854775808 to 9223372036854775807 | 8-byte integer                  |
+| DECIMAL(p,s)     | Up to 131072 digits                         | Exact numeric                   |
+| NUMERIC(p,s)     | Up to 131072 digits                         | Exact numeric (same as DECIMAL) |
+| REAL             | 6 decimal digits precision                  | 4-byte float                    |
+| DOUBLE PRECISION | 15 decimal digits precision                 | 8-byte float                    |
+| SERIAL           | 1 to 2147483647                             | Auto-incrementing integer       |
+| BIGSERIAL        | 1 to 9223372036854775807                    | Auto-incrementing bigint        |
 
 ### String Types
 
-| Type | Description |
-|------|-------------|
+| Type       | Description                |
+| ---------- | -------------------------- |
 | VARCHAR(n) | Variable-length with limit |
-| CHAR(n) | Fixed-length, blank padded |
-| TEXT | Variable unlimited length |
+| CHAR(n)    | Fixed-length, blank padded |
+| TEXT       | Variable unlimited length  |
 
 ### Date/Time Types
 
-| Type | Description | Example |
-|------|-------------|---------|
-| DATE | Date only | '2024-01-15' |
-| TIME | Time only | '14:30:00' |
-| TIMESTAMP | Date and time | '2024-01-15 14:30:00' |
+| Type        | Description             | Example                  |
+| ----------- | ----------------------- | ------------------------ |
+| DATE        | Date only               | '2024-01-15'             |
+| TIME        | Time only               | '14:30:00'               |
+| TIMESTAMP   | Date and time           | '2024-01-15 14:30:00'    |
 | TIMESTAMPTZ | Timestamp with timezone | '2024-01-15 14:30:00+00' |
-| INTERVAL | Time interval | '1 day 2 hours' |
+| INTERVAL    | Time interval           | '1 day 2 hours'          |
 
 ### Other Useful Types
 
@@ -458,17 +458,17 @@ ALTER USER myuser WITH PASSWORD 'newpassword';
 
 <SQLComparison :dialects="['postgresql', 'mysql', 'sqlserver']" />
 
-| Feature | PostgreSQL | MySQL | SQL Server |
-|---------|------------|-------|------------|
-| License | Open Source (PostgreSQL) | Open Source (GPL) / Commercial | Commercial |
-| ACID Compliance | Full | Full (InnoDB) | Full |
-| JSON Support | Native JSONB | Native JSON | Native JSON |
-| Full-Text Search | Built-in | Built-in | Built-in |
-| Window Functions | Full support | Full (8.0+) | Full support |
-| CTEs | Recursive supported | Recursive (8.0+) | Recursive supported |
-| Table Partitioning | Declarative | Declarative | Declarative |
-| Replication | Streaming, Logical | Async, Semi-sync | Always On, Mirroring |
-| Extensions | Rich ecosystem | Limited | CLR integration |
+| Feature            | PostgreSQL               | MySQL                          | SQL Server           |
+| ------------------ | ------------------------ | ------------------------------ | -------------------- |
+| License            | Open Source (PostgreSQL) | Open Source (GPL) / Commercial | Commercial           |
+| ACID Compliance    | Full                     | Full (InnoDB)                  | Full                 |
+| JSON Support       | Native JSONB             | Native JSON                    | Native JSON          |
+| Full-Text Search   | Built-in                 | Built-in                       | Built-in             |
+| Window Functions   | Full support             | Full (8.0+)                    | Full support         |
+| CTEs               | Recursive supported      | Recursive (8.0+)               | Recursive supported  |
+| Table Partitioning | Declarative              | Declarative                    | Declarative          |
+| Replication        | Streaming, Logical       | Async, Semi-sync               | Always On, Mirroring |
+| Extensions         | Rich ecosystem           | Limited                        | CLR integration      |
 
 ## Best Practices
 

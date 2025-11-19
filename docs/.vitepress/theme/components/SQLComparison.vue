@@ -19,7 +19,10 @@
             type="checkbox"
             :value="db.value"
             v-model="selectedDialects"
-            :disabled="selectedDialects.length >= 3 && !selectedDialects.includes(db.value)"
+            :disabled="
+              selectedDialects.length >= 3 &&
+              !selectedDialects.includes(db.value)
+            "
           />
           {{ db.label }}
         </label>
@@ -53,47 +56,47 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed } from "vue";
 
 interface Dialect {
-  label: string
-  value: string
+  label: string;
+  value: string;
 }
 
 interface Example {
-  [key: string]: string
+  [key: string]: string;
 }
 
 interface Notes {
-  [key: string]: string
+  [key: string]: string;
 }
 
 interface Props {
-  dialects?: string[]
+  dialects?: string[];
   example?: {
-    examples: Example
-    notes?: Notes
-  }
+    examples: Example;
+    notes?: Notes;
+  };
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  dialects: () => ['postgresql', 'mysql', 'sqlserver']
-})
+  dialects: () => ["postgresql", "mysql", "sqlserver"],
+});
 
 // Available database dialects
 const availableDialects: Dialect[] = [
-  { label: 'PostgreSQL', value: 'postgresql' },
-  { label: 'MySQL', value: 'mysql' },
-  { label: 'SQL Server', value: 'sqlserver' },
-  { label: 'Oracle', value: 'oracle' },
-  { label: 'SQLite', value: 'sqlite' },
-  { label: 'BigQuery', value: 'bigquery' },
-  { label: 'Snowflake', value: 'snowflake' },
-  { label: 'DuckDB', value: 'duckdb' },
-]
+  { label: "PostgreSQL", value: "postgresql" },
+  { label: "MySQL", value: "mysql" },
+  { label: "SQL Server", value: "sqlserver" },
+  { label: "Oracle", value: "oracle" },
+  { label: "SQLite", value: "sqlite" },
+  { label: "BigQuery", value: "bigquery" },
+  { label: "Snowflake", value: "snowflake" },
+  { label: "DuckDB", value: "duckdb" },
+];
 
 // Selected dialects
-const selectedDialects = ref<string[]>(props.dialects)
+const selectedDialects = ref<string[]>(props.dialects);
 
 // Default example (Window Functions)
 const defaultExample = {
@@ -188,32 +191,40 @@ SELECT
 FROM orders;`,
   },
   notes: {
-    postgresql: 'Full support for all window frame types. Most feature-complete implementation.',
-    mysql: 'Window functions added in MySQL 8.0. Earlier versions not supported.',
-    sqlserver: 'Supports ROWS and RANGE frames. Highly optimized for analytical queries.',
-    oracle: 'Pioneered window functions in SQL. Very mature implementation.',
-    sqlite: 'Window functions added in SQLite 3.25.0 (2018-09-15).',
-    bigquery: 'Fully supports standard SQL window functions with excellent performance.',
-    snowflake: 'Cloud-optimized window functions with automatic performance tuning.',
-    duckdb: 'Full window function support with excellent performance for analytical queries.',
-  }
-}
+    postgresql:
+      "Full support for all window frame types. Most feature-complete implementation.",
+    mysql:
+      "Window functions added in MySQL 8.0. Earlier versions not supported.",
+    sqlserver:
+      "Supports ROWS and RANGE frames. Highly optimized for analytical queries.",
+    oracle: "Pioneered window functions in SQL. Very mature implementation.",
+    sqlite: "Window functions added in SQLite 3.25.0 (2018-09-15).",
+    bigquery:
+      "Fully supports standard SQL window functions with excellent performance.",
+    snowflake:
+      "Cloud-optimized window functions with automatic performance tuning.",
+    duckdb:
+      "Full window function support with excellent performance for analytical queries.",
+  },
+};
 
 // Methods
 const getDialectLabel = (value: string): string => {
-  const dialect = availableDialects.find(d => d.value === value)
-  return dialect ? dialect.label : value
-}
+  const dialect = availableDialects.find((d) => d.value === value);
+  return dialect ? dialect.label : value;
+};
 
 const getExample = (dialect: string): string => {
-  const exampleData = props.example || defaultExample
-  return exampleData.examples[dialect] || '-- Example not available for this dialect'
-}
+  const exampleData = props.example || defaultExample;
+  return (
+    exampleData.examples[dialect] || "-- Example not available for this dialect"
+  );
+};
 
 const getNotes = (dialect: string): string => {
-  const exampleData = props.example || defaultExample
-  return exampleData.notes?.[dialect] || ''
-}
+  const exampleData = props.example || defaultExample;
+  return exampleData.notes?.[dialect] || "";
+};
 </script>
 
 <style scoped>
@@ -322,7 +333,7 @@ const getNotes = (dialect: string): string => {
 }
 
 .column-content code {
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
   font-size: 0.85em;
   line-height: 1.5;
   color: var(--vp-c-text-1);

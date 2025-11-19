@@ -1,7 +1,8 @@
 ---
 title: Window Functions
 description: Comprehensive guide to SQL window functions across different database systems
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+databases:
+  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
 difficulty: intermediate
 tags: [analytics, aggregation, ranking]
 ---
@@ -30,6 +31,7 @@ FROM table_name;
 Window functions perform calculations across a set of table rows that are related to the current row. Unlike regular aggregate functions, window functions do not group rows into a single output row — each row retains its separate identity.
 
 Window functions are essential for:
+
 - Calculating running totals and moving averages
 - Ranking and percentile calculations
 - Comparing values across rows (lag/lead)
@@ -97,6 +99,7 @@ WHERE row_num > 1;  -- Duplicate emails
 ```
 
 **Important Notes**:
+
 - Always assigns unique numbers, even for tied values
 - Requires ORDER BY to be deterministic
 - Without ORDER BY in window, order is arbitrary
@@ -152,6 +155,7 @@ ORDER BY department, rank;
 ```
 
 **RANK vs DENSE_RANK**:
+
 - RANK: 1, 1, 3, 4 (leaves gaps)
 - DENSE_RANK: 1, 1, 2, 3 (no gaps)
 - Use RANK for traditional competition ranking
@@ -200,6 +204,7 @@ GROUP BY department;
 ```
 
 **Important Notes**:
+
 - Groups may not be exactly equal if rows don't divide evenly
 - First groups get one extra row when division is uneven
 - Useful for creating equal-sized segments
@@ -619,6 +624,7 @@ ORDER BY order_date;
 ```
 
 **Important Note on LAST_VALUE**:
+
 - Default frame is `RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`
 - This makes LAST_VALUE return the current row by default
 - Use `ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING` to get the actual last value in the partition
@@ -675,6 +681,7 @@ ORDER BY department;
 PostgreSQL has the most comprehensive window function support among open-source databases:
 
 **Supported Features**:
+
 - All standard window functions (ROW_NUMBER, RANK, DENSE_RANK, NTILE, PERCENT_RANK, CUME_DIST)
 - All aggregate functions as window functions
 - LAG, LEAD, FIRST_VALUE, LAST_VALUE, NTH_VALUE
@@ -685,6 +692,7 @@ PostgreSQL has the most comprehensive window function support among open-source 
 - Excellent query planner optimization
 
 **Unique Features**:
+
 ```sql
 -- FILTER clause (PostgreSQL, SQLite 3.30+)
 SELECT
@@ -727,15 +735,17 @@ FROM employees;
 ```
 
 **Performance Notes**:
+
 - Excellent optimization with incremental calculation for aggregates
 - Supports parallel execution for some window queries (9.6+)
 - Efficient index usage for PARTITION BY and ORDER BY
-:::
+  :::
 
 ::: details MySQL
 MySQL added window function support in version 8.0 (August 2018).
 
 **Supported Features** (MySQL 8.0+):
+
 - ROW_NUMBER, RANK, DENSE_RANK, NTILE, PERCENT_RANK, CUME_DIST
 - LAG, LEAD, FIRST_VALUE, LAST_VALUE, NTH_VALUE
 - All aggregate functions as window functions
@@ -743,12 +753,14 @@ MySQL added window function support in version 8.0 (August 2018).
 - Named windows with WINDOW clause
 
 **Limitations**:
+
 - No GROUPS frame type
 - No FILTER clause (use CASE instead)
 - No EXCLUDE clause
 - Earlier versions (5.7 and below) have no window function support
 
 **MySQL 8.0+ Examples**:
+
 ```sql
 -- Basic window functions work like standard SQL
 SELECT
@@ -778,7 +790,9 @@ FROM employees;
 ```
 
 **Migration from MySQL 5.7**:
+
 - Use variables workaround in older versions:
+
 ```sql
 -- MySQL 5.7 workaround for ROW_NUMBER
 SET @row_num = 0;
@@ -793,18 +807,21 @@ SELECT
 FROM employees
 ORDER BY department, salary DESC;
 ```
+
 :::
 
 ::: details SQL Server
 SQL Server has had window function support since 2005, with significant enhancements in 2012.
 
 **Version History**:
+
 - SQL Server 2005: ROW_NUMBER, basic OVER clause
 - SQL Server 2012: RANK, DENSE_RANK, NTILE, LAG, LEAD, FIRST_VALUE, LAST_VALUE, CUME_DIST, PERCENT_RANK
 - SQL Server 2012+: Full frame clause support (ROWS, RANGE)
 - SQL Server 2022: WINDOW clause support
 
 **Supported Features** (SQL Server 2012+):
+
 - All standard ranking functions
 - LAG, LEAD, FIRST_VALUE, LAST_VALUE
 - All aggregate functions as window functions
@@ -813,12 +830,14 @@ SQL Server has had window function support since 2005, with significant enhancem
 - STRING_AGG as window function (2017+)
 
 **Limitations**:
+
 - No GROUPS frame type
 - No FILTER clause (use CASE instead)
 - No NTH_VALUE (use workarounds)
 - WINDOW clause added in SQL Server 2022
 
 **Examples**:
+
 ```sql
 -- Ranking functions
 SELECT
@@ -871,15 +890,17 @@ FROM employees;
 ```
 
 **Performance Tips**:
+
 - SQL Server optimizes window functions very well
 - Use columnstore indexes for analytical queries with windows
 - Batch mode execution (SQL Server 2012+) significantly improves performance
-:::
+  :::
 
 ::: details Oracle
 Oracle has had comprehensive window function support since Oracle 8i (1999).
 
 **Supported Features**:
+
 - All standard window functions
 - LAG, LEAD, FIRST_VALUE, LAST_VALUE, NTH_VALUE
 - All aggregate functions as window functions
@@ -889,6 +910,7 @@ Oracle has had comprehensive window function support since Oracle 8i (1999).
 - Excellent optimization
 
 **Unique Features**:
+
 ```sql
 -- KEEP clause: Get first/last value based on ordering
 SELECT
@@ -927,6 +949,7 @@ FROM employees;
 ```
 
 **Oracle-Specific Syntax**:
+
 ```sql
 -- Windowing clause (ROWS vs RANGE)
 SELECT
@@ -949,12 +972,14 @@ SELECT
   ) as commission_rank
 FROM employees;
 ```
+
 :::
 
 ::: details SQLite
 SQLite added window function support in version 3.25.0 (September 2018).
 
 **Supported Features** (SQLite 3.25+):
+
 - ROW_NUMBER, RANK, DENSE_RANK, NTILE, PERCENT_RANK, CUME_DIST
 - LAG, LEAD, FIRST_VALUE, LAST_VALUE, NTH_VALUE
 - All aggregate functions as window functions
@@ -963,11 +988,13 @@ SQLite added window function support in version 3.25.0 (September 2018).
 - EXCLUDE clause (3.28+)
 
 **Limitations**:
+
 - Earlier versions (< 3.25) have no window function support
 - Performance may be slower than other databases for large datasets
 - Limited optimization compared to enterprise databases
 
 **Examples**:
+
 ```sql
 -- Basic window functions
 SELECT
@@ -1010,15 +1037,17 @@ FROM products;
 ```
 
 **Compatibility Notes**:
+
 - SQLite's window function syntax closely follows PostgreSQL
 - Very useful for embedded analytics
 - Check SQLite version before using: `SELECT sqlite_version();`
-:::
+  :::
 
 ::: details BigQuery
 Google BigQuery has comprehensive window function support optimized for large-scale analytics.
 
 **Supported Features**:
+
 - All standard window functions
 - LAG, LEAD, FIRST_VALUE, LAST_VALUE, NTH_VALUE
 - All aggregate functions as window functions
@@ -1027,11 +1056,13 @@ Google BigQuery has comprehensive window function support optimized for large-sc
 - Arrays and structs in window functions
 
 **Limitations**:
+
 - No GROUPS frame type
 - No FILTER clause (use CASE instead)
 - No EXCLUDE clause
 
 **BigQuery-Specific Features**:
+
 ```sql
 -- PERCENTILE functions
 SELECT
@@ -1087,16 +1118,18 @@ WINDOW
 ```
 
 **Performance Tips**:
+
 - BigQuery automatically optimizes window functions
 - PARTITION BY on high-cardinality columns may be expensive
 - Use clustering and partitioning on tables for better performance
 - Consider approximate functions (APPROX_QUANTILES) for very large datasets
-:::
+  :::
 
 ::: details Snowflake
 Snowflake has comprehensive window function support optimized for cloud-scale analytics.
 
 **Supported Features**:
+
 - All standard window functions
 - LAG, LEAD, FIRST_VALUE, LAST_VALUE, NTH_VALUE
 - All aggregate functions as window functions
@@ -1106,10 +1139,12 @@ Snowflake has comprehensive window function support optimized for cloud-scale an
 - Excellent performance and automatic optimization
 
 **Limitations**:
+
 - No GROUPS frame type
 - No FILTER clause (use CASE or IFF instead)
 
 **Snowflake-Specific Features**:
+
 ```sql
 -- QUALIFY clause (filter on window functions directly)
 SELECT
@@ -1176,16 +1211,18 @@ WINDOW
 ```
 
 **Performance Advantages**:
+
 - Automatic query optimization and caching
 - Micro-partition pruning helps window function performance
 - Result caching for repeated window queries
 - Excellent scalability with warehouse sizing
-:::
+  :::
 
 ::: details DuckDB
 DuckDB has comprehensive window function support, following PostgreSQL closely.
 
 **Supported Features**:
+
 - All standard window functions
 - LAG, LEAD, FIRST_VALUE, LAST_VALUE, NTH_VALUE
 - All aggregate functions as window functions
@@ -1196,6 +1233,7 @@ DuckDB has comprehensive window function support, following PostgreSQL closely.
 - Excellent performance optimization
 
 **DuckDB-Specific Features**:
+
 ```sql
 -- FILTER clause (like PostgreSQL)
 SELECT
@@ -1258,12 +1296,13 @@ FROM product_sales;
 ```
 
 **Performance Notes**:
+
 - DuckDB has excellent window function optimization
 - In-memory processing makes windows very fast
 - Supports parallel window execution
 - Vectorized execution for better performance
 - Great for embedded analytics and data science workflows
-:::
+  :::
 
 ## Examples
 
@@ -1434,6 +1473,7 @@ ORDER BY salary;
 ```
 
 **RANGE vs ROWS Difference**:
+
 ```sql
 -- Example with tied values
 -- Data: salaries = [50000, 50000, 60000, 70000]
@@ -1524,6 +1564,7 @@ ORDER BY category, price;
 ```
 
 **ROWS vs RANGE vs GROUPS**:
+
 ```sql
 -- Example dataset: order_date has ties
 -- Data:
@@ -1555,15 +1596,16 @@ order_date  | product | quantity | sum_rows | sum_range | sum_groups
 
 Complete list of frame boundary options:
 
-| Boundary | Description |
-|----------|-------------|
-| `UNBOUNDED PRECEDING` | From the start of the partition |
-| `n PRECEDING` | n rows/values/groups before current |
-| `CURRENT ROW` | The current row |
-| `n FOLLOWING` | n rows/values/groups after current |
-| `UNBOUNDED FOLLOWING` | To the end of the partition |
+| Boundary              | Description                         |
+| --------------------- | ----------------------------------- |
+| `UNBOUNDED PRECEDING` | From the start of the partition     |
+| `n PRECEDING`         | n rows/values/groups before current |
+| `CURRENT ROW`         | The current row                     |
+| `n FOLLOWING`         | n rows/values/groups after current  |
+| `UNBOUNDED FOLLOWING` | To the end of the partition         |
 
 **Default Frames**:
+
 - Without ORDER BY: `ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING` (entire partition)
 - With ORDER BY: `RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW` (up to current row)
 
@@ -1756,6 +1798,7 @@ WINDOW
 ```
 
 **Benefits of Named Windows**:
+
 1. **DRY Principle**: Define once, use many times
 2. **Readability**: Clear window purpose with descriptive names
 3. **Maintainability**: Change window definition in one place
@@ -1827,6 +1870,7 @@ WHERE status = 'completed';
 ```
 
 **Index Selection Guidelines**:
+
 1. Index PARTITION BY columns first (most selective)
 2. Add ORDER BY columns in same order as query
 3. Include frequently accessed SELECT columns for covering

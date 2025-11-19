@@ -965,48 +965,48 @@ SQLite uses dynamic typing with type affinity. Here are the recommended type dec
 
 ### Integer Types
 
-| Declaration | Affinity | Notes |
-|-------------|----------|-------|
-| INT | INTEGER | Recommended |
-| INTEGER | INTEGER | Recommended |
-| TINYINT | INTEGER | 1-byte in other DBs |
-| SMALLINT | INTEGER | 2-byte in other DBs |
-| MEDIUMINT | INTEGER | 3-byte in other DBs |
-| BIGINT | INTEGER | 8-byte in other DBs |
+| Declaration | Affinity | Notes               |
+| ----------- | -------- | ------------------- |
+| INT         | INTEGER  | Recommended         |
+| INTEGER     | INTEGER  | Recommended         |
+| TINYINT     | INTEGER  | 1-byte in other DBs |
+| SMALLINT    | INTEGER  | 2-byte in other DBs |
+| MEDIUMINT   | INTEGER  | 3-byte in other DBs |
+| BIGINT      | INTEGER  | 8-byte in other DBs |
 
 ### Text Types
 
-| Declaration | Affinity | Notes |
-|-------------|----------|-------|
-| TEXT | TEXT | Recommended |
-| VARCHAR(n) | TEXT | Length is ignored |
-| CHAR(n) | TEXT | Not fixed-length |
-| CLOB | TEXT | Character LOB |
+| Declaration | Affinity | Notes             |
+| ----------- | -------- | ----------------- |
+| TEXT        | TEXT     | Recommended       |
+| VARCHAR(n)  | TEXT     | Length is ignored |
+| CHAR(n)     | TEXT     | Not fixed-length  |
+| CLOB        | TEXT     | Character LOB     |
 
 ### Real (Floating Point) Types
 
-| Declaration | Affinity | Notes |
-|-------------|----------|-------|
-| REAL | REAL | Recommended |
-| DOUBLE | REAL | 8-byte float |
-| FLOAT | REAL | 4-byte in other DBs |
+| Declaration | Affinity | Notes               |
+| ----------- | -------- | ------------------- |
+| REAL        | REAL     | Recommended         |
+| DOUBLE      | REAL     | 8-byte float        |
+| FLOAT       | REAL     | 4-byte in other DBs |
 
 ### Numeric Types
 
-| Declaration | Affinity | Notes |
-|-------------|----------|-------|
-| NUMERIC | NUMERIC | May store as INTEGER or REAL |
-| DECIMAL(p,s) | NUMERIC | Decimal number |
-| BOOLEAN | NUMERIC | 0 or 1 |
-| DATE | NUMERIC | Store as TEXT, REAL, or INTEGER |
-| DATETIME | NUMERIC | Store as TEXT, REAL, or INTEGER |
+| Declaration  | Affinity | Notes                           |
+| ------------ | -------- | ------------------------------- |
+| NUMERIC      | NUMERIC  | May store as INTEGER or REAL    |
+| DECIMAL(p,s) | NUMERIC  | Decimal number                  |
+| BOOLEAN      | NUMERIC  | 0 or 1                          |
+| DATE         | NUMERIC  | Store as TEXT, REAL, or INTEGER |
+| DATETIME     | NUMERIC  | Store as TEXT, REAL, or INTEGER |
 
 ### Blob Types
 
-| Declaration | Affinity | Notes |
-|-------------|----------|-------|
-| BLOB | BLOB | Binary data |
-| Any type with "BLOB" | BLOB | - |
+| Declaration          | Affinity | Notes       |
+| -------------------- | -------- | ----------- |
+| BLOB                 | BLOB     | Binary data |
+| Any type with "BLOB" | BLOB     | -           |
 
 ### Date and Time
 
@@ -1179,21 +1179,21 @@ CREATE TABLE users (
 
 ## SQLite vs Other Databases
 
-| Feature | SQLite | PostgreSQL | MySQL | SQL Server |
-|---------|--------|------------|-------|------------|
-| **Architecture** | Serverless, embedded | Client-Server | Client-Server | Client-Server |
-| **File Storage** | Single file | Multiple files | Multiple files | Multiple files |
-| **Configuration** | Zero | Extensive | Moderate | Extensive |
-| **Concurrency** | Limited (WAL helps) | Excellent | Good | Excellent |
-| **Max DB Size** | 281 TB | Unlimited | 64 TB | 524 PB |
-| **Typing** | Dynamic | Static | Static | Static |
-| **ALTER TABLE** | Limited | Full support | Good support | Full support |
-| **License** | Public Domain | Open Source | Open Source/Commercial | Commercial |
-| **Best For** | Mobile, embedded, prototypes | Web apps, analytics | Web apps | Enterprise apps |
-| **Foreign Keys** | Optional (off by default) | Full support | Full support | Full support |
-| **Window Functions** | Yes (3.25+) | Yes | Yes (8.0+) | Yes |
-| **JSON** | Yes (3.38+) | JSONB (excellent) | Yes | Yes |
-| **Full-Text** | FTS5 | Built-in | Built-in | Advanced |
+| Feature              | SQLite                       | PostgreSQL          | MySQL                  | SQL Server      |
+| -------------------- | ---------------------------- | ------------------- | ---------------------- | --------------- |
+| **Architecture**     | Serverless, embedded         | Client-Server       | Client-Server          | Client-Server   |
+| **File Storage**     | Single file                  | Multiple files      | Multiple files         | Multiple files  |
+| **Configuration**    | Zero                         | Extensive           | Moderate               | Extensive       |
+| **Concurrency**      | Limited (WAL helps)          | Excellent           | Good                   | Excellent       |
+| **Max DB Size**      | 281 TB                       | Unlimited           | 64 TB                  | 524 PB          |
+| **Typing**           | Dynamic                      | Static              | Static                 | Static          |
+| **ALTER TABLE**      | Limited                      | Full support        | Good support           | Full support    |
+| **License**          | Public Domain                | Open Source         | Open Source/Commercial | Commercial      |
+| **Best For**         | Mobile, embedded, prototypes | Web apps, analytics | Web apps               | Enterprise apps |
+| **Foreign Keys**     | Optional (off by default)    | Full support        | Full support           | Full support    |
+| **Window Functions** | Yes (3.25+)                  | Yes                 | Yes (8.0+)             | Yes             |
+| **JSON**             | Yes (3.38+)                  | JSONB (excellent)   | Yes                    | Yes             |
+| **Full-Text**        | FTS5                         | Built-in            | Built-in               | Advanced        |
 
 ## Best Practices
 

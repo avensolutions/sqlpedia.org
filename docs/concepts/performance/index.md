@@ -1,9 +1,20 @@
 ---
 title: Query Performance & Optimization
 description: Comprehensive guide to SQL query performance, optimizers, EXPLAIN plans, cost-based vs rule-based optimization, and query tuning patterns
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+databases:
+  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
 difficulty: advanced
-tags: [performance, optimization, explain, cost-based, rule-based, query-tuning, indexes, execution-plans]
+tags:
+  [
+    performance,
+    optimization,
+    explain,
+    cost-based,
+    rule-based,
+    query-tuning,
+    indexes,
+    execution-plans,
+  ]
 ---
 
 # Query Performance & Optimization
@@ -52,6 +63,7 @@ SELECT * FROM orders WHERE customer_id = 123 LIMIT 100;
 SQL query performance optimization is the process of making database queries execute faster and use fewer resources. Understanding how the database query optimizer works and how to analyze execution plans is essential for writing efficient queries.
 
 **Key Concepts**:
+
 - **Query Optimizer**: The database component that chooses the best execution plan
 - **Execution Plan**: The step-by-step strategy the database uses to execute a query
 - **Cost Model**: Mathematical estimates of resource consumption (CPU, I/O, memory)
@@ -59,6 +71,7 @@ SQL query performance optimization is the process of making database queries exe
 - **Query Tuning**: The practice of improving query performance through various techniques
 
 **Why Performance Matters**:
+
 - **User Experience**: Faster queries mean responsive applications
 - **Resource Efficiency**: Optimized queries use less CPU, memory, and I/O
 - **Scalability**: Efficient queries handle larger datasets and more concurrent users
@@ -79,6 +92,7 @@ SQL Query → Parser → Optimizer → Execution Plan → Executor → Results
 ```
 
 **Optimization Process**:
+
 1. **Parsing**: Convert SQL text to internal representation
 2. **Rewriting**: Apply logical transformations (view expansion, subquery flattening)
 3. **Plan Generation**: Create possible execution strategies
@@ -231,6 +245,7 @@ Optimizer chose:
 Rule-based optimizers use predefined heuristics and rules to choose execution plans. They don't use statistics about data distribution.
 
 **How RBO Works**:
+
 - Apply fixed rules to transform queries
 - Choose plans based on syntax patterns
 - No consideration of actual data distribution
@@ -281,16 +296,16 @@ WHERE order_date >= '2024-01-01'  -- Index A
 
 ### Cost-Based vs Rule-Based Comparison
 
-| Aspect | Cost-Based Optimizer (CBO) | Rule-Based Optimizer (RBO) |
-|--------|---------------------------|---------------------------|
-| **Decision Basis** | Statistics and data distribution | Fixed rules and heuristics |
-| **Statistics Required** | Yes, critical | No |
-| **Adaptability** | Adapts to data changes | Fixed behavior |
-| **Predictability** | Can change with data | Always the same |
-| **Performance** | Generally superior | Can be suboptimal |
-| **Maintenance** | Requires statistics updates | No maintenance |
-| **Usage** | Modern databases | Obsolete (pre-2000s) |
-| **Examples** | All modern DBs | Oracle 9i and earlier |
+| Aspect                  | Cost-Based Optimizer (CBO)       | Rule-Based Optimizer (RBO) |
+| ----------------------- | -------------------------------- | -------------------------- |
+| **Decision Basis**      | Statistics and data distribution | Fixed rules and heuristics |
+| **Statistics Required** | Yes, critical                    | No                         |
+| **Adaptability**        | Adapts to data changes           | Fixed behavior             |
+| **Predictability**      | Can change with data             | Always the same            |
+| **Performance**         | Generally superior               | Can be suboptimal          |
+| **Maintenance**         | Requires statistics updates      | No maintenance             |
+| **Usage**               | Modern databases                 | Obsolete (pre-2000s)       |
+| **Examples**            | All modern DBs                   | Oracle 9i and earlier      |
 
 ```sql
 -- Why CBO is superior: Example scenario
@@ -338,6 +353,7 @@ WHERE o.status = 'pending'
 ```
 
 **Modern Reality**:
+
 - **All modern databases use CBO**: PostgreSQL, MySQL 5.7+, SQL Server, Oracle 10g+, DB2, BigQuery, Snowflake, etc.
 - **RBO is obsolete**: Oracle deprecated it in 10g (2003), removed in 11g
 - **Statistics are critical**: CBO is only as good as its statistics
@@ -1257,6 +1273,7 @@ ORDER BY improvement_measure DESC;
 ## Best Practices Summary
 
 ### 1. Always Have Up-to-Date Statistics
+
 ```sql
 -- PostgreSQL
 ANALYZE;  -- All tables
@@ -1273,6 +1290,7 @@ EXEC DBMS_STATS.GATHER_SCHEMA_STATS('schema_name');
 ```
 
 ### 2. Use EXPLAIN Regularly
+
 ```sql
 -- Check execution plans during development
 EXPLAIN ANALYZE SELECT ...;
@@ -1285,6 +1303,7 @@ EXPLAIN ANALYZE SELECT ...;
 ```
 
 ### 3. Index Strategically
+
 ```sql
 -- Index columns used in:
 -- - WHERE clauses (filters)
@@ -1299,6 +1318,7 @@ EXPLAIN ANALYZE SELECT ...;
 ```
 
 ### 4. Monitor and Iterate
+
 ```sql
 -- Track slow queries
 -- Analyze execution plans
@@ -1331,6 +1351,7 @@ WHERE status = 'active';
 ```
 
 **Configuration for Performance**:
+
 ```
 # postgresql.conf
 shared_buffers = 256MB           # 25% of RAM (up to 8GB)
@@ -1339,6 +1360,7 @@ random_page_cost = 1.1           # Lower for SSD
 work_mem = 16MB                  # Per sort/hash operation
 maintenance_work_mem = 256MB     # For VACUUM, CREATE INDEX
 ```
+
 :::
 
 ::: details MySQL
@@ -1364,6 +1386,7 @@ ALTER TABLE orders ALTER INDEX idx_old INVISIBLE;
 ```
 
 **Configuration for Performance**:
+
 ```
 # my.cnf
 innodb_buffer_pool_size = 2G     # 70-80% of RAM
@@ -1373,6 +1396,7 @@ query_cache_size = 0             # Disable in MySQL 5.7 (removed in 8.0)
 tmp_table_size = 64M
 max_heap_table_size = 64M
 ```
+
 :::
 
 ::: details SQL Server
@@ -1404,6 +1428,7 @@ CREATE TABLE orders_memory (
   ...
 ) WITH (MEMORY_OPTIMIZED = ON);
 ```
+
 :::
 
 ::: details Oracle
@@ -1433,6 +1458,7 @@ EXEC DBMS_SPM.LOAD_PLANS_FROM_CURSOR_CACHE(
 -- Adaptive query optimization (12c+)
 -- Automatically adjusts plans during execution
 ```
+
 :::
 
 ## Try It Yourself

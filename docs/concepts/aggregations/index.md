@@ -3,7 +3,22 @@ title: SQL Aggregations
 description: Comprehensive guide to aggregating and grouping data in SQL
 databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite]
 difficulty: beginner
-tags: [aggregations, group-by, having, count, sum, avg, min, max, rollup, cube, grouping-sets, statistics, string-agg]
+tags:
+  [
+    aggregations,
+    group-by,
+    having,
+    count,
+    sum,
+    avg,
+    min,
+    max,
+    rollup,
+    cube,
+    grouping-sets,
+    statistics,
+    string-agg,
+  ]
 ---
 
 # SQL Aggregations
@@ -99,6 +114,7 @@ FROM orders;
 ```
 
 **Important Notes**:
+
 - `COUNT(*)` counts all rows including those with NULL values
 - `COUNT(column)` counts only non-NULL values in that column
 - `COUNT(DISTINCT column)` counts unique non-NULL values
@@ -134,6 +150,7 @@ FROM order_items;
 ```
 
 **Important Notes**:
+
 - `SUM()` ignores NULL values
 - Returns NULL if all values are NULL
 - Use `COALESCE(SUM(column), 0)` to return 0 instead of NULL
@@ -170,6 +187,7 @@ FROM products;
 ```
 
 **Important Notes**:
+
 - `AVG()` ignores NULL values
 - Calculates mean (sum / count of non-NULL values)
 - For weighted averages, calculate manually with SUM
@@ -210,6 +228,7 @@ GROUP BY category;
 ```
 
 **Important Notes**:
+
 - Works with numbers, dates, and strings
 - Ignores NULL values
 - String comparison is alphabetical
@@ -1376,6 +1395,7 @@ SELECT
 FROM customers
 GROUP BY ROLLUP(country, city);
 ```
+
 :::
 
 ::: details MySQL
@@ -1415,6 +1435,7 @@ GROUP BY country, city WITH ROLLUP;
 -- ❌ No CUBE or GROUPING SETS in MySQL 8.0
 -- Must use UNION or multiple queries
 ```
+
 :::
 
 ::: details SQL Server
@@ -1467,6 +1488,7 @@ SELECT
 FROM customers c1
 GROUP BY country;
 ```
+
 :::
 
 ::: details SQLite
@@ -1513,6 +1535,7 @@ SELECT
 FROM customers
 GROUP BY country;
 ```
+
 :::
 
 ::: details Oracle
@@ -1569,6 +1592,7 @@ SELECT
 FROM products
 GROUP BY category;
 ```
+
 :::
 
 ## Real-World Examples

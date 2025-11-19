@@ -3,7 +3,17 @@ title: SQL Joins
 description: Comprehensive guide to joining tables in SQL
 databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite]
 difficulty: beginner
-tags: [joins, inner-join, left-join, right-join, full-outer-join, cross-join, self-join, natural-join]
+tags:
+  [
+    joins,
+    inner-join,
+    left-join,
+    right-join,
+    full-outer-join,
+    cross-join,
+    self-join,
+    natural-join,
+  ]
 ---
 
 # SQL Joins
@@ -90,6 +100,7 @@ INNER JOIN departments d
 ```
 
 **Visualization**:
+
 ```
 Table A          Table B          Result
 ┌─────┬────┐    ┌─────┬────┐    ┌─────┬────┬────┐
@@ -138,6 +149,7 @@ GROUP BY c.customer_id, c.customer_name;
 ```
 
 **Visualization**:
+
 ```
 Table A          Table B          Result
 ┌─────┬────┐    ┌─────┬────┐    ┌─────┬────┬─────┐
@@ -175,6 +187,7 @@ LEFT JOIN customers c ON o.customer_id = c.customer_id;
 ```
 
 **Visualization**:
+
 ```
 Table A          Table B          Result
 ┌─────┬────┐    ┌─────┬────┐    ┌─────┬─────┬────┐
@@ -228,6 +241,7 @@ FULL OUTER JOIN new_products new ON old.product_id = new.product_id;
 ```
 
 **Visualization**:
+
 ```
 Table A          Table B          Result
 ┌─────┬────┐    ┌─────┬────┐    ┌─────┬─────┬─────┐
@@ -280,6 +294,7 @@ CROSS JOIN user_segments segments;
 ```
 
 **Visualization**:
+
 ```
 Table A      Table B      Result
 ┌────┐      ┌────┐      ┌────┬────┐
@@ -1059,6 +1074,7 @@ SELECT * FROM customers JOIN orders USING (customer_id);
 CREATE INDEX idx_orders_hash ON orders USING hash(customer_id);
 CREATE INDEX idx_orders_btree ON orders USING btree(customer_id);
 ```
+
 :::
 
 ::: details MySQL
@@ -1084,6 +1100,7 @@ FROM orders o
 INNER JOIN customers c USE INDEX (idx_customer_id)
   ON o.customer_id = c.customer_id;
 ```
+
 :::
 
 ::: details SQLite
@@ -1115,6 +1132,7 @@ WHERE a.id IS NULL;
 -- NATURAL JOIN is supported
 SELECT * FROM customers NATURAL JOIN orders;
 ```
+
 :::
 
 ::: details SQL Server
@@ -1154,6 +1172,7 @@ SELECT *
 FROM orders o
 INNER LOOP JOIN customers c ON o.customer_id = c.customer_id;
 ```
+
 :::
 
 ::: details Oracle
@@ -1185,6 +1204,7 @@ SELECT /*+ USE_HASH(o c) */ *
 FROM orders o
 INNER JOIN customers c ON o.customer_id = c.customer_id;
 ```
+
 :::
 
 ## Real-World Examples

@@ -39,12 +39,14 @@ We are committed to providing a welcoming and inclusive environment for all cont
 ### 1. Content Contributions
 
 #### Add New Content
+
 - Write guides for SQL concepts
 - Create database-specific documentation
 - Add real-world patterns and examples
 - Write migration guides between databases
 
 #### Improve Existing Content
+
 - Fix typos and grammatical errors
 - Clarify explanations
 - Add missing information
@@ -54,18 +56,21 @@ We are committed to providing a welcoming and inclusive environment for all cont
 ### 2. Code Contributions
 
 #### Vue Components
+
 - Enhance existing components (SQLAssistant, SQLComparison)
 - Create new interactive components
 - Improve component accessibility
 - Add component tests
 
 #### Backend/Functions
+
 - Improve Netlify functions
 - Add new AI providers
 - Optimize caching strategies
 - Enhance error handling
 
 #### Theme/Design
+
 - Improve visual design
 - Enhance responsiveness
 - Improve dark mode
@@ -96,22 +101,26 @@ We are committed to providing a welcoming and inclusive environment for all cont
    - Click "Fork" button in the top right
 
 2. **Clone your fork**
+
    ```bash
    git clone https://github.com/YOUR-USERNAME/sqlpedia.org.git
    cd sqlpedia.org
    ```
 
 3. **Add upstream remote**
+
    ```bash
    git remote add upstream https://github.com/stackql/sqlpedia.org.git
    ```
 
 4. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 5. **Start development server**
+
    ```bash
    npm run dev
    ```
@@ -233,27 +242,32 @@ SELECT example FROM table;
 ### Writing Style
 
 #### Be Clear and Concise
+
 - Use simple, direct language
 - Avoid jargon unless necessary
 - Define technical terms when first used
 - Break complex topics into digestible sections
 
 #### Use Active Voice
+
 - ✅ "Use indexes to improve query performance"
 - ❌ "Query performance can be improved by using indexes"
 
 #### Provide Context
+
 - Explain WHY, not just HOW
 - Include real-world use cases
 - Show practical applications
 
 #### Code Examples
+
 - Use realistic table and column names
 - Add comments to explain complex logic
 - Show both good and bad examples
 - Test all code examples before submitting
 
 #### Be Database-Agnostic (When Possible)
+
 - Use standard SQL when applicable
 - Clearly mark database-specific features
 - Provide alternatives for different databases
@@ -334,7 +348,7 @@ Always specify the language:
 
 ```markdown
 \`\`\`sql
-SELECT * FROM users;
+SELECT \* FROM users;
 \`\`\`
 
 \`\`\`bash
@@ -352,7 +366,7 @@ Use Markdown tables for comparisons:
 
 ```markdown
 | Column 1 | Column 2 | Column 3 |
-|----------|----------|----------|
+| -------- | -------- | -------- |
 | Value 1  | Value 2  | Value 3  |
 | Value 4  | Value 5  | Value 6  |
 ```
@@ -382,6 +396,7 @@ Use Markdown tables for comparisons:
 ### Before Submitting
 
 1. **Test your changes locally**
+
    ```bash
    npm run dev     # Check in development
    npm run build   # Ensure it builds
@@ -389,6 +404,7 @@ Use Markdown tables for comparisons:
    ```
 
 2. **Lint and format**
+
    ```bash
    npm run lint
    npm run format
@@ -408,6 +424,7 @@ Use Markdown tables for comparisons:
 ### Submitting
 
 1. **Push to your fork**
+
    ```bash
    git push origin feature/your-feature-name
    ```
@@ -429,9 +446,11 @@ Use Markdown tables for comparisons:
 
 ```markdown
 ## Description
+
 [Brief description of changes]
 
 ## Type of Change
+
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Content addition/update
@@ -440,22 +459,27 @@ Use Markdown tables for comparisons:
 - [ ] Code refactoring
 
 ## Related Issues
+
 Closes #[issue number]
 
 ## Changes Made
+
 - [List of changes]
 - [List of changes]
 
 ## Testing Performed
+
 - [ ] Tested locally in development mode
 - [ ] Tested production build
 - [ ] All code examples tested
 - [ ] Verified links work
 
 ## Screenshots (if applicable)
+
 [Add screenshots]
 
 ## Checklist
+
 - [ ] Code follows project style guidelines
 - [ ] Comments added for complex logic
 - [ ] Documentation updated
@@ -473,6 +497,7 @@ Closes #[issue number]
 ### After Merge
 
 1. **Delete your feature branch**
+
    ```bash
    git branch -d feature/your-feature-name
    git push origin --delete feature/your-feature-name
@@ -488,21 +513,25 @@ Closes #[issue number]
 ## Content Quality Standards
 
 ### Accuracy
+
 - All SQL examples must be tested
 - Information must be current and correct
 - References should be cited when appropriate
 
 ### Completeness
+
 - Cover all important aspects of the topic
 - Include examples for different scenarios
 - Provide troubleshooting guidance
 
 ### Clarity
+
 - Use clear, unambiguous language
 - Define technical terms
 - Provide context and explanations
 
 ### Consistency
+
 - Follow the page template
 - Use consistent terminology
 - Maintain uniform code style
@@ -524,6 +553,7 @@ Closes #[issue number]
 ### Recognition
 
 Contributors are recognized in:
+
 - CONTRIBUTORS.md file
 - GitHub contributors page
 - Release notes (for significant contributions)

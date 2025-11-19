@@ -149,33 +149,33 @@ session.close()
 ```
 
 ```javascript [Node.js]
-const snowflake = require('snowflake-sdk');
+const snowflake = require("snowflake-sdk");
 
 // Create connection
 const connection = snowflake.createConnection({
-    account: 'xy12345.us-east-1',
-    username: 'john_doe',
-    password: 'SecurePassword123',
-    warehouse: 'COMPUTE_WH',
-    database: 'MY_DATABASE',
-    schema: 'PUBLIC'
+  account: "xy12345.us-east-1",
+  username: "john_doe",
+  password: "SecurePassword123",
+  warehouse: "COMPUTE_WH",
+  database: "MY_DATABASE",
+  schema: "PUBLIC",
 });
 
 // Connect
 connection.connect((err, conn) => {
-    if (err) {
-        console.error('Unable to connect: ' + err.message);
-    } else {
-        console.log('Successfully connected');
+  if (err) {
+    console.error("Unable to connect: " + err.message);
+  } else {
+    console.log("Successfully connected");
 
-        // Execute query
-        conn.execute({
-            sqlText: 'SELECT CURRENT_VERSION()',
-            complete: (err, stmt, rows) => {
-                console.log(rows);
-            }
-        });
-    }
+    // Execute query
+    conn.execute({
+      sqlText: "SELECT CURRENT_VERSION()",
+      complete: (err, stmt, rows) => {
+        console.log(rows);
+      },
+    });
+  }
 });
 ```
 
@@ -878,33 +878,33 @@ WHERE start_time >= DATEADD(day, -7, CURRENT_TIMESTAMP());
 
 ### Numeric Types
 
-| Type | Precision | Scale | Range |
-|------|-----------|-------|-------|
-| NUMBER | 1-38 | 0-38 | -10^38 to 10^38 |
-| DECIMAL, NUMERIC | Alias for NUMBER | | |
-| INT, INTEGER, BIGINT, SMALLINT, TINYINT | 38 | 0 | Whole numbers |
-| FLOAT, DOUBLE | Approximate | | IEEE 754 |
+| Type                                    | Precision        | Scale | Range           |
+| --------------------------------------- | ---------------- | ----- | --------------- |
+| NUMBER                                  | 1-38             | 0-38  | -10^38 to 10^38 |
+| DECIMAL, NUMERIC                        | Alias for NUMBER |       |                 |
+| INT, INTEGER, BIGINT, SMALLINT, TINYINT | 38               | 0     | Whole numbers   |
+| FLOAT, DOUBLE                           | Approximate      |       | IEEE 754        |
 
 ### String Types
 
-| Type | Description | Max Size |
-|------|-------------|----------|
-| VARCHAR | Variable-length | 16 MB |
-| CHAR, CHARACTER | Alias for VARCHAR | 16 MB |
-| STRING, TEXT | Alias for VARCHAR | 16 MB |
-| BINARY | Binary data | 8 MB |
-| VARBINARY | Alias for BINARY | 8 MB |
+| Type            | Description       | Max Size |
+| --------------- | ----------------- | -------- |
+| VARCHAR         | Variable-length   | 16 MB    |
+| CHAR, CHARACTER | Alias for VARCHAR | 16 MB    |
+| STRING, TEXT    | Alias for VARCHAR | 16 MB    |
+| BINARY          | Binary data       | 8 MB     |
+| VARBINARY       | Alias for BINARY  | 8 MB     |
 
 ### Date/Time Types
 
-| Type | Format | Range |
-|------|--------|-------|
-| DATE | YYYY-MM-DD | 0001-01-01 to 9999-12-31 |
-| TIME | HH:MI:SS | 00:00:00 to 23:59:59.999999999 |
-| TIMESTAMP | YYYY-MM-DD HH:MI:SS | 0001-01-01 00:00:00 to 9999-12-31 23:59:59.999999999 |
-| TIMESTAMP_LTZ | With local time zone | |
-| TIMESTAMP_NTZ | No time zone (default) | |
-| TIMESTAMP_TZ | With time zone | |
+| Type          | Format                 | Range                                                |
+| ------------- | ---------------------- | ---------------------------------------------------- |
+| DATE          | YYYY-MM-DD             | 0001-01-01 to 9999-12-31                             |
+| TIME          | HH:MI:SS               | 00:00:00 to 23:59:59.999999999                       |
+| TIMESTAMP     | YYYY-MM-DD HH:MI:SS    | 0001-01-01 00:00:00 to 9999-12-31 23:59:59.999999999 |
+| TIMESTAMP_LTZ | With local time zone   |                                                      |
+| TIMESTAMP_NTZ | No time zone (default) |                                                      |
+| TIMESTAMP_TZ  | With time zone         |                                                      |
 
 ### Semi-Structured Types
 
@@ -1359,18 +1359,18 @@ RETURNS STRING ->
 
 ## Snowflake vs Other Databases
 
-| Feature | Snowflake | Redshift | BigQuery | Databricks |
-|---------|-----------|----------|----------|------------|
-| Architecture | Multi-cluster shared data | MPP | Serverless | Lakehouse |
-| Storage/Compute | Fully separated | Partially separated | Fully separated | Separated |
-| Scaling | Independent, instant | Manual resize | Automatic | Automatic |
-| Time Travel | 0-90 days | Manual snapshots | 7 days | Delta Lake |
-| Zero-Copy Clone | Yes | No | Snapshots | Delta Lake |
-| Data Sharing | Native, live | Manual copy | Analytics Hub | Delta Sharing |
-| Semi-Structured | Native VARIANT | SUPER type | JSON | Native |
-| Streams/CDC | Native | Manual | Change streams | Change Data Feed |
-| Cost Model | Per-second billing | Hourly | Per-query | Per-DBU |
-| Multi-Cloud | AWS, Azure, GCP | AWS only | GCP only | AWS, Azure, GCP |
+| Feature         | Snowflake                 | Redshift            | BigQuery        | Databricks       |
+| --------------- | ------------------------- | ------------------- | --------------- | ---------------- |
+| Architecture    | Multi-cluster shared data | MPP                 | Serverless      | Lakehouse        |
+| Storage/Compute | Fully separated           | Partially separated | Fully separated | Separated        |
+| Scaling         | Independent, instant      | Manual resize       | Automatic       | Automatic        |
+| Time Travel     | 0-90 days                 | Manual snapshots    | 7 days          | Delta Lake       |
+| Zero-Copy Clone | Yes                       | No                  | Snapshots       | Delta Lake       |
+| Data Sharing    | Native, live              | Manual copy         | Analytics Hub   | Delta Sharing    |
+| Semi-Structured | Native VARIANT            | SUPER type          | JSON            | Native           |
+| Streams/CDC     | Native                    | Manual              | Change streams  | Change Data Feed |
+| Cost Model      | Per-second billing        | Hourly              | Per-query       | Per-DBU          |
+| Multi-Cloud     | AWS, Azure, GCP           | AWS only            | GCP only        | AWS, Azure, GCP  |
 
 ## Best Practices
 

@@ -10,7 +10,11 @@
     <div class="playground-controls">
       <div class="control-group">
         <label for="playground-dialect">Dialect:</label>
-        <select id="playground-dialect" v-model="selectedDialect" class="select-input">
+        <select
+          id="playground-dialect"
+          v-model="selectedDialect"
+          class="select-input"
+        >
           <option value="postgresql">PostgreSQL</option>
           <option value="mysql">MySQL</option>
           <option value="sqlite">SQLite</option>
@@ -37,9 +41,13 @@
         @click="runQuery"
         :disabled="!allowExecution || isRunning"
         class="run-button"
-        :title="allowExecution ? 'Run query' : 'Query execution not available in this demo'"
+        :title="
+          allowExecution
+            ? 'Run query'
+            : 'Query execution not available in this demo'
+        "
       >
-        {{ isRunning ? 'Running...' : '▶ Run Query' }}
+        {{ isRunning ? "Running..." : "▶ Run Query" }}
       </button>
       <button @click="clearEditor" class="clear-button">Clear</button>
     </div>
@@ -78,90 +86,92 @@
 
     <div class="playground-footer">
       <p class="info-note">
-        ℹ️ This is a demo playground. Full query execution with DuckDB WASM coming in future release.
+        ℹ️ This is a demo playground. Full query execution with DuckDB WASM
+        coming in future release.
       </p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
 
 interface Props {
-  dialect?: string
-  sampleData?: any
-  allowExecution?: boolean
+  dialect?: string;
+  sampleData?: any;
+  allowExecution?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  dialect: 'postgresql',
-  allowExecution: false
-})
+  dialect: "postgresql",
+  allowExecution: false,
+});
 
 // State
-const selectedDialect = ref(props.dialect)
-const sqlQuery = ref('')
-const isRunning = ref(false)
-const result = ref<any>(null)
-const error = ref('')
+const selectedDialect = ref(props.dialect);
+const sqlQuery = ref("");
+const isRunning = ref(false);
+const result = ref<any>(null);
+const error = ref("");
 
 const placeholder = `-- Enter your SQL query here
 SELECT * FROM customers
 WHERE country = 'USA'
 ORDER BY customer_name
-LIMIT 10;`
+LIMIT 10;`;
 
 // Methods
 const formatQuery = () => {
   // Basic SQL formatting (placeholder for future enhancement)
   sqlQuery.value = sqlQuery.value
-    .replace(/\bSELECT\b/gi, 'SELECT')
-    .replace(/\bFROM\b/gi, 'FROM')
-    .replace(/\bWHERE\b/gi, 'WHERE')
-    .replace(/\bORDER BY\b/gi, 'ORDER BY')
-    .replace(/\bGROUP BY\b/gi, 'GROUP BY')
-}
+    .replace(/\bSELECT\b/gi, "SELECT")
+    .replace(/\bFROM\b/gi, "FROM")
+    .replace(/\bWHERE\b/gi, "WHERE")
+    .replace(/\bORDER BY\b/gi, "ORDER BY")
+    .replace(/\bGROUP BY\b/gi, "GROUP BY");
+};
 
 const runQuery = async () => {
   if (!props.allowExecution) {
-    error.value = 'Query execution is not enabled. This is a demonstration component.'
-    return
+    error.value =
+      "Query execution is not enabled. This is a demonstration component.";
+    return;
   }
 
-  isRunning.value = true
-  error.value = ''
-  result.value = null
+  isRunning.value = true;
+  error.value = "";
+  result.value = null;
 
   try {
     // Placeholder for future DuckDB WASM integration
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     // Mock result
     result.value = {
-      columns: ['id', 'name', 'value'],
+      columns: ["id", "name", "value"],
       rows: [
-        { id: 1, name: 'Example', value: 100 },
-        { id: 2, name: 'Sample', value: 200 },
+        { id: 1, name: "Example", value: 100 },
+        { id: 2, name: "Sample", value: 200 },
       ],
-      executionTime: 42
-    }
+      executionTime: 42,
+    };
   } catch (err) {
-    error.value = err instanceof Error ? err.message : 'An error occurred'
+    error.value = err instanceof Error ? err.message : "An error occurred";
   } finally {
-    isRunning.value = false
+    isRunning.value = false;
   }
-}
+};
 
 const clearEditor = () => {
-  sqlQuery.value = ''
-  result.value = null
-  error.value = ''
-}
+  sqlQuery.value = "";
+  result.value = null;
+  error.value = "";
+};
 
 const formatSampleData = () => {
-  if (!props.sampleData) return ''
-  return JSON.stringify(props.sampleData, null, 2)
-}
+  if (!props.sampleData) return "";
+  return JSON.stringify(props.sampleData, null, 2);
+};
 </script>
 
 <style scoped>
@@ -244,7 +254,7 @@ const formatSampleData = () => {
   border-radius: 0 0 4px 4px;
   background-color: var(--vp-c-bg);
   color: var(--vp-c-text-1);
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
   font-size: 0.9em;
   resize: vertical;
 }
