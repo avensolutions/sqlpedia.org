@@ -1,9 +1,25 @@
 ---
 title: ETL Patterns in SQL
-description: Comprehensive guide to ETL patterns including Slowly Changing Dimensions (SCD) Type 1 and Type 2 for data warehousing
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, Snowflake, BigQuery, Databricks]
+description: >-
+  Comprehensive guide to ETL patterns including Slowly Changing Dimensions (SCD)
+  Type 1 and Type 2 for data warehousing
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - Snowflake
+  - BigQuery
+  - Databricks
 difficulty: intermediate
-tags: [etl, scd, data-warehouse, dimensional-modeling, type1, type2, slowly-changing-dimensions]
+tags:
+  - patterns
+  - etl
+  - scd
+  - dimensional-modeling
+  - type1
+  - type2
+  - slowly-changing-dimensions
 ---
 
 # ETL Patterns in SQL

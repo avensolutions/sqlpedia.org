@@ -1,9 +1,29 @@
 ---
 title: Reporting Patterns in SQL
-description: Comprehensive guide to SQL reporting patterns for dashboards, KPIs, operational reports, and business intelligence
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+description: >-
+  Comprehensive guide to SQL reporting patterns for dashboards, KPIs,
+  operational reports, and business intelligence
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: intermediate
-tags: [reporting, dashboards, kpi, metrics, business-intelligence, scheduled-reports, cross-tab, drill-down, performance]
+tags:
+  - patterns
+  - reporting
+  - dashboards
+  - kpi
+  - metrics
+  - business-intelligence
+  - scheduled-reports
+  - cross-tab
+  - drill-down
+  - performance
 ---
 
 # Reporting Patterns in SQL

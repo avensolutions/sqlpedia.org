@@ -1,9 +1,26 @@
 ---
 title: Event Sourcing Patterns in SQL
-description: Comprehensive guide to event sourcing patterns for building audit trails, temporal data, and event-driven architectures
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, Snowflake, BigQuery]
+description: >-
+  Comprehensive guide to event sourcing patterns for building audit trails,
+  temporal data, and event-driven architectures
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - Snowflake
+  - BigQuery
 difficulty: advanced
-tags: [event-sourcing, cqrs, audit, temporal, events, projections, snapshots, state-management]
+tags:
+  - patterns
+  - event-sourcing
+  - cqrs
+  - audit
+  - temporal
+  - events
+  - projections
+  - snapshots
+  - state-management
 ---
 
 # Event Sourcing Patterns in SQL

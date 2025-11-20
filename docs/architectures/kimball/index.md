@@ -1,9 +1,28 @@
 ---
 title: Kimball Data Warehouse Architecture
-description: Comprehensive guide to Ralph Kimball's dimensional modeling approach - star schemas, conformed dimensions, and business process-centric data warehousing
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+description: >-
+  Comprehensive guide to Ralph Kimball's dimensional modeling approach - star
+  schemas, conformed dimensions, and business process-centric data warehousing
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: advanced
-tags: [architecture, data-warehouse, kimball, dimensional-modeling, star-schema, fact-table, dimension-table, business-intelligence, analytics]
+tags:
+  - architectures
+  - kimball
+  - architecture
+  - dimensional-modeling
+  - star-schema
+  - fact-table
+  - dimension-table
+  - business-intelligence
+  - analytics
 ---
 
 # Kimball Data Warehouse Architecture

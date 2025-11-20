@@ -1,24 +1,32 @@
 ---
 title: ACID Properties
-description: Comprehensive guide to ACID (Atomicity, Consistency, Isolation, Durability) transactions and BASE alternative for distributed systems
+description: >-
+  Comprehensive guide to ACID (Atomicity, Consistency, Isolation, Durability)
+  transactions and BASE alternative for distributed systems
 databases:
-  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: intermediate
 tags:
-  [
-    acid,
-    transactions,
-    atomicity,
-    consistency,
-    isolation,
-    durability,
-    base,
-    eventual-consistency,
-    transaction-control,
-    commit,
-    rollback,
-    savepoint,
-  ]
+  - concepts
+  - acid
+  - transactions
+  - atomicity
+  - consistency
+  - isolation
+  - durability
+  - base
+  - eventual-consistency
+  - transaction-control
+  - commit
+  - rollback
+  - savepoint
 ---
 
 # ACID Properties

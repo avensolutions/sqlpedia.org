@@ -1,9 +1,34 @@
 ---
 title: NoSQL Databases
-description: Comprehensive guide to NoSQL databases including document stores, key-value stores, column-family databases, and their SQL interfaces
-databases: [MongoDB, Cassandra, Redis, DynamoDB, Couchbase, HBase, CouchDB, Neo4j, ArangoDB]
+description: >-
+  Comprehensive guide to NoSQL databases including document stores, key-value
+  stores, column-family databases, and their SQL interfaces
+databases:
+  - MongoDB
+  - Cassandra
+  - Redis
+  - DynamoDB
+  - Couchbase
+  - HBase
+  - CouchDB
+  - Neo4j
+  - ArangoDB
 difficulty: intermediate
-tags: [nosql, document-store, key-value, column-family, mongodb, cassandra, redis, dynamodb, couchbase, cap-theorem, eventual-consistency, sql-on-nosql]
+tags:
+  - concepts
+  - nosql-databases
+  - nosql
+  - document-store
+  - key-value
+  - column-family
+  - mongodb
+  - cassandra
+  - redis
+  - dynamodb
+  - couchbase
+  - cap-theorem
+  - eventual-consistency
+  - sql-on-nosql
 ---
 
 # NoSQL Databases

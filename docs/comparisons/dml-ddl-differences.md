@@ -1,9 +1,31 @@
 ---
 title: DML & DDL Differences Across Database Engines
-description: Comprehensive guide to Data Manipulation Language (DML) and Data Definition Language (DDL) syntax differences across major SQL databases
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+description: >-
+  Comprehensive guide to Data Manipulation Language (DML) and Data Definition
+  Language (DDL) syntax differences across major SQL databases
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: intermediate
-tags: [dml, ddl, comparison, syntax, migration, create-table, insert, update, delete, alter]
+tags:
+  - comparisons
+  - dml-ddl-differences
+  - dml
+  - ddl
+  - comparison
+  - syntax
+  - migration
+  - create-table
+  - insert
+  - update
+  - delete
+  - alter
 ---
 
 # DML & DDL Differences Across Database Engines

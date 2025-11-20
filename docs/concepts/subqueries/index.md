@@ -1,19 +1,27 @@
 ---
 title: Subqueries
-description: Comprehensive guide to SQL subqueries - nested queries for complex data retrieval and filtering
+description: >-
+  Comprehensive guide to SQL subqueries - nested queries for complex data
+  retrieval and filtering
 databases:
-  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: intermediate
 tags:
-  [
-    subqueries,
-    nested-queries,
-    correlated-subqueries,
-    derived-tables,
-    scalar-subqueries,
-    exists,
-    in,
-  ]
+  - concepts
+  - subqueries
+  - nested-queries
+  - correlated-subqueries
+  - derived-tables
+  - scalar-subqueries
+  - exists
+  - in
 ---
 
 # Subqueries

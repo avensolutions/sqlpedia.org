@@ -1,9 +1,30 @@
 ---
 title: Medallion Architecture
-description: Comprehensive guide to the Medallion (Bronze-Silver-Gold) lakehouse architecture - multi-hop data pipeline pattern for data lakes and lakehouses
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB, Databricks]
+description: >-
+  Comprehensive guide to the Medallion (Bronze-Silver-Gold) lakehouse
+  architecture - multi-hop data pipeline pattern for data lakes and lakehouses
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
+  - Databricks
 difficulty: advanced
-tags: [architecture, data-lakehouse, medallion, bronze-silver-gold, delta-lake, data-lake, data-pipeline, ETL, data-quality]
+tags:
+  - architectures
+  - medallion
+  - architecture
+  - data-lakehouse
+  - bronze-silver-gold
+  - delta-lake
+  - data-lake
+  - data-pipeline
+  - ETL
+  - data-quality
 ---
 
 # Medallion Architecture

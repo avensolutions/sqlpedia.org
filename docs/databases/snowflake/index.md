@@ -1,8 +1,15 @@
 ---
 title: Snowflake
-description: Comprehensive guide to Snowflake - Cloud-native data warehouse platform for analytics and data engineering
+description: >-
+  Comprehensive guide to Snowflake - Cloud-native data warehouse platform for
+  analytics and data engineering
 difficulty: intermediate
-tags: [snowflake, cloud, datawarehouse, analytics]
+tags:
+  - databases
+  - snowflake
+  - cloud
+  - datawarehouse
+  - analytics
 ---
 
 # Snowflake

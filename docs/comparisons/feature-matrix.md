@@ -1,9 +1,28 @@
 ---
 title: Database Engine Feature Matrix
-description: Comprehensive feature comparison across major SQL database engines including PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and cloud databases
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB, Databricks, Spark SQL]
+description: >-
+  Comprehensive feature comparison across major SQL database engines including
+  PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and cloud databases
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
+  - Databricks
+  - Spark SQL
 difficulty: intermediate
-tags: [comparison, features, databases, migration, engines]
+tags:
+  - comparisons
+  - feature-matrix
+  - comparison
+  - features
+  - databases
+  - migration
+  - engines
 ---
 
 # Database Engine Feature Matrix

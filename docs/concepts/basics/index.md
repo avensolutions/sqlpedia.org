@@ -1,25 +1,30 @@
 ---
 title: SQL Basics
 description: Introduction to SQL fundamentals and core concepts
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite]
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
 difficulty: beginner
 tags:
-  [
-    fundamentals,
-    select,
-    insert,
-    update,
-    delete,
-    create-table,
-    alter-table,
-    constraints,
-    views,
-    indexes,
-    subqueries,
-    joins,
-    ddl,
-    dml,
-  ]
+  - concepts
+  - basics
+  - fundamentals
+  - select
+  - insert
+  - update
+  - delete
+  - create-table
+  - alter-table
+  - constraints
+  - views
+  - indexes
+  - subqueries
+  - joins
+  - ddl
+  - dml
 ---
 
 # SQL Basics

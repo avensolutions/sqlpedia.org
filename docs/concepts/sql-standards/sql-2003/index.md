@@ -1,9 +1,31 @@
 ---
-title: SQL:2003
-description: Comprehensive guide to SQL:2003 standard featuring window functions, MERGE statement, sequences, XML support, and enhanced analytics capabilities
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, Snowflake, BigQuery, DuckDB, Databricks, Spark SQL]
+title: 'SQL:2003'
+description: >-
+  Comprehensive guide to SQL:2003 standard featuring window functions, MERGE
+  statement, sequences, XML support, and enhanced analytics capabilities
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - Snowflake
+  - BigQuery
+  - DuckDB
+  - Databricks
+  - Spark SQL
 difficulty: intermediate
-tags: [sql-2003, window-functions, merge, sequences, xml, analytics, over-clause, ranking]
+tags:
+  - concepts
+  - sql-standards
+  - sql-2003
+  - window-functions
+  - merge
+  - sequences
+  - xml
+  - analytics
+  - over-clause
+  - ranking
 ---
 
 # SQL:2003

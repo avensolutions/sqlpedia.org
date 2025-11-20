@@ -1,9 +1,28 @@
 ---
 title: Data Sharing Architectures
-description: Comprehensive guide to modern data sharing architectures - Delta Sharing, Snowflake Secure Data Sharing, Zero Copy Cloning, and cross-cloud data collaboration patterns
-databases: [Databricks, Snowflake, BigQuery, PostgreSQL, DuckDB]
+description: >-
+  Comprehensive guide to modern data sharing architectures - Delta Sharing,
+  Snowflake Secure Data Sharing, Zero Copy Cloning, and cross-cloud data
+  collaboration patterns
+databases:
+  - Databricks
+  - Snowflake
+  - BigQuery
+  - PostgreSQL
+  - DuckDB
 difficulty: advanced
-tags: [architecture, data-sharing, delta-sharing, zero-copy, secure-sharing, cross-cloud, data-collaboration, data-marketplace, snowflake, databricks]
+tags:
+  - architectures
+  - data-sharing
+  - architecture
+  - delta-sharing
+  - zero-copy
+  - secure-sharing
+  - cross-cloud
+  - data-collaboration
+  - data-marketplace
+  - snowflake
+  - databricks
 ---
 
 # Data Sharing Architectures

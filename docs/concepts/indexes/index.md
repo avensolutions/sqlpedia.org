@@ -1,11 +1,27 @@
 ---
 title: Indexes
-description: Comprehensive guide to database indexes - B-trees, bitmap indexes, clustered vs nonclustered, specialized indexes, and cardinality estimation
+description: >-
+  Comprehensive guide to database indexes - B-trees, bitmap indexes, clustered
+  vs nonclustered, specialized indexes, and cardinality estimation
 databases:
-  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: intermediate
 tags:
-  [indexes, b-tree, bitmap, clustered, performance, optimization, cardinality]
+  - concepts
+  - indexes
+  - b-tree
+  - bitmap
+  - clustered
+  - performance
+  - optimization
+  - cardinality
 ---
 
 # Indexes

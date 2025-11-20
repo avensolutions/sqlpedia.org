@@ -1,9 +1,30 @@
 ---
-title: SQL:2016
-description: Comprehensive guide to SQL:2016 standard featuring JSON support, row pattern matching, polymorphic table functions, and enhanced temporal features
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, Snowflake, BigQuery, DuckDB, Databricks, Spark SQL]
+title: 'SQL:2016'
+description: >-
+  Comprehensive guide to SQL:2016 standard featuring JSON support, row pattern
+  matching, polymorphic table functions, and enhanced temporal features
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - Snowflake
+  - BigQuery
+  - DuckDB
+  - Databricks
+  - Spark SQL
 difficulty: intermediate
-tags: [sql-2016, json, json-path, pattern-matching, match-recognize, polymorphic-functions, json-table]
+tags:
+  - concepts
+  - sql-standards
+  - sql-2016
+  - json
+  - json-path
+  - pattern-matching
+  - match-recognize
+  - polymorphic-functions
+  - json-table
 ---
 
 # SQL:2016

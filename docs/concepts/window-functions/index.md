@@ -2,9 +2,21 @@
 title: Window Functions
 description: Comprehensive guide to SQL window functions across different database systems
 databases:
-  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: intermediate
-tags: [analytics, aggregation, ranking]
+tags:
+  - concepts
+  - window-functions
+  - analytics
+  - aggregation
+  - ranking
 ---
 
 # Window Functions

@@ -1,8 +1,17 @@
 ---
 title: Apache Spark SQL
-description: Comprehensive guide to Apache Spark SQL - Distributed SQL processing engine for big data analytics
+description: >-
+  Comprehensive guide to Apache Spark SQL - Distributed SQL processing engine
+  for big data analytics
 difficulty: intermediate
-tags: [spark, sparksql, bigdata, distributed, hadoop]
+tags:
+  - databases
+  - spark-sql
+  - spark
+  - sparksql
+  - bigdata
+  - distributed
+  - hadoop
 ---
 
 # Apache Spark SQL

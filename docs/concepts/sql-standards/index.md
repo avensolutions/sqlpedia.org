@@ -1,9 +1,32 @@
 ---
 title: SQL Standards
-description: Comprehensive guide to SQL standards from SQL-92 through SQL-2016, covering features, syntax evolution, and database implementation
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, Snowflake, BigQuery, DuckDB, Databricks, Spark SQL]
+description: >-
+  Comprehensive guide to SQL standards from SQL-92 through SQL-2016, covering
+  features, syntax evolution, and database implementation
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - Snowflake
+  - BigQuery
+  - DuckDB
+  - Databricks
+  - Spark SQL
 difficulty: intermediate
-tags: [sql-standards, ansi, iso, sql-92, sql-99, sql-2003, sql-2011, sql-2016, standardization, compliance]
+tags:
+  - concepts
+  - sql-standards
+  - ansi
+  - iso
+  - sql-92
+  - sql-99
+  - sql-2003
+  - sql-2011
+  - sql-2016
+  - standardization
+  - compliance
 ---
 
 # SQL Standards

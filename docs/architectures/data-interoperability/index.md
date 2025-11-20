@@ -1,9 +1,37 @@
 ---
 title: Data Interoperability Architecture
-description: Comprehensive guide to data interoperability, query federation, and predicate pushdown optimization for distributed data systems
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, Trino, Presto, Dremio, Starburst, DuckDB, SQLite, BigQuery, Snowflake, Databricks, Athena]
+description: >-
+  Comprehensive guide to data interoperability, query federation, and predicate
+  pushdown optimization for distributed data systems
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - Trino
+  - Presto
+  - Dremio
+  - Starburst
+  - DuckDB
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - Databricks
+  - Athena
 difficulty: advanced
-tags: [architecture, federation, interoperability, predicate-pushdown, distributed-query, cross-database, query-optimization, data-virtualization, polyglot-persistence, federated-queries]
+tags:
+  - architectures
+  - data-interoperability
+  - architecture
+  - federation
+  - interoperability
+  - predicate-pushdown
+  - distributed-query
+  - cross-database
+  - query-optimization
+  - data-virtualization
+  - polyglot-persistence
+  - federated-queries
 ---
 
 # Data Interoperability Architecture

@@ -1,8 +1,14 @@
 ---
 title: SQLite
-description: Comprehensive guide to SQLite - Self-contained, serverless, zero-configuration database engine
+description: >-
+  Comprehensive guide to SQLite - Self-contained, serverless, zero-configuration
+  database engine
 difficulty: beginner
-tags: [sqlite, embedded, serverless, database]
+tags:
+  - databases
+  - sqlite
+  - embedded
+  - serverless
 ---
 
 # SQLite

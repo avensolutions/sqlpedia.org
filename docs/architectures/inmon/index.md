@@ -1,9 +1,27 @@
 ---
 title: Inmon Data Warehouse Architecture
-description: Comprehensive guide to Bill Inmon's Corporate Information Factory approach - normalized enterprise data warehousing
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+description: >-
+  Comprehensive guide to Bill Inmon's Corporate Information Factory approach -
+  normalized enterprise data warehousing
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: advanced
-tags: [architecture, data-warehouse, inmon, corporate-information-factory, normalized, enterprise, data-modeling, dimensional-modeling]
+tags:
+  - architectures
+  - inmon
+  - architecture
+  - corporate-information-factory
+  - normalized
+  - enterprise
+  - data-modeling
+  - dimensional-modeling
 ---
 
 # Inmon Data Warehouse Architecture

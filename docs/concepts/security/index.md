@@ -1,28 +1,36 @@
 ---
 title: Database Security & Access Control
-description: Comprehensive guide to database security including RBAC, ABAC, FGAC, row-level security, column masking, and dynamic views for data protection
+description: >-
+  Comprehensive guide to database security including RBAC, ABAC, FGAC, row-level
+  security, column masking, and dynamic views for data protection
 databases:
-  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: advanced
 tags:
-  [
-    security,
-    rbac,
-    abac,
-    fgac,
-    row-level-security,
-    rls,
-    column-masking,
-    dynamic-views,
-    authorized-views,
-    access-control,
-    data-masking,
-    permissions,
-    roles,
-    policies,
-    data-protection,
-    privacy,
-  ]
+  - concepts
+  - security
+  - rbac
+  - abac
+  - fgac
+  - row-level-security
+  - rls
+  - column-masking
+  - dynamic-views
+  - authorized-views
+  - access-control
+  - data-masking
+  - permissions
+  - roles
+  - policies
+  - data-protection
+  - privacy
 ---
 
 # Database Security & Access Control

@@ -1,9 +1,33 @@
 ---
-title: SQL-99 (SQL:1999)
-description: Comprehensive guide to SQL-99 standard featuring recursive queries, Common Table Expressions, CASE expressions, triggers, and object-relational capabilities
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, Snowflake, BigQuery, DuckDB, Databricks, Spark SQL]
+title: 'SQL-99 (SQL:1999)'
+description: >-
+  Comprehensive guide to SQL-99 standard featuring recursive queries, Common
+  Table Expressions, CASE expressions, triggers, and object-relational
+  capabilities
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - Snowflake
+  - BigQuery
+  - DuckDB
+  - Databricks
+  - Spark SQL
 difficulty: intermediate
-tags: [sql-99, sql-1999, cte, recursive, case, triggers, boolean, procedures, functions]
+tags:
+  - concepts
+  - sql-standards
+  - sql-99
+  - sql-1999
+  - cte
+  - recursive
+  - case
+  - triggers
+  - boolean
+  - procedures
+  - functions
 ---
 
 # SQL-99 (SQL:1999)

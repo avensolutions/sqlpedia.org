@@ -1,9 +1,33 @@
 ---
 title: Data Mesh Architecture
-description: Comprehensive guide to Data Mesh - domain-oriented decentralized data architecture with data as a product, self-serve infrastructure, and federated governance
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB, Databricks, Trino]
+description: >-
+  Comprehensive guide to Data Mesh - domain-oriented decentralized data
+  architecture with data as a product, self-serve infrastructure, and federated
+  governance
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
+  - Databricks
+  - Trino
 difficulty: advanced
-tags: [architecture, data-mesh, domain-driven, decentralized, data-products, data-governance, platform, self-serve, federated-governance, socio-technical]
+tags:
+  - architectures
+  - data-mesh
+  - architecture
+  - domain-driven
+  - decentralized
+  - data-products
+  - data-governance
+  - platform
+  - self-serve
+  - federated-governance
+  - socio-technical
 ---
 
 # Data Mesh Architecture

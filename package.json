@@ -27,6 +27,7 @@
   "author": "SQLpedia Contributors",
   "license": "MIT",
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "vue": "^3.4.21"
   },
   "devDependencies": {
@@ -35,8 +36,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-vue": "^9.22.0",
     "prettier": "^3.2.5",
-    "vitepress": "^1.0.0-rc.44",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "vitepress": "^1.0.0-rc.44"
   },
   "repository": {
     "type": "git",
