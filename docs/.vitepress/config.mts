@@ -74,6 +74,7 @@ export default defineConfig({
         text: 'Architectures',
         items: [
           { text: 'Inmon', link: '/architectures/inmon/' },
+          { text: 'Kimball', link: '/architectures/kimball/' },
         ]
       },
       {
@@ -156,6 +157,7 @@ export default defineConfig({
           text: 'Data Warehouse Architectures',
           items: [
             { text: 'Inmon', link: '/architectures/inmon/' },
+            { text: 'Kimball', link: '/architectures/kimball/' },
           ]
         }
       ],
