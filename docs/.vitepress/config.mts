@@ -71,6 +71,12 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Architectures',
+        items: [
+          { text: 'Inmon', link: '/architectures/inmon/' },
+        ]
+      },
+      {
         text: 'Comparisons',
         link: '/comparisons/'
       },
@@ -142,6 +148,14 @@ export default defineConfig({
             { text: 'Reporting', link: '/patterns/reporting/' },
             { text: 'Migrations', link: '/patterns/migrations/' },
             { text: 'Optimization', link: '/patterns/optimization/' },
+          ]
+        }
+      ],
+      '/architectures/': [
+        {
+          text: 'Data Warehouse Architectures',
+          items: [
+            { text: 'Inmon', link: '/architectures/inmon/' },
           ]
         }
       ],
