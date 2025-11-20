@@ -19,7 +19,11 @@ Step-by-step guides for migrating from one database to another.
 
 ### [Feature Matrix](/comparisons/feature-matrix)
 
-Comprehensive feature comparison across database systems.
+Comprehensive feature comparison across database systems including data types, SQL compliance, transactions, performance features, and cloud capabilities.
+
+### [DML & DDL Differences](/comparisons/dml-ddl-differences)
+
+Detailed comparison of Data Manipulation Language (DML) and Data Definition Language (DDL) syntax across major SQL databases.
 
 ## Interactive Comparison
 
