@@ -1,9 +1,36 @@
 ---
 title: Agentic AI Architecture
-description: Comprehensive guide to agentic AI systems, Model Context Protocol (MCP), RAG, tool use, and building AI agents with SQL-based infrastructure querying using StackQL
-databases: [PostgreSQL, MySQL, DuckDB, SQLite, StackQL, Vector Databases, Qdrant, Pinecone, Weaviate, ChromaDB]
+description: >-
+  Comprehensive guide to agentic AI systems, Model Context Protocol (MCP), RAG,
+  tool use, and building AI agents with SQL-based infrastructure querying using
+  StackQL
+databases:
+  - PostgreSQL
+  - MySQL
+  - DuckDB
+  - SQLite
+  - StackQL
+  - Vector Databases
+  - Qdrant
+  - Pinecone
+  - Weaviate
+  - ChromaDB
 difficulty: advanced
-tags: [architecture, agentic-ai, mcp, rag, llm, ai-agents, tool-use, retrieval, embeddings, vector-search, stackql, infrastructure-as-code, observability]
+tags:
+  - architectures
+  - agentic-ai
+  - architecture
+  - mcp
+  - rag
+  - llm
+  - ai-agents
+  - tool-use
+  - retrieval
+  - embeddings
+  - vector-search
+  - stackql
+  - infrastructure-as-code
+  - observability
 ---
 
 # Agentic AI Architecture

@@ -2,7 +2,10 @@
 title: MySQL
 description: The world's most popular open source database
 difficulty: intermediate
-tags: [mysql, database, open-source]
+tags:
+  - databases
+  - mysql
+  - open-source
 ---
 
 # MySQL

@@ -1,9 +1,30 @@
 ---
 title: PIVOT and UNPIVOT Operations
-description: Transform rows to columns (PIVOT) and columns to rows (UNPIVOT) for data reshaping and analysis
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB, Databricks, Spark SQL]
+description: >-
+  Transform rows to columns (PIVOT) and columns to rows (UNPIVOT) for data
+  reshaping and analysis
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
+  - Databricks
+  - Spark SQL
 difficulty: intermediate
-tags: [pivot, unpivot, data-transformation, conditional-aggregation, columns-to-rows, rows-to-columns, reshaping]
+tags:
+  - concepts
+  - pivot-unpivot
+  - pivot
+  - unpivot
+  - data-transformation
+  - conditional-aggregation
+  - columns-to-rows
+  - rows-to-columns
+  - reshaping
 ---
 
 # PIVOT and UNPIVOT Operations

@@ -1,8 +1,18 @@
 ---
 title: JSON and Complex Data Types
-description: Comprehensive guide to JSON, arrays, structs, and other complex data types across SQL databases
+description: >-
+  Comprehensive guide to JSON, arrays, structs, and other complex data types
+  across SQL databases
 difficulty: intermediate
-tags: [json, jsonb, arrays, structs, nested-data, data-types, complex-types]
+tags:
+  - concepts
+  - data-types
+  - json
+  - jsonb
+  - arrays
+  - structs
+  - nested-data
+  - complex-types
 ---
 
 # JSON and Complex Data Types <Badge type="warning" text="intermediate" />

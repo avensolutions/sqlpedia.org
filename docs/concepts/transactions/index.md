@@ -1,24 +1,32 @@
 ---
 title: Database Transactions
-description: Comprehensive guide to database transactions including transaction control, locking, isolation levels, rollback, and ACID properties
+description: >-
+  Comprehensive guide to database transactions including transaction control,
+  locking, isolation levels, rollback, and ACID properties
 databases:
-  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: intermediate
 tags:
-  [
-    transactions,
-    locking,
-    isolation-levels,
-    rollback,
-    commit,
-    acid,
-    concurrency,
-    savepoint,
-    deadlock,
-    pessimistic-locking,
-    optimistic-locking,
-    transaction-control,
-  ]
+  - concepts
+  - transactions
+  - locking
+  - isolation-levels
+  - rollback
+  - commit
+  - acid
+  - concurrency
+  - savepoint
+  - deadlock
+  - pessimistic-locking
+  - optimistic-locking
+  - transaction-control
 ---
 
 # Database Transactions

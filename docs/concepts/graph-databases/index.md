@@ -1,29 +1,38 @@
 ---
-title: Graph Databases - Concepts, Examples & Use Cases
-description: Comprehensive guide to graph databases including what they are, popular examples (Neo4j, Neptune, ArangoDB), real-world use cases, and why they matter for connected data
+title: 'Graph Databases - Concepts, Examples & Use Cases'
+description: >-
+  Comprehensive guide to graph databases including what they are, popular
+  examples (Neo4j, Neptune, ArangoDB), real-world use cases, and why they matter
+  for connected data
 databases:
-  [Neo4j, Amazon Neptune, ArangoDB, JanusGraph, TigerGraph, OrientDB, Dgraph]
+  - Neo4j
+  - Amazon Neptune
+  - ArangoDB
+  - JanusGraph
+  - TigerGraph
+  - OrientDB
+  - Dgraph
 difficulty: intermediate
 tags:
-  [
-    graph-database,
-    graph-theory,
-    nodes,
-    edges,
-    relationships,
-    cypher,
-    gremlin,
-    sparql,
-    connected-data,
-    social-networks,
-    recommendation-engine,
-    fraud-detection,
-    knowledge-graph,
-    network-analysis,
-    graph-algorithms,
-    traversal,
-    path-finding,
-  ]
+  - concepts
+  - graph-databases
+  - graph-database
+  - graph-theory
+  - nodes
+  - edges
+  - relationships
+  - cypher
+  - gremlin
+  - sparql
+  - connected-data
+  - social-networks
+  - recommendation-engine
+  - fraud-detection
+  - knowledge-graph
+  - network-analysis
+  - graph-algorithms
+  - traversal
+  - path-finding
 ---
 
 # Graph Databases - Concepts, Examples & Use Cases

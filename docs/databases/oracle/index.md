@@ -1,8 +1,14 @@
 ---
 title: Oracle Database
-description: Comprehensive guide to Oracle Database - Enterprise-grade relational database management system
+description: >-
+  Comprehensive guide to Oracle Database - Enterprise-grade relational database
+  management system
 difficulty: intermediate
-tags: [oracle, database, enterprise, plsql]
+tags:
+  - databases
+  - oracle
+  - enterprise
+  - plsql
 ---
 
 # Oracle Database

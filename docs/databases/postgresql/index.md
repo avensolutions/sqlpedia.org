@@ -1,8 +1,13 @@
 ---
 title: PostgreSQL
-description: Comprehensive guide to PostgreSQL - The world's most advanced open source database
+description: >-
+  Comprehensive guide to PostgreSQL - The world's most advanced open source
+  database
 difficulty: intermediate
-tags: [postgresql, database, open-source]
+tags:
+  - databases
+  - postgresql
+  - open-source
 ---
 
 # PostgreSQL

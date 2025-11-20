@@ -1,9 +1,28 @@
 ---
 title: AI Patterns in SQL
-description: Comprehensive guide to SQL patterns for AI and machine learning applications, including vector search, embeddings, feature engineering, and RAG systems
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+description: >-
+  Comprehensive guide to SQL patterns for AI and machine learning applications,
+  including vector search, embeddings, feature engineering, and RAG systems
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: advanced
-tags: [ai, machine-learning, vector-search, embeddings, rag, semantic-search, feature-engineering, ml-pipelines]
+tags:
+  - patterns
+  - ai
+  - machine-learning
+  - vector-search
+  - embeddings
+  - rag
+  - semantic-search
+  - feature-engineering
+  - ml-pipelines
 ---
 
 # AI Patterns in SQL

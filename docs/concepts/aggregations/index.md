@@ -1,24 +1,28 @@
 ---
 title: SQL Aggregations
 description: Comprehensive guide to aggregating and grouping data in SQL
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite]
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
 difficulty: beginner
 tags:
-  [
-    aggregations,
-    group-by,
-    having,
-    count,
-    sum,
-    avg,
-    min,
-    max,
-    rollup,
-    cube,
-    grouping-sets,
-    statistics,
-    string-agg,
-  ]
+  - concepts
+  - aggregations
+  - group-by
+  - having
+  - count
+  - sum
+  - avg
+  - min
+  - max
+  - rollup
+  - cube
+  - grouping-sets
+  - statistics
+  - string-agg
 ---
 
 # SQL Aggregations

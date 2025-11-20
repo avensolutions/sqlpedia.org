@@ -1,8 +1,14 @@
 ---
 title: SQL Server
-description: Comprehensive guide to Microsoft SQL Server - Enterprise-grade relational database management system
+description: >-
+  Comprehensive guide to Microsoft SQL Server - Enterprise-grade relational
+  database management system
 difficulty: intermediate
-tags: [sqlserver, microsoft, database, enterprise]
+tags:
+  - databases
+  - sqlserver
+  - microsoft
+  - enterprise
 ---
 
 # SQL Server

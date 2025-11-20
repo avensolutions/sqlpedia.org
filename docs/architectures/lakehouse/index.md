@@ -1,9 +1,31 @@
 ---
 title: Lakehouse Architecture
-description: Comprehensive guide to the modern Lakehouse architecture - combining data lake flexibility with data warehouse performance using Delta Lake, Apache Iceberg, and Apache Hudi
-databases: [PostgreSQL, DuckDB, Databricks, Snowflake, BigQuery, Trino, Presto, Spark SQL]
+description: >-
+  Comprehensive guide to the modern Lakehouse architecture - combining data lake
+  flexibility with data warehouse performance using Delta Lake, Apache Iceberg,
+  and Apache Hudi
+databases:
+  - PostgreSQL
+  - DuckDB
+  - Databricks
+  - Snowflake
+  - BigQuery
+  - Trino
+  - Presto
+  - Spark SQL
 difficulty: advanced
-tags: [architecture, lakehouse, data-lake, data-warehouse, delta-lake, iceberg, hudi, parquet, ACID, schema-evolution, unified-analytics]
+tags:
+  - architectures
+  - lakehouse
+  - architecture
+  - data-lake
+  - delta-lake
+  - iceberg
+  - hudi
+  - parquet
+  - ACID
+  - schema-evolution
+  - unified-analytics
 ---
 
 # Lakehouse Architecture

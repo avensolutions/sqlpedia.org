@@ -1,4 +1,14 @@
 import { defineConfig } from 'vitepress'
+import { buildTagDrivenNavigation, buildTagDrivenSidebar } from './buildNavigation'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const docsDir = join(__dirname, '..')
+
+// Build navigation from tags
+const nav = buildTagDrivenNavigation(docsDir)
+const sidebar = buildTagDrivenSidebar(docsDir)
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -21,170 +31,11 @@ export default defineConfig({
     logo: '/logo.svg',
     siteTitle: 'SQLpedia',
 
-    // Navigation
-    nav: [
-      { text: 'Home', link: '/' },
-      {
-        text: 'By Database',
-        items: [
-          { text: 'PostgreSQL', link: '/databases/postgresql/' },
-          { text: 'MySQL', link: '/databases/mysql/' },
-          { text: 'SQL Server', link: '/databases/sqlserver/' },
-          { text: 'Oracle', link: '/databases/oracle/' },
-          { text: 'SQLite', link: '/databases/sqlite/' },
-          { text: 'Spark SQL', link: '/databases/spark-sql/' },
-          { text: 'Snowflake', link: '/databases/snowflake/' },
-          { text: 'Databricks', link: '/databases/databricks/' },
-          { text: 'BigQuery', link: '/databases/bigquery/' },
-          { text: 'DuckDB', link: '/databases/duckdb/' },
-        ]
-      },
-      {
-        text: 'By Concept',
-        items: [
-          { text: 'Basics', link: '/concepts/basics/' },
-          { text: 'Data Types', link: '/concepts/data-types/' },
-          { text: 'Joins', link: '/concepts/joins/' },
-          { text: 'Aggregations', link: '/concepts/aggregations/' },
-          { text: 'PIVOT/UNPIVOT', link: '/concepts/pivot-unpivot/' },
-          { text: 'Window Functions', link: '/concepts/window-functions/' },
-          { text: 'CTEs', link: '/concepts/ctes/' },
-          { text: 'Subqueries', link: '/concepts/subqueries/' },
-          { text: 'Indexes', link: '/concepts/indexes/' },
-          { text: 'Performance', link: '/concepts/performance/' },
-          { text: 'Transactions', link: '/concepts/transactions/' },
-          { text: 'Security', link: '/concepts/security/' },
-          { text: 'SQL Standards', link: '/concepts/sql-standards/' },
-          { text: 'NoSQL Databases', link: '/concepts/nosql-databases/' },
-          { text: 'Graph Databases', link: '/concepts/graph-databases/' },
-          { text: 'Vector Databases', link: '/concepts/vector-databases/' },
-        ]
-      },
-      {
-        text: 'Patterns',
-        items: [
-          { text: 'Analytics', link: '/patterns/analytics/' },
-          { text: 'ETL', link: '/patterns/etl/' },
-          { text: 'Reporting', link: '/patterns/reporting/' },
-          { text: 'Migrations', link: '/patterns/migrations/' },
-          { text: 'Optimization', link: '/patterns/optimization/' },
-        ]
-      },
-      {
-        text: 'Architectures',
-        items: [
-          { text: 'Inmon', link: '/architectures/inmon/' },
-          { text: 'Kimball', link: '/architectures/kimball/' },
-          { text: 'Data Vault', link: '/architectures/data-vault/' },
-        ]
-      },
-      {
-        text: 'Comparisons',
-        link: '/comparisons/'
-      },
-      {
-        text: 'StackQL',
-        link: '/stackql/'
-      },
-    ],
+    // Navigation - dynamically built from post tags
+    nav,
 
-    // Sidebar configuration - auto-generated from directory structure
-    sidebar: {
-      '/databases/': [
-        {
-          text: 'Databases',
-          items: [
-            { text: 'PostgreSQL', link: '/databases/postgresql/' },
-            { text: 'MySQL', link: '/databases/mysql/' },
-            { text: 'SQL Server', link: '/databases/sqlserver/' },
-            { text: 'Oracle', link: '/databases/oracle/' },
-            { text: 'SQLite', link: '/databases/sqlite/' },
-            { text: 'Spark SQL', link: '/databases/spark-sql/' },
-            { text: 'Snowflake', link: '/databases/snowflake/' },
-            { text: 'Databricks', link: '/databases/databricks/' },
-            { text: 'BigQuery', link: '/databases/bigquery/' },
-            { text: 'DuckDB', link: '/databases/duckdb/' },
-          ]
-        }
-      ],
-      '/concepts/': [
-        {
-          text: 'SQL Concepts',
-          items: [
-            { text: 'Basics', link: '/concepts/basics/' },
-            { text: 'Data Types', link: '/concepts/data-types/' },
-            { text: 'Joins', link: '/concepts/joins/' },
-            { text: 'Aggregations', link: '/concepts/aggregations/' },
-            { text: 'PIVOT/UNPIVOT', link: '/concepts/pivot-unpivot/' },
-            { text: 'Window Functions', link: '/concepts/window-functions/' },
-            { text: 'CTEs', link: '/concepts/ctes/' },
-            { text: 'Subqueries', link: '/concepts/subqueries/' },
-            { text: 'Indexes', link: '/concepts/indexes/' },
-            { text: 'Performance', link: '/concepts/performance/' },
-            { text: 'Transactions', link: '/concepts/transactions/' },
-            { text: 'Security', link: '/concepts/security/' },
-            {
-              text: 'SQL Standards',
-              collapsed: false,
-              items: [
-                { text: 'Overview', link: '/concepts/sql-standards/' },
-                { text: 'SQL-92', link: '/concepts/sql-standards/sql-1992/' },
-                { text: 'SQL-99', link: '/concepts/sql-standards/sql-1999/' },
-                { text: 'SQL:2003', link: '/concepts/sql-standards/sql-2003/' },
-                { text: 'SQL:2011', link: '/concepts/sql-standards/sql-2011/' },
-                { text: 'SQL:2016', link: '/concepts/sql-standards/sql-2016/' },
-              ]
-            },
-            { text: 'NoSQL Databases', link: '/concepts/nosql-databases/' },
-            { text: 'Graph Databases', link: '/concepts/graph-databases/' },
-            { text: 'Vector Databases', link: '/concepts/vector-databases/' },
-          ]
-        }
-      ],
-      '/patterns/': [
-        {
-          text: 'SQL Patterns',
-          items: [
-            { text: 'Analytics', link: '/patterns/analytics/' },
-            { text: 'ETL', link: '/patterns/etl/' },
-            { text: 'Reporting', link: '/patterns/reporting/' },
-            { text: 'Migrations', link: '/patterns/migrations/' },
-            { text: 'Optimization', link: '/patterns/optimization/' },
-          ]
-        }
-      ],
-      '/architectures/': [
-        {
-          text: 'Data Warehouse Architectures',
-          items: [
-            { text: 'Inmon', link: '/architectures/inmon/' },
-            { text: 'Kimball', link: '/architectures/kimball/' },
-            { text: 'Data Vault', link: '/architectures/data-vault/' },
-          ]
-        }
-      ],
-      '/comparisons/': [
-        {
-          text: 'Comparisons',
-          items: [
-            { text: 'Dialect Differences', link: '/comparisons/dialect-differences' },
-            { text: 'Migration Guides', link: '/comparisons/migration-guides' },
-            { text: 'Feature Matrix', link: '/comparisons/feature-matrix' },
-          ]
-        }
-      ],
-      '/stackql/': [
-        {
-          text: 'StackQL',
-          items: [
-            { text: 'Introduction', link: '/stackql/' },
-            { text: 'Cloud APIs', link: '/stackql/cloud-apis' },
-            { text: 'Infrastructure', link: '/stackql/infrastructure' },
-            { text: 'Examples', link: '/stackql/examples' },
-          ]
-        }
-      ]
-    },
+    // Sidebar configuration - dynamically built from post tags
+    sidebar,
 
     // Social links
     socialLinks: [

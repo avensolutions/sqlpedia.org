@@ -1,9 +1,29 @@
 ---
 title: Analytics Patterns in SQL
-description: Comprehensive guide to common SQL analytics patterns for business intelligence, data analysis, and reporting
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+description: >-
+  Comprehensive guide to common SQL analytics patterns for business
+  intelligence, data analysis, and reporting
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: intermediate
-tags: [analytics, metrics, cohorts, retention, funnel, time-series, rfm, segmentation, growth]
+tags:
+  - patterns
+  - analytics
+  - metrics
+  - cohorts
+  - retention
+  - funnel
+  - time-series
+  - rfm
+  - segmentation
+  - growth
 ---
 
 # Analytics Patterns in SQL

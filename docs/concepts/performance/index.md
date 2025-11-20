@@ -1,20 +1,28 @@
 ---
 title: Query Performance & Optimization
-description: Comprehensive guide to SQL query performance, optimizers, EXPLAIN plans, cost-based vs rule-based optimization, and query tuning patterns
+description: >-
+  Comprehensive guide to SQL query performance, optimizers, EXPLAIN plans,
+  cost-based vs rule-based optimization, and query tuning patterns
 databases:
-  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: advanced
 tags:
-  [
-    performance,
-    optimization,
-    explain,
-    cost-based,
-    rule-based,
-    query-tuning,
-    indexes,
-    execution-plans,
-  ]
+  - concepts
+  - performance
+  - optimization
+  - explain
+  - cost-based
+  - rule-based
+  - query-tuning
+  - indexes
+  - execution-plans
 ---
 
 # Query Performance & Optimization

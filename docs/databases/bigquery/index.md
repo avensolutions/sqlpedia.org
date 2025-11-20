@@ -1,8 +1,16 @@
 ---
 title: BigQuery
-description: Comprehensive guide to Google BigQuery - Serverless, highly scalable enterprise data warehouse for analytics
+description: >-
+  Comprehensive guide to Google BigQuery - Serverless, highly scalable
+  enterprise data warehouse for analytics
 difficulty: intermediate
-tags: [bigquery, google-cloud, datawarehouse, analytics, serverless]
+tags:
+  - databases
+  - bigquery
+  - google-cloud
+  - datawarehouse
+  - analytics
+  - serverless
 ---
 
 # BigQuery

@@ -1,9 +1,32 @@
 ---
-title: SQL:2011
-description: Comprehensive guide to SQL:2011 standard featuring temporal tables, enhanced window functions, FETCH FIRST pagination, and advanced OLAP capabilities
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, Snowflake, BigQuery, DuckDB, Databricks, Spark SQL]
+title: 'SQL:2011'
+description: >-
+  Comprehensive guide to SQL:2011 standard featuring temporal tables, enhanced
+  window functions, FETCH FIRST pagination, and advanced OLAP capabilities
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - Snowflake
+  - BigQuery
+  - DuckDB
+  - Databricks
+  - Spark SQL
 difficulty: intermediate
-tags: [sql-2011, temporal-tables, system-versioning, fetch-first, offset, lead, lag, window-functions, olap]
+tags:
+  - concepts
+  - sql-standards
+  - sql-2011
+  - temporal-tables
+  - system-versioning
+  - fetch-first
+  - offset
+  - lead
+  - lag
+  - window-functions
+  - olap
 ---
 
 # SQL:2011

@@ -2,10 +2,24 @@
 title: Common Table Expressions (CTEs)
 description: Comprehensive guide to CTEs (WITH clause) for organizing complex SQL queries
 databases:
-  [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: intermediate
 tags:
-  [cte, with, recursive-cte, subqueries, query-organization, hierarchical-data]
+  - concepts
+  - ctes
+  - cte
+  - with
+  - recursive-cte
+  - subqueries
+  - query-organization
+  - hierarchical-data
 ---
 
 # Common Table Expressions (CTEs)

@@ -1,9 +1,29 @@
 ---
 title: Data Vault Architecture
-description: Comprehensive guide to Dan Linstedt's Data Vault 2.0 methodology - hubs, links, satellites, and scalable enterprise data modeling
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, DuckDB]
+description: >-
+  Comprehensive guide to Dan Linstedt's Data Vault 2.0 methodology - hubs,
+  links, satellites, and scalable enterprise data modeling
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - BigQuery
+  - Snowflake
+  - DuckDB
 difficulty: advanced
-tags: [architecture, data-vault, data-modeling, hubs, links, satellites, enterprise, scalability, historization, data-warehouse]
+tags:
+  - architectures
+  - data-vault
+  - architecture
+  - data-modeling
+  - hubs
+  - links
+  - satellites
+  - enterprise
+  - scalability
+  - historization
 ---
 
 # Data Vault Architecture

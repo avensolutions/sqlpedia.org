@@ -1,9 +1,32 @@
 ---
-title: SQL-92 (SQL:1992)
-description: Comprehensive guide to the SQL-92 standard, the first widely-adopted SQL standard that established the foundation for modern relational databases
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite, Snowflake, BigQuery, DuckDB, Databricks, Spark SQL]
+title: 'SQL-92 (SQL:1992)'
+description: >-
+  Comprehensive guide to the SQL-92 standard, the first widely-adopted SQL
+  standard that established the foundation for modern relational databases
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
+  - Snowflake
+  - BigQuery
+  - DuckDB
+  - Databricks
+  - Spark SQL
 difficulty: intermediate
-tags: [sql-92, sql-1992, ansi, iso, standard, joins, subqueries, constraints, transactions]
+tags:
+  - concepts
+  - sql-standards
+  - sql-92
+  - sql-1992
+  - ansi
+  - iso
+  - standard
+  - joins
+  - subqueries
+  - constraints
+  - transactions
 ---
 
 # SQL-92 (SQL:1992)

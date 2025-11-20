@@ -1,8 +1,16 @@
 ---
 title: DuckDB
-description: Comprehensive guide to DuckDB - Fast in-process analytical database, the SQLite for analytics
+description: >-
+  Comprehensive guide to DuckDB - Fast in-process analytical database, the
+  SQLite for analytics
 difficulty: beginner
-tags: [duckdb, analytics, embedded, olap, in-memory]
+tags:
+  - databases
+  - duckdb
+  - analytics
+  - embedded
+  - olap
+  - in-memory
 ---
 
 # DuckDB

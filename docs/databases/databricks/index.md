@@ -1,8 +1,17 @@
 ---
 title: Databricks
-description: Comprehensive guide to Databricks - Unified lakehouse platform for data analytics, AI, and machine learning
+description: >-
+  Comprehensive guide to Databricks - Unified lakehouse platform for data
+  analytics, AI, and machine learning
 difficulty: intermediate
-tags: [databricks, lakehouse, spark, delta-lake, analytics, ml]
+tags:
+  - databases
+  - databricks
+  - lakehouse
+  - spark
+  - delta-lake
+  - analytics
+  - ml
 ---
 
 # Databricks

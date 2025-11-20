@@ -1,9 +1,38 @@
 ---
 title: Vector Databases
-description: Comprehensive guide to vector databases, embeddings, and similarity search including pgvector, Pinecone, Weaviate, and other platforms
-databases: [PostgreSQL, Pinecone, Weaviate, Milvus, Qdrant, Chroma, MongoDB, SingleStore]
+description: >-
+  Comprehensive guide to vector databases, embeddings, and similarity search
+  including pgvector, Pinecone, Weaviate, and other platforms
+databases:
+  - PostgreSQL
+  - Pinecone
+  - Weaviate
+  - Milvus
+  - Qdrant
+  - Chroma
+  - MongoDB
+  - SingleStore
 difficulty: intermediate
-tags: [vector-database, embeddings, similarity-search, semantic-search, pgvector, pinecone, weaviate, milvus, qdrant, chroma, rag, llm, ai-search, nearest-neighbor, cosine-similarity, vector-index, hnsw]
+tags:
+  - concepts
+  - vector-databases
+  - vector-database
+  - embeddings
+  - similarity-search
+  - semantic-search
+  - pgvector
+  - pinecone
+  - weaviate
+  - milvus
+  - qdrant
+  - chroma
+  - rag
+  - llm
+  - ai-search
+  - nearest-neighbor
+  - cosine-similarity
+  - vector-index
+  - hnsw
 ---
 
 # Vector Databases

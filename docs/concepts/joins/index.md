@@ -1,19 +1,23 @@
 ---
 title: SQL Joins
 description: Comprehensive guide to joining tables in SQL
-databases: [PostgreSQL, MySQL, SQL Server, Oracle, SQLite]
+databases:
+  - PostgreSQL
+  - MySQL
+  - SQL Server
+  - Oracle
+  - SQLite
 difficulty: beginner
 tags:
-  [
-    joins,
-    inner-join,
-    left-join,
-    right-join,
-    full-outer-join,
-    cross-join,
-    self-join,
-    natural-join,
-  ]
+  - concepts
+  - joins
+  - inner-join
+  - left-join
+  - right-join
+  - full-outer-join
+  - cross-join
+  - self-join
+  - natural-join
 ---
 
 # SQL Joins
