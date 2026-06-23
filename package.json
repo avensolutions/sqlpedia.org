@@ -26,12 +26,17 @@
   ],
   "author": "SQLpedia Contributors",
   "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
   "dependencies": {
+    "@netlify/blobs": "^8.1.0",
     "gray-matter": "^4.0.3",
     "vue": "^3.4.21"
   },
   "devDependencies": {
-    "@types/node": "^20.11.24",
+    "@netlify/functions": "^2.8.1",
+    "@types/node": "^24.0.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-vue": "^9.22.0",

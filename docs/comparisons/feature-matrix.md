@@ -131,7 +131,7 @@ This comprehensive feature matrix compares capabilities across major SQL databas
 | **Indexing JSON** | GIN, GiST indexes | Generated columns + index | Computed columns + index | JSON search index | Expression index | Automatic | Automatic |
 | **Schema Validation** | JSON Schema extension | - | - | IS JSON constraint | - | - | - |
 | **XML Type** | XML | - | XML | XMLType | - | - | - |
-| **Array Type** | ARRAY[] | - | - | VARRAY, TABLE | - | ARRAY<type> | ARRAY |
+| **Array Type** | ARRAY[] | - | - | VARRAY, TABLE | - | `ARRAY<type>` | ARRAY |
 | **Map/Object** | HSTORE | - | - | - | - | STRUCT | OBJECT |
 
 **Best for JSON:**

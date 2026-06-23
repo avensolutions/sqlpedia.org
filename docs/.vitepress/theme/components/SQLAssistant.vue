@@ -47,16 +47,6 @@
           </select>
         </div>
 
-        <div class="control-group" v-if="showModelSelector">
-          <label for="ai-model">Model:</label>
-          <select id="ai-model" v-model="selectedModel" class="select-input">
-            <option value="gpt-4">GPT-4 (Best)</option>
-            <option value="gpt-3.5-turbo">GPT-3.5 (Fast)</option>
-            <option value="claude-3-sonnet">Claude 3 Sonnet</option>
-            <option value="llama-3-8b">Llama 3 8B (Self-hosted)</option>
-            <option value="codellama-7b">CodeLlama 7B (Self-hosted)</option>
-          </select>
-        </div>
       </div>
     </div>
 
@@ -84,10 +74,16 @@
       </div>
     </div>
 
+    <div
+      v-if="turnstileSiteKey"
+      ref="turnstileEl"
+      class="turnstile-widget"
+    ></div>
+
     <div class="assistant-actions">
       <button
         @click="submitRequest"
-        :disabled="isLoading || !userPrompt"
+        :disabled="isLoading || !userPrompt || (turnstileSiteKey && !turnstileToken)"
         class="submit-button"
       >
         {{ isLoading ? "Processing..." : "Submit" }}
@@ -99,6 +95,10 @@
 
     <div v-if="error" class="error-message">
       {{ error }}
+    </div>
+
+    <div v-if="notice" class="notice-message">
+      {{ notice }}
     </div>
 
     <div v-if="result" class="assistant-result">
@@ -127,7 +127,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
 interface Props {
   mode?: "generate" | "explain" | "optimize" | "translate";
@@ -138,23 +138,104 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   mode: "generate",
   defaultDialect: "postgresql",
-  showModelSelector: true,
+  showModelSelector: false,
 });
+
+// Cloudflare Turnstile site key (public). Set VITE_TURNSTILE_SITE_KEY at build
+// time to enable the human check; leave unset for local dev.
+const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY as
+  | string
+  | undefined;
+const turnstileEl = ref<HTMLElement | null>(null);
+const turnstileToken = ref("");
+let turnstileWidgetId: string | undefined;
 
 // State
 const taskMode = ref(props.mode);
 const sourceDialect = ref("mysql");
 const targetDialect = ref(props.defaultDialect);
-const selectedModel = ref("gpt-4");
 const userPrompt = ref("");
 const contextInfo = ref("");
 const isLoading = ref(false);
 const result = ref("");
 const explanation = ref("");
 const error = ref("");
+const notice = ref("");
 const copied = ref(false);
 const modelUsed = ref("");
 const cached = ref(false);
+
+// ---------------------------------------------------------------------------
+// Cloudflare Turnstile lifecycle
+// ---------------------------------------------------------------------------
+const TURNSTILE_SRC =
+  "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+
+function loadTurnstileScript(): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (typeof window === "undefined") return resolve();
+    if ((window as any).turnstile) return resolve();
+    const existing = document.querySelector(`script[src="${TURNSTILE_SRC}"]`);
+    if (existing) {
+      existing.addEventListener("load", () => resolve());
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = TURNSTILE_SRC;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error("Failed to load Turnstile"));
+    document.head.appendChild(script);
+  });
+}
+
+function renderTurnstile() {
+  const ts = (window as any).turnstile;
+  if (!ts || !turnstileEl.value) return;
+  turnstileWidgetId = ts.render(turnstileEl.value, {
+    sitekey: turnstileSiteKey,
+    callback: (token: string) => {
+      turnstileToken.value = token;
+    },
+    "error-callback": () => {
+      turnstileToken.value = "";
+    },
+    "expired-callback": () => {
+      turnstileToken.value = "";
+    },
+  });
+}
+
+onMounted(async () => {
+  if (!turnstileSiteKey) return;
+  try {
+    await loadTurnstileScript();
+    renderTurnstile();
+  } catch (e) {
+    console.error(e);
+  }
+});
+
+onBeforeUnmount(() => {
+  const ts = (window as any).turnstile;
+  if (ts && turnstileWidgetId !== undefined) {
+    try {
+      ts.remove(turnstileWidgetId);
+    } catch {
+      // ignore
+    }
+  }
+});
+
+// Turnstile tokens are single-use; reset the widget after each submission.
+function resetTurnstile() {
+  const ts = (window as any).turnstile;
+  if (ts && turnstileWidgetId !== undefined) {
+    ts.reset(turnstileWidgetId);
+  }
+  turnstileToken.value = "";
+}
 
 // Database options
 const databases = [
@@ -204,8 +285,14 @@ const getPlaceholder = () => {
 const submitRequest = async () => {
   if (!userPrompt.value.trim()) return;
 
+  if (turnstileSiteKey && !turnstileToken.value) {
+    error.value = "Please complete the human verification first.";
+    return;
+  }
+
   isLoading.value = true;
   error.value = "";
+  notice.value = "";
   result.value = "";
   explanation.value = "";
   cached.value = false;
@@ -219,25 +306,31 @@ const submitRequest = async () => {
       body: JSON.stringify({
         prompt: userPrompt.value,
         task: taskMode.value,
-        model: selectedModel.value,
         source_dialect: sourceDialect.value,
         target_dialect: targetDialect.value,
         context: contextInfo.value,
+        turnstile_token: turnstileToken.value,
       }),
     });
 
+    const data = await response.json().catch(() => ({}));
+
     if (!response.ok) {
-      throw new Error(`Request failed: ${response.statusText}`);
+      throw new Error(
+        data.error || `Request failed: ${response.statusText}`
+      );
     }
 
-    const data = await response.json();
     result.value = data.result;
     explanation.value = data.explanation || "";
-    modelUsed.value = data.model_used || selectedModel.value;
+    modelUsed.value = data.model_used || "";
     cached.value = data.cached || false;
+    notice.value = data.degraded ? data.notice || "" : "";
   } catch (err) {
     error.value = err instanceof Error ? err.message : "An error occurred";
   } finally {
+    // Each token is single-use; refresh so the next request has a fresh one.
+    resetTurnstile();
     isLoading.value = false;
   }
 };
@@ -246,6 +339,7 @@ const clearResult = () => {
   result.value = "";
   explanation.value = "";
   error.value = "";
+  notice.value = "";
   userPrompt.value = "";
   contextInfo.value = "";
   copied.value = false;
@@ -409,6 +503,20 @@ const copyToClipboard = async () => {
   border: 1px solid #fcc;
   border-radius: 4px;
   color: #c33;
+}
+
+.notice-message {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--vp-c-yellow-soft, #fff8e6);
+  border: 1px solid var(--vp-c-yellow-2, #f0d264);
+  border-radius: 4px;
+  color: var(--vp-c-text-1);
+  font-size: 0.9em;
+}
+
+.turnstile-widget {
+  margin-bottom: 1rem;
 }
 
 .assistant-result {

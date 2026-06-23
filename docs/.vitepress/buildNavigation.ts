@@ -78,10 +78,41 @@ function scanMarkdownFiles(dir: string, baseDir: string): PageData[] {
 }
 
 /**
+ * Canonical display names for tags whose correct casing is not plain Title Case
+ * (brands and acronyms). Keyed by the lowercased tag. Extend as needed.
+ */
+const TAG_DISPLAY_OVERRIDES: Record<string, string> = {
+  stackql: 'StackQL',
+  sql: 'SQL',
+  nosql: 'NoSQL',
+  mysql: 'MySQL',
+  postgresql: 'PostgreSQL',
+  sqlite: 'SQLite',
+  sqlserver: 'SQL Server',
+  bigquery: 'BigQuery',
+  duckdb: 'DuckDB',
+  clickhouse: 'ClickHouse',
+  etl: 'ETL',
+  ai: 'AI',
+  acid: 'ACID',
+  ctes: 'CTEs',
+  ddl: 'DDL',
+  dml: 'DML',
+  olap: 'OLAP',
+  oltp: 'OLTP',
+  api: 'API',
+  apis: 'APIs'
+}
+
+/**
  * Normalize tag to display format
  */
 function formatTagDisplay(tag: string): string {
-  // Convert kebab-case or snake_case to Title Case
+  // Honour explicit casing overrides first (brands, acronyms).
+  const override = TAG_DISPLAY_OVERRIDES[tag.toLowerCase()]
+  if (override) return override
+
+  // Otherwise convert kebab-case or snake_case to Title Case
   return tag
     .split(/[-_]/)
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
@@ -103,8 +134,10 @@ export function buildTagDrivenNavigation(docsDir: string) {
     'concepts',
     'patterns',
     'architectures',
-    'comparisons',
-    'stackql'
+    'comparisons'
+    // STEALTH MODE: StackQL is hidden from nav & sidebar for now.
+    // Re-enable by uncommenting the line below.
+    // ,'stackql'
   ])
 
   // Map to store navigation items by category
@@ -203,8 +236,10 @@ export function buildTagDrivenSidebar(docsDir: string) {
     'concepts',
     'patterns',
     'architectures',
-    'comparisons',
-    'stackql'
+    'comparisons'
+    // STEALTH MODE: StackQL is hidden from nav & sidebar for now.
+    // Re-enable by uncommenting the line below.
+    // ,'stackql'
   ])
 
   // Map to store sidebar items by path prefix

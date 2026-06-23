@@ -17,76 +17,34 @@ hero:
       link: https://github.com/stackql/sqlpedia.org
 
 features:
+  - icon: 📖
+    title: Learn SQL Fundamentals
+    details: Start with the basics and build a strong foundation in SQL.
+    link: /concepts/basics/
+    linkText: Explore Concepts
+
   - icon: 🗄️
-    title: Multi-Database Coverage
-    details: Comprehensive documentation for PostgreSQL, MySQL, SQL Server, Oracle, SQLite, BigQuery, Snowflake, and more.
+    title: Browse by Database
+    details: Find database-specific documentation and examples.
+    link: /databases/postgresql/
+    linkText: View Databases
+
+  - icon: 🎯
+    title: Common Patterns
+    details: Discover proven SQL patterns for real-world scenarios.
+    link: /patterns/analytics/
+    linkText: See Patterns
 
   - icon: 🔄
-    title: Dialect Comparisons
-    details: Side-by-side comparisons of SQL dialects, making it easy to translate queries between different database systems.
-
-  - icon: 🤖
-    title: AI-Powered Assistance
-    details: Generate, explain, optimize, and translate SQL queries using state-of-the-art AI models (self-hosted or cloud).
-
-  - icon: 📚
-    title: Comprehensive Patterns
-    details: Real-world SQL patterns for analytics, ETL, reporting, migrations, and performance optimization.
-
-  - icon: 🚀
-    title: StackQL Integration
-    details: Learn how to query cloud infrastructure and APIs using SQL with StackQL examples and tutorials.
-
-  - icon: 🌐
-    title: Community-Driven
-    details: Open-source and community-driven. Contribute via GitHub pull requests and help improve the resource.
-
-  - icon: ⚡
-    title: Fast & Modern
-    details: Built with VitePress for lightning-fast page loads and excellent developer experience.
-
-  - icon: 🎨
-    title: Wikipedia-Inspired
-    details: Familiar layout and navigation inspired by Wikipedia, making it easy to find what you need.
-
-  - icon: 🔍
-    title: Powerful Search
-    details: Full-text search across all content with fuzzy matching and filtering by database and difficulty.
+    title: Compare Dialects
+    details: Compare SQL syntax across different database systems.
+    link: /comparisons/
+    linkText: View Comparisons
 ---
-
-## Quick Start
-
-<div class="quick-start-grid">
-
-### 📖 Learn SQL Fundamentals
-
-Start with the basics and build a strong foundation in SQL.
-
-[Explore Concepts →](/concepts/basics/)
-
-### 🗄️ Browse by Database
-
-Find database-specific documentation and examples.
-
-[View Databases →](/databases/postgresql/)
-
-### 🎯 Common Patterns
-
-Discover proven SQL patterns for real-world scenarios.
-
-[See Patterns →](/patterns/analytics/)
-
-### 🔄 Compare Dialects
-
-Compare SQL syntax across different database systems.
-
-[View Comparisons →](/comparisons/dialect-differences)
-
-</div>
 
 ## Try the AI Assistant
 
-<SQLAssistant mode="generate" default-dialect="postgresql" :show-model-selector="true" />
+<SQLAssistant mode="generate" default-dialect="postgresql" :show-model-selector="false" />
 
 ## Popular Topics
 
@@ -149,22 +107,11 @@ SQLpedia is open source and welcomes contributions! You can:
 - **[BigQuery](/databases/bigquery/)** - Google's serverless data warehouse
 - **[Snowflake](/databases/snowflake/)** - Cloud data platform
 - **[DuckDB](/databases/duckdb/)** - In-process analytical database
+- **[ClickHouse](/databases/clickhouse/)** - Column-oriented database for real-time analytics
 
 </div>
 
 <style scoped>
-.quick-start-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
-}
-
-.quick-start-grid h3 {
-  color: var(--vp-c-brand-1);
-  margin-top: 0;
-}
-
 .database-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

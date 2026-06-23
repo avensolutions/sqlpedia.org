@@ -979,9 +979,9 @@ query.recentProgress  # Recent progress
 
 ### Complex Types
 
-- **ARRAY<T>**: Ordered collection of elements
-- **MAP<K,V>**: Key-value pairs
-- **STRUCT<f1:T1, f2:T2>**: Named fields with types
+- **`ARRAY<T>`**: Ordered collection of elements
+- **`MAP<K,V>`**: Key-value pairs
+- **`STRUCT<f1:T1, f2:T2>`**: Named fields with types
 
 ### Other Types
 

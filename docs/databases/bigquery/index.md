@@ -1333,8 +1333,8 @@ for stage in query_job.query_plan:
 
 ### Complex Types
 
-- **ARRAY<T>**: Ordered list of zero or more elements of type T
-- **STRUCT<field1 T1, field2 T2, ...>**: Container of ordered fields
+- **`ARRAY<T>`**: Ordered list of zero or more elements of type T
+- **`STRUCT<field1 T1, field2 T2, ...>`**: Container of ordered fields
 - **JSON**: Semi-structured JSON data (stored as STRING, parsed with JSON functions)
 - **GEOGRAPHY**: Geospatial data (points, lines, polygons)
 

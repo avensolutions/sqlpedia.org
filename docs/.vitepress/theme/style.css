@@ -291,3 +291,57 @@
     font-size: 1.3em;
   }
 }
+
+/**
+ * Navbar: AI SQL Assistant button
+ * Rendered via the nav-bar-content-after slot (theme/index.ts). Hidden on
+ * mobile; on md+ it shows as a pill and is reordered to sit just left of the
+ * appearance (light/dark) toggle.
+ * -------------------------------------------------------------------------- */
+
+.ai-nav-btn {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .VPNavBar .content-body > .ai-nav-btn {
+    order: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 32px;
+    margin: 0 8px 0 4px;
+    padding: 0 14px;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--vp-c-white);
+    background-color: var(--vp-c-brand-1);
+    transition: background-color 0.25s, color 0.25s;
+  }
+
+  .VPNavBar .content-body > .ai-nav-btn:hover {
+    color: var(--vp-c-white);
+    background-color: var(--vp-c-brand-2);
+  }
+
+  /* Keep the toggle, social links and overflow menu to the right of the button. */
+  .VPNavBar .content-body > .appearance {
+    order: 3;
+  }
+
+  .VPNavBar .content-body > .social-links {
+    order: 4;
+  }
+
+  .VPNavBar .content-body > .extra {
+    order: 5;
+  }
+}
+
+.ai-nav-btn-icon {
+  font-size: 15px;
+  line-height: 1;
+}

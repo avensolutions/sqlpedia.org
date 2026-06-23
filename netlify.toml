@@ -4,7 +4,39 @@
   functions = "netlify/functions"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "24"
+
+# Canonical domain: 301-redirect all other hostnames to https://sqlpedia.org.
+# Listed before the /api rewrite so canonicalization happens first.
+[[redirects]]
+  from = "https://www.sqlpedia.org/*"
+  to = "https://sqlpedia.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://sqlpedia.com/*"
+  to = "https://sqlpedia.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.sqlpedia.com/*"
+  to = "https://sqlpedia.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://sqlpedia.net/*"
+  to = "https://sqlpedia.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.sqlpedia.net/*"
+  to = "https://sqlpedia.org/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/api/*"
@@ -34,6 +66,11 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Environment variables (set these in Netlify UI)
-# OPENAI_API_KEY = "your-openai-api-key"
-# ANTHROPIC_API_KEY = "your-anthropic-api-key"
+# Environment variables (set these in Netlify UI -> Site settings -> Environment variables)
+# GEMINI_API_KEY          = "key from a no-billing Google project"
+# TURNSTILE_SECRET_KEY    = "Cloudflare Turnstile secret key"
+# VITE_TURNSTILE_SITE_KEY = "Cloudflare Turnstile site key (public, build-time)"
+# SLACK_WEBHOOK_URL       = "Slack incoming webhook for usage alerts"
+# DAILY_REQUEST_LIMIT     = "soft daily budget for alerting, e.g. 1000"
+# ALERT_THRESHOLD_PCT     = "percent of budget for first alert, e.g. 80"
+# ALLOWED_ORIGINS         = "https://sqlpedia.org,https://www.sqlpedia.org"
