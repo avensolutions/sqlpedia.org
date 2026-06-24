@@ -41,7 +41,11 @@
             v-model="targetDialect"
             class="select-input"
           >
-            <option v-for="db in databases" :key="db.value" :value="db.value">
+            <option
+              v-for="db in targetDialects"
+              :key="db.value"
+              :value="db.value"
+            >
               {{ db.label }}
             </option>
           </select>
@@ -127,7 +131,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, computed, watch, onMounted, onBeforeUnmount } from "vue";
 
 interface Props {
   mode?: "generate" | "explain" | "optimize" | "translate";
@@ -237,7 +241,7 @@ function resetTurnstile() {
   turnstileToken.value = "";
 }
 
-// Database options
+// Database options (used as-is for the source dialect in Translate mode).
 const databases = [
   { label: "PostgreSQL", value: "postgresql" },
   { label: "MySQL", value: "mysql" },
@@ -250,6 +254,22 @@ const databases = [
   { label: "BigQuery", value: "bigquery" },
   { label: "DuckDB", value: "duckdb" },
 ];
+
+// Target dialect options. StackQL is offered for generate/explain/optimize, but
+// not for Translate (translating to/from StackQL is not meaningful).
+const targetDialects = computed(() =>
+  taskMode.value === "translate"
+    ? databases
+    : [...databases, { label: "StackQL", value: "stackql" }]
+);
+
+// If the user picks StackQL then switches to Translate, fall back to a real
+// dialect so the (StackQL-less) translate list never shows an empty selection.
+watch(taskMode, (mode) => {
+  if (mode === "translate" && targetDialect.value === "stackql") {
+    targetDialect.value = props.defaultDialect || "postgresql";
+  }
+});
 
 // Methods
 const getPromptLabel = () => {

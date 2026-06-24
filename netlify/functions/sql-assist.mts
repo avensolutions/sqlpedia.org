@@ -7,7 +7,7 @@ import { getStore } from "@netlify/blobs";
 
 // Gemini is the only provider. The model is forced here and the client's
 // requested model is ignored, so nobody can select a model off the free tier.
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
 
 // Origins allowed to call this endpoint. Locked to the public site by default.
 // Add http://localhost:5173 here (or via env) for local development.
@@ -212,7 +212,7 @@ async function callGemini(
 
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
 
-  const response = await fetch(url, {
+  const requestInit: RequestInit = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -223,15 +223,27 @@ async function callGemini(
         maxOutputTokens: MAX_OUTPUT_TOKENS,
       },
     }),
-  });
+  };
 
-  // 429 (Too Many Requests) / 403 RESOURCE_EXHAUSTED -> free-tier quota hit
-  if (response.status === 429 || response.status === 403) {
-    throw new QuotaExceededError(`Gemini quota response: ${response.status}`);
+  // Retry once on 503 (model temporarily overloaded - common on shared free
+  // models), so transient capacity blips don't surface to users.
+  let response = await fetch(url, requestInit);
+  if (response.status === 503) {
+    await new Promise((r) => setTimeout(r, 1500));
+    response = await fetch(url, requestInit);
+  }
+
+  // Only 429 (Too Many Requests) means the free-tier quota is exhausted.
+  // 403/400/etc. are real errors (invalid key, API not enabled, key
+  // restrictions) and must NOT be reported to users as a "daily limit".
+  if (response.status === 429) {
+    throw new QuotaExceededError("Gemini rate/quota limit (429)");
   }
 
   if (!response.ok) {
-    throw new Error(`Gemini API error: ${response.status}`);
+    const body = await response.text().catch(() => "");
+    console.error(`Gemini API error ${response.status}: ${body}`);
+    throw new Error(`Gemini API error ${response.status}`);
   }
 
   const data = await response.json();
@@ -458,7 +470,18 @@ export const handler: Handler = async (
         };
         return { statusCode: 200, headers, body: JSON.stringify(response) };
       }
-      throw err;
+      // Any other provider failure (bad key, API disabled, transient outage).
+      // Log details for diagnosis and surface a clear error - NOT the
+      // "daily limit" notice, which would be misleading.
+      console.error("AI provider call failed:", err);
+      return {
+        statusCode: 502,
+        headers,
+        body: JSON.stringify({
+          error:
+            "The AI service is currently unavailable. Please try again later.",
+        }),
+      };
     }
 
     // Successful real call: count it, alert on thresholds, cache the result.
